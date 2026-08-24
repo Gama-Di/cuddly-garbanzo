@@ -187,5 +187,14 @@
    "tester0_8948"
   ],
   "created": 1787550459269
+ },
+ "T811": {
+  "tag": "T811",
+  "name": "Test Guild T811",
+  "owner": "tester0_18067",
+  "members": [
+   "tester0_18067"
+  ],
+  "created": 1787551568815
  }
 }

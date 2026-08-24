@@ -193,10 +193,11 @@ function loadSprites() {
 
 /* ---------------- config ---------------- */
 const CFG = {
-  WORLD: 4200,                // big arena (was 3200)
+  WORLD: 3200,                // original tuned proportions
   VIEW_H: 1350,               // default world units visible vertically (zoomable)
   MS_MUL: 1.0,                // full speed (bigger map already slows relative pace)
   ZOOM_MIN: 950, ZOOM_MAX: 2100,
+  TILT: 0.62,                 // 3D camera tilt (vertical squash)
   WAVE_INT: 26,
   FIRST_WAVE: 5,
   MAX_MINIONS: 96,
@@ -219,7 +220,7 @@ const AI_NAMES = ['Kai', 'Mira', 'Zed', 'Nova', 'Rex', 'Ivy', 'Ozzy', 'Luna', 'F
 
 /* ---------------- map layout ---------------- */
 const WORLD = CFG.WORLD;
-const MAP_SCALE = 1.3125;     // 3200-layout -> 4200 world
+const MAP_SCALE = 1.0;        // original layout, no stretch
 const THRONE_POS = [{ x: 400, y: 2800 }, { x: 2800, y: 400 }];
 
 const LANES = [
@@ -1242,23 +1243,23 @@ class Game {
     this.trees = [];
     const rng = mulberry32(1337);
     let guard = 0;
-    while (this.trees.length < 260 && guard++ < 6000) {
-      const x = 210 + rng() * (WORLD - 420), y = 210 + rng() * (WORLD - 420);
+    while (this.trees.length < 170 && guard++ < 4000) {
+      const x = 150 + rng() * (WORLD - 300), y = 150 + rng() * (WORLD - 300);
       // keep off lanes
       let ok = true;
       for (const lane of LANES) {
         for (let i = 0; i < lane.pts.length - 1 && ok; i++) {
-          if (distToSeg(x, y, lane.pts[i], lane.pts[i + 1]) < 340) ok = false;
+          if (distToSeg(x, y, lane.pts[i], lane.pts[i + 1]) < 250) ok = false;
         }
       }
       if (!ok) continue;
       // keep off river band
-      if (Math.abs(x - y) < 430) continue;
+      if (Math.abs(x - y) < 310) continue;
       // keep off bases/camps/towers
-      if (dist(x, y, 600, 4200) < 750 || dist(x, y, 4200, 600) < 750) continue;
-      for (const c of this.camps) if (dist(x, y, c.x, c.y) < 310) { ok = false; break; }
+      if (dist(x, y, 430, 2770) < 540 || dist(x, y, 2770, 430) < 540) continue;
+      for (const c of this.camps) if (dist(x, y, c.x, c.y) < 230) { ok = false; break; }
       if (!ok) continue;
-      for (const t of this.units) if (t.kind === 'tower' && dist(x, y, t.x, t.y) < 310) { ok = false; break; }
+      for (const t of this.units) if (t.kind === 'tower' && dist(x, y, t.x, t.y) < 230) { ok = false; break; }
       if (!ok) continue;
       this.trees.push({ x, y, r: 14 + rng() * 16 });
     }
@@ -1533,7 +1534,7 @@ class Game {
 
   towersDown() { return this.towersDownN[0] + this.towersDownN[1]; }
 
-  atBase(h) { const t = THRONE_POS[h.team]; return dist(h.x, h.y, t.x, t.y) < 620; }
+  atBase(h) { const t = THRONE_POS[h.team]; return dist(h.x, h.y, t.x, t.y) < 450; }
 
   /* lane helpers */
   lanePoints(laneIdx) { return LANES[laneIdx].pts; }
@@ -3244,7 +3245,7 @@ class Game {
       }
     }
     // camera rect
-    const vw = window.innerWidth / this.zoomVal(), vh = window.innerHeight / this.zoomVal();
+    const vw = window.innerWidth / this.zoomVal(), vh = window.innerHeight / (this.zoomVal() * CFG.TILT);
     x.strokeStyle = 'rgba(255,255,255,0.35)'; x.lineWidth = 1;
     x.strokeRect((this.cam.x - vw / 2) * S, (this.cam.y - vh / 2) * S, vw * S, vh * S);
   }
@@ -3266,7 +3267,7 @@ class Game {
     const shy = this.cam.shake ? rand(-this.cam.shake, this.cam.shake) : 0;
     ctx.save();
     ctx.translate(W / 2, H / 2);
-    ctx.scale(z, z);
+    ctx.scale(z, z * CFG.TILT);            // 3D tilted camera (orthographic)
     ctx.translate(-cx + shx, -cy + shy);
 
     // ground
@@ -3313,7 +3314,7 @@ class Game {
       gr.addColorStop(1, TEAM_COLORS[bt] + '00');
       ctx.globalAlpha = pulse;
       ctx.fillStyle = gr;
-      ctx.beginPath(); ctx.arc(bp.x, bp.y, 520, 0, TAU); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(bp.x, bp.y, 520, 520 * CFG.TILT, 0, 0, TAU); ctx.fill();
       ctx.globalAlpha = 1;
     }
     // fireflies
@@ -3441,7 +3442,9 @@ class Game {
         const H = 62 * (u.def.role === 'Tank' ? 1.14 : u.def.role === 'Marksman' ? 0.96 : 1);
         const W = full.width * (H / full.height);
         ctx.save();
-        ctx.translate(u.x + (faceLeft ? -lunge : lunge) + stunShake, u.y + 12 + bobY);
+        ctx.translate(u.x + (faceLeft ? -lunge : lunge) + stunShake, u.y + 12);
+        ctx.scale(1, 1 / CFG.TILT);        // billboard: undo camera squash so the hero STANDS
+        ctx.translate(0, bobY);
         ctx.rotate(rot);
         ctx.scale(faceLeft ? -1 : 1, squash);
         ctx.drawImage(full, -W / 2, -H, W, H);
@@ -3475,8 +3478,10 @@ class Game {
         const spr = (skIdx > 0 && skinVariant(u.def.id, skIdx)) || SPRITES[u.def.id];
         if (spr) {
           ctx.save();
-          ctx.beginPath(); ctx.arc(u.x, u.y, u.r + 5, 0, TAU); ctx.clip();
-          ctx.drawImage(spr, u.x - u.r - 6, u.y - u.r - 6, (u.r + 6) * 2, (u.r + 6) * 2);
+          ctx.translate(u.x, u.y);
+          ctx.scale(1, 1 / CFG.TILT);      // stand upright
+          ctx.beginPath(); ctx.arc(0, -4, u.r + 5, 0, TAU); ctx.clip();
+          ctx.drawImage(spr, -u.r - 6, -u.r - 10, (u.r + 6) * 2, (u.r + 6) * 2);
           ctx.restore();
         } else {
           ctx.fillStyle = '#0b1424';
@@ -3514,8 +3519,9 @@ class Game {
         let lunge = 0;
         if (atkAge >= 0 && atkAge < 0.2) lunge = Math.sin((atkAge / 0.2) * Math.PI) * 6;
         ctx.save();
-        ctx.translate(u.x + (faceLeft ? -lunge : lunge), u.y + 6 + bob);
-        ctx.scale(faceLeft ? -1 : 1, 1);
+        ctx.translate(u.x + (faceLeft ? -lunge : lunge), u.y + 6);
+        ctx.scale(faceLeft ? -1 : 1, 1 / CFG.TILT);   // stand upright
+        ctx.translate(0, bob);
         ctx.drawImage(spr, -W / 2, -H, W, H);
         ctx.restore();
       } else {
@@ -3529,50 +3535,73 @@ class Game {
       }
     } else if (u.kind === 'tower') {
       const col = TEAM_COLORS[u.team];
+      ctx.save();
+      ctx.translate(u.x, u.y);
+      ctx.scale(1, 1 / CFG.TILT);          // towers rise
+      ctx.translate(-u.x, -u.y);
+      // base (ground-locked, squashed)
       ctx.fillStyle = TEAM_DARK[u.team];
       ctx.strokeStyle = col; ctx.lineWidth = 4;
       ctx.beginPath();
       for (let i = 0; i < 6; i++) {
         const a = i / 6 * TAU - Math.PI / 2;
-        const px = u.x + Math.cos(a) * (u.r + 8), py = u.y + Math.sin(a) * (u.r + 8);
+        const px = u.x + Math.cos(a) * (u.r + 8), py = u.y + Math.sin(a) * (u.r + 8) * 0.55;
         i ? ctx.lineTo(px, py) : ctx.moveTo(px, py);
       }
       ctx.closePath(); ctx.fill(); ctx.stroke();
+      // spire (standing)
+      ctx.fillStyle = TEAM_DARK[u.team];
+      ctx.strokeStyle = col; ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(u.x - 16, u.y + 4); ctx.lineTo(u.x + 16, u.y + 4);
+      ctx.lineTo(u.x + 9, u.y - 74); ctx.lineTo(u.x - 9, u.y - 74);
+      ctx.closePath(); ctx.fill(); ctx.stroke();
       ctx.fillStyle = u.invuln ? '#475569' : col;
-      ctx.beginPath(); ctx.arc(u.x, u.y, 10, 0, TAU); ctx.fill();
+      ctx.beginPath(); ctx.arc(u.x, u.y - 80, 9, 0, TAU); ctx.fill();
+      ctx.restore();
       if (u.invuln) {
         ctx.strokeStyle = 'rgba(226,232,240,0.55)'; ctx.lineWidth = 2;
         ctx.beginPath(); ctx.arc(u.x, u.y, u.r + 18, 0, TAU); ctx.stroke();
       }
     } else if (u.kind === 'throne') {
       const col = TEAM_COLORS[u.team];
+      ctx.save();
+      ctx.translate(u.x, u.y);
+      ctx.scale(1, 1 / CFG.TILT);          // the nexus rises
+      ctx.translate(-u.x, -u.y);
       ctx.fillStyle = TEAM_DARK[u.team];
       ctx.strokeStyle = col; ctx.lineWidth = 6;
       ctx.beginPath();
       for (let i = 0; i < 8; i++) {
         const a = i / 8 * TAU;
-        const px = u.x + Math.cos(a) * (u.r + 6), py = u.y + Math.sin(a) * (u.r + 6);
+        const px = u.x + Math.cos(a) * (u.r + 6), py = u.y + Math.sin(a) * (u.r + 6) * 0.55;
         i ? ctx.lineTo(px, py) : ctx.moveTo(px, py);
       }
       ctx.closePath(); ctx.fill(); ctx.stroke();
-      ctx.font = '52px serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.fillText('🏰', u.x, u.y + 2);
+      ctx.font = '58px serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText('🏰', u.x, u.y - 24);
       if (u.invuln) {
         ctx.strokeStyle = 'rgba(226,232,240,0.5)'; ctx.lineWidth = 3;
         ctx.beginPath(); ctx.arc(u.x, u.y, u.r + 26, 0, TAU); ctx.stroke();
       }
+      ctx.restore();
     } else if (u.kind === 'ward') {
       const col = TEAM_COLORS[u.team];
+      ctx.save();
+      ctx.translate(u.x, u.y);
+      ctx.scale(1, 1 / CFG.TILT);
+      ctx.translate(-u.x, -u.y);
       ctx.strokeStyle = col; ctx.lineWidth = 3;
-      ctx.beginPath(); ctx.moveTo(u.x, u.y + 8); ctx.lineTo(u.x, u.y - 14); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(u.x, u.y + 8); ctx.lineTo(u.x, u.y - 22); ctx.stroke();
       ctx.fillStyle = '#0b1424';
-      ctx.beginPath(); ctx.arc(u.x, u.y - 16, 7, 0, TAU); ctx.fill();
+      ctx.beginPath(); ctx.arc(u.x, u.y - 24, 7, 0, TAU); ctx.fill();
       ctx.fillStyle = col;
-      ctx.beginPath(); ctx.arc(u.x, u.y - 16, 3.4, 0, TAU); ctx.fill();
+      ctx.beginPath(); ctx.arc(u.x, u.y - 24, 3.4, 0, TAU); ctx.fill();
       const pulse = 0.5 + 0.5 * Math.sin(this.time * 3);
       ctx.globalAlpha = 0.25 + pulse * 0.3;
-      ctx.beginPath(); ctx.arc(u.x, u.y - 16, 12, 0, TAU); ctx.stroke();
+      ctx.beginPath(); ctx.arc(u.x, u.y - 24, 12, 0, TAU); ctx.stroke();
       ctx.globalAlpha = 1;
+      ctx.restore();
     } else if (u.kind === 'monster') {
       const spr = SPRITES_MONSTER[u.monKind];
       if (spr) {
@@ -3582,11 +3611,13 @@ class Game {
         const H = (u.monKind === 'lizard' ? 34 : u.monKind === 'golem' ? 46 : 58) * scale;
         const W = spr.width * (H / spr.height);
         ctx.save();
-        ctx.translate(u.x, u.y + 8 + bob);
+        ctx.translate(u.x, u.y + 8);
+        ctx.scale(1, 1 / CFG.TILT);        // stand upright
+        ctx.translate(0, bob);
         ctx.drawImage(spr, -W / 2, -H, W, H);
         ctx.restore();
         ctx.strokeStyle = 'rgba(167,139,250,0.75)'; ctx.lineWidth = 2.5;
-        ctx.beginPath(); ctx.ellipse(u.x, u.y + 9, W * 0.32, W * 0.14, 0, 0, TAU); ctx.stroke();
+        ctx.beginPath(); ctx.ellipse(u.x, u.y + 9, W * 0.32, W * 0.14 * CFG.TILT, 0, 0, TAU); ctx.stroke();
       } else {
         ctx.fillStyle = '#2e1065';
         ctx.strokeStyle = '#a78bfa'; ctx.lineWidth = 3;
@@ -3608,14 +3639,23 @@ class Game {
       return;
     }
     if (u.kind === 'minion') {
+      ctx.save();
+      ctx.translate(u.x, u.y);
+      ctx.scale(1, 1 / CFG.TILT);
+      ctx.translate(-u.x, -u.y);
       const w = 28, y = u.y - u.r - 12;
       ctx.fillStyle = 'rgba(0,0,0,0.5)';
       ctx.fillRect(u.x - w / 2, y, w, 4);
       ctx.fillStyle = TEAM_COLORS[u.team];
       ctx.fillRect(u.x - w / 2, y, w * clamp(u.hp / u.maxHp, 0, 1), 4);
+      ctx.restore();
       return;
     }
     if (u.kind === 'hero') {
+      ctx.save();
+      ctx.translate(u.x, u.y);
+      ctx.scale(1, 1 / CFG.TILT);          // readable (unsquashed) bars & text
+      ctx.translate(-u.x, -u.y);
       const w = 48, y = u.y - 60;
       ctx.fillStyle = 'rgba(0,0,0,0.6)';
       ctx.fillRect(u.x - w / 2 - 1, y - 1, w + 2, 7);
@@ -3644,6 +3684,7 @@ class Game {
         ctx.fillStyle = 'rgba(248,113,113,0.9)'; ctx.font = 'bold 12px sans-serif';
         ctx.fillText('DEAD ' + Math.ceil(u.respT) + 's', u.x, u.y);
       }
+      ctx.restore();
     }
   }
 }
@@ -3705,7 +3746,7 @@ class FX {
       ctx.globalAlpha = 1 - k;
       if (e.type === 'ring') {
         ctx.strokeStyle = e.color; ctx.lineWidth = 5;
-        ctx.beginPath(); ctx.arc(e.x, e.y, e.r * (0.4 + k * 0.8), 0, TAU); ctx.stroke();
+        ctx.beginPath(); ctx.ellipse(e.x, e.y, e.r * (0.4 + k * 0.8), e.r * (0.4 + k * 0.8) * CFG.TILT, 0, 0, TAU); ctx.stroke();
       } else if (e.type === 'slash') {
         ctx.strokeStyle = e.color; ctx.lineWidth = 6;
         ctx.beginPath(); ctx.arc(e.x, e.y, e.r, -0.6, 0.6); ctx.stroke();
@@ -3714,16 +3755,21 @@ class FX {
         ctx.strokeStyle = e.color; ctx.lineWidth = 16;
         ctx.beginPath(); ctx.moveTo(e.x0, e.y0); ctx.lineTo(e.x1, e.y1); ctx.stroke();
       } else if (e.type === 'text') {
+        ctx.save();
+        ctx.translate(e.x, e.y - k * 34 / CFG.TILT);
+        ctx.scale(1, 1 / CFG.TILT);
         ctx.font = `bold ${e.size}px sans-serif`; ctx.textAlign = 'center';
         ctx.fillStyle = e.color;
-        ctx.fillText(e.txt, e.x, e.y - k * 34);
+        ctx.fillText(e.txt, 0, 0);
+        ctx.restore();
       } else if (e.type === 'death') {
         ctx.globalAlpha = (1 - k) * 0.9;
-        const spr = SPRITES_FULL[e.hid];
+        const spr = SPRITES_FULL[e.hid] || SPRITES[e.hid];
         if (spr) {
           const H = 46, W = spr.width * (H / spr.height);
           ctx.save();
           ctx.translate(e.x, e.y + k * 12);
+          ctx.scale(1, 1 / CFG.TILT);
           ctx.rotate(1.4);
           ctx.drawImage(spr, -W / 2, -H / 2, W, H);
           ctx.restore();
@@ -3879,7 +3925,7 @@ class Input {
       const z = this.g.zoomVal();
       const rect = { w: window.innerWidth, h: window.innerHeight };
       const wx = this.g.cam.x + (this.mouse.x - rect.w / 2) / z;
-      const wy = this.g.cam.y + (this.mouse.y - rect.h / 2) / z;
+      const wy = this.g.cam.y + (this.mouse.y - rect.h / 2) / (z * CFG.TILT);
       return { x: wx, y: wy };
     }
     if (this.joy.active) return { x: h.x + this.joy.dx * 400, y: h.y + this.joy.dy * 400 };

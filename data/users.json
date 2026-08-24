@@ -4456,5 +4456,120 @@
         "hero": "vexen"
       }
     ]
+  },
+  "tester0_18067": {
+    "salt": "b01341db690c2ad8d01c306f128fc572",
+    "hash": "5c27af65e3ca098eea7256fa33221e1e6fa038589cae4af51163b7d4f1b8156c",
+    "created": 1787551518181,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "equip": {
+      "vex": 2
+    },
+    "friends": [],
+    "guild": "T811",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026",
+    "history": [
+      {
+        "d": 1787551570479,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "brawn"
+      }
+    ]
+  },
+  "tester1_18193": {
+    "salt": "2a7c4e6b15e76100bccefd6eeb7b0778",
+    "hash": "ddac9835e7bdb02420129c19382f6bc9036c758043bfbbe084b596cd8edabc1a",
+    "created": 1787551518243,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "equip": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787551570479,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "skarn"
+      }
+    ]
+  },
+  "tester2_18246": {
+    "salt": "8daa73ab9747504aec07e015c8e18426",
+    "hash": "9e59d24d25eafc63c725e1627101170b7afe5fc949a2a9b2203e53afeff1b519",
+    "created": 1787551518292,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "equip": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787551570479,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "korv"
+      }
+    ]
   }
 }
