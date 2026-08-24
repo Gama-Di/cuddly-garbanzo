@@ -139,13 +139,24 @@ const Flow = {
       const h = p.heroId ? heroById(p.heroId) : null;
       const isYou = p.name === st.youName;
       return `<div class="dr-slot ${p.heroId ? 'filled' : ''} ${team === 1 ? 'red' : ''}">
-        ${h ? `<img src="img/${h.id}.png" onerror="this.outerHTML='<span class=dr-emoji>${h.emoji}</span>'">` : '<span class="dr-emoji">❔</span>'}
+        ${h ? `<img src="img/${h.id}.png" data-emoji="${h.emoji}">` : '<span class="dr-emoji">❔</span>'}
         <div class="dr-name">${isYou ? '<b style="color:#fbbf24">★ YOU</b>' : p.name}${p.bot ? ' <small style="color:#5c7099">BOT</small>' : ''}</div>
         <div class="dr-hero">${h ? h.name : '…'}</div>
       </div>`;
     };
     blue.innerHTML = st.picks[0].map(p => slotHTML(p, 0)).join('');
     red.innerHTML = st.picks[1].map(p => slotHTML(p, 1)).join('');
+    const wireImgs = (host) => {
+      host.querySelectorAll('img[data-emoji]').forEach(im => {
+        im.onerror = function () {
+          const s = document.createElement('span');
+          s.className = 'dr-emoji';
+          s.textContent = this.dataset.emoji;
+          this.replaceWith(s);
+        };
+      });
+    };
+    wireImgs(blue); wireImgs(red);
 
     // bans row
     const banHTML = (t) => (st.bans[t] || []).map(id => {
@@ -188,10 +199,18 @@ const Flow = {
     grid.innerHTML = HEROES.map(h => {
       const avail = st.available.includes(h.id);
       return `<div class="dr-hero-card ${avail ? '' : 'taken'} ${this.draftSel === h.id ? 'sel' : ''}" data-h="${h.id}">
-        <img src="img/${h.id}.png" onerror="this.outerHTML='<div class=drh-emoji>${h.emoji}</div>'">
+        <img src="img/${h.id}.png" data-emoji="${h.emoji}">
         <span>${h.name}</span><small>${h.role}</small>
       </div>`;
     }).join('');
+    grid.querySelectorAll('img[data-emoji]').forEach(im => {
+      im.onerror = function () {
+        const d = document.createElement('div');
+        d.className = 'drh-emoji';
+        d.textContent = this.dataset.emoji;
+        this.replaceWith(d);
+      };
+    });
     grid.querySelectorAll('.dr-hero-card').forEach(c => {
       c.addEventListener('click', () => {
         if (!myTurn || c.classList.contains('taken')) return;

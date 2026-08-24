@@ -4014,12 +4014,20 @@ function showLoadingScreen(roster, youName, opts, done) {
     const card = document.createElement('div');
     card.className = 'ls-card' + (r.team === 1 ? ' red' : '');
     card.innerHTML = `
-      <img class="ls-face" src="img/${h.id}.png" onerror="this.outerHTML='<div class=\'ls-face\' style=\'display:flex;align-items:center;justify-content:center;font-size:22px\'>${h.emoji}</div>'">
+      <img class="ls-face" src="img/${h.id}.png" data-emoji="${h.emoji}">
       <div class="ls-mid">
         <div class="ls-name">${isYou ? '<span class="you">★ YOU</span> · ' : ''}${r.name}${r.bot && !isYou ? ' <small style="color:#5c7099">BOT</small>' : ''}</div>
         <div class="ls-hero">${h.emoji} ${h.name} · ${h.role}</div>
       </div>
       <span class="ls-rank" style="color:${rc};background:${rc}1a;border:1px solid ${rc}44">${rn} ${elo}</span>`;
+    const fimg = card.querySelector('img.ls-face');
+    if (fimg) fimg.onerror = function () {
+      const d = document.createElement('div');
+      d.className = 'ls-face';
+      d.style.cssText = 'display:flex;align-items:center;justify-content:center;font-size:22px';
+      d.textContent = this.dataset.emoji;
+      this.replaceWith(d);
+    };
     (r.team === 0 ? blue : red).appendChild(card);
   }
   scr.classList.add('on');

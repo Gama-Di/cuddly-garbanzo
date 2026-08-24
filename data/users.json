@@ -3712,5 +3712,115 @@
         "hero": "fern"
       }
     ]
+  },
+  "tester0_60650": {
+    "salt": "8d95004c75c83969bcaca8ba0af3d4de",
+    "hash": "2da7ef8220ad050ddc34017ec517084538a6c82570664ae6b9b8ed33e1eb3d9d",
+    "created": 1787546960755,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "T455",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026",
+    "history": [
+      {
+        "d": 1787547012101,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "mala"
+      }
+    ]
+  },
+  "tester1_60764": {
+    "salt": "2330ea3b9c7a95858c00defcd5c23c2a",
+    "hash": "aa74a042fcf36b7ce70fbc83aa7e7101d8d8adac792c60ac895c5de5f8825b55",
+    "created": 1787546960810,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787547012101,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "dorum"
+      }
+    ]
+  },
+  "tester2_60813": {
+    "salt": "7c1c121075d8f639465472b33df0a413",
+    "hash": "2740a690b8137a2880ccc7f68daf9b0720ef912fb5692ecbfeefd7ad7c72cbbc",
+    "created": 1787546960859,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787547012101,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "sengo"
+      }
+    ]
   }
 }
