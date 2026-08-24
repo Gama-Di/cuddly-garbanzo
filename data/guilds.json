@@ -160,5 +160,14 @@
    "tester0_60650"
   ],
   "created": 1787547010459
+ },
+ "T924": {
+  "tag": "T924",
+  "name": "Test Guild T924",
+  "owner": "tester0_94139",
+  "members": [
+   "tester0_94139"
+  ],
+  "created": 1787547945929
  }
 }

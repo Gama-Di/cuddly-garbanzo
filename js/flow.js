@@ -138,8 +138,9 @@ const Flow = {
     const slotHTML = (p, team) => {
       const h = p.heroId ? heroById(p.heroId) : null;
       const isYou = p.name === st.youName;
+      const skf = p.sk ? (window.skinFilter ? skinFilter(p.sk) : '') : '';
       return `<div class="dr-slot ${p.heroId ? 'filled' : ''} ${team === 1 ? 'red' : ''}">
-        ${h ? `<img src="img/${h.id}.png" data-emoji="${h.emoji}">` : '<span class="dr-emoji">❔</span>'}
+        ${h ? `<img src="img/${h.id}.png" data-emoji="${h.emoji}" style="filter:${skf}">` : '<span class="dr-emoji">❔</span>'}
         <div class="dr-name">${isYou ? '<b style="color:#fbbf24">★ YOU</b>' : p.name}${p.bot ? ' <small style="color:#5c7099">BOT</small>' : ''}</div>
         <div class="dr-hero">${h ? h.name : '…'}</div>
       </div>`;
@@ -201,6 +202,7 @@ const Flow = {
       return `<div class="dr-hero-card ${avail ? '' : 'taken'} ${this.draftSel === h.id ? 'sel' : ''}" data-h="${h.id}">
         <img src="img/${h.id}.png" data-emoji="${h.emoji}">
         <span>${h.name}</span><small>${h.role}</small>
+        <div class="hc-info">📖</div>
       </div>`;
     }).join('');
     grid.querySelectorAll('img[data-emoji]').forEach(im => {
@@ -211,25 +213,78 @@ const Flow = {
         this.replaceWith(d);
       };
     });
+    grid.querySelectorAll('.dr-hero-card .hc-info').forEach(b => {
+      b.addEventListener('click', (e) => { e.stopPropagation(); openHeroInfo(b.parentElement.dataset.h); });
+    });
     grid.querySelectorAll('.dr-hero-card').forEach(c => {
       c.addEventListener('click', () => {
         if (!myTurn || c.classList.contains('taken')) return;
         this.draftSel = c.dataset.h;
+        this.draftSkin = 0;
         grid.querySelectorAll('.dr-hero-card').forEach(x => x.classList.remove('sel'));
         c.classList.add('sel');
         const h = heroById(this.draftSel);
         this.el('dr-lock').style.display = 'block';
         this.el('dr-lock').innerHTML = `${h.emoji} <b>LOCK IN ${h.name}</b>`;
+        this.renderDraftSkins(h, myTurn, grid);
       });
     });
+    st_phaseIsBan = st.phase === 'ban';
+    if (st.phase === 'ban' || !myTurn) {
+      const host = this.el('dr-skins');
+      if (host) host.innerHTML = '';
+    }
     const lock = this.el('dr-lock');
     lock.style.display = myTurn && this.draftSel ? 'block' : 'none';
     lock.onclick = () => {
       if (!this.draftSel || !myTurn) return;
-      net.send({ t: st.phase === 'ban' ? 'draftBan' : 'draftPick', heroId: this.draftSel });
+      net.send({ t: st.phase === 'ban' ? 'draftBan' : 'draftPick', heroId: this.draftSel, skinIdx: this.draftSkin || 0 });
       this.draftSel = null;
+      this.draftSkin = 0;
       menuSfx.play('level');
     };
+  },
+
+  renderDraftSkins(h, myTurn, grid) {
+    const host = this.el('dr-skins');
+    if (!host) return;
+    if (!myTurn || st_phaseIsBan) { host.innerHTML = ''; return; }
+    const ownedFor = (hid) => {
+      if (typeof net !== 'undefined' && net.online && net.me) {
+        const o = (net.me.skins && net.me.skins[hid]) || [];
+        return SKINS.map((s, i) => i === 0 || o.includes(i));
+      }
+      return SKINS.map(() => true);   // offline practice: everything unlocked
+    };
+    const owned = ownedFor(h.id);
+    const pref = (typeof equippedSkin === 'function' ? equippedSkin(h.id) : 0);
+    if (this.draftSkin === 0 && owned[pref]) this.draftSkin = pref;
+    if (!owned[this.draftSkin]) this.draftSkin = 0;
+    host.innerHTML = SKINS.map((s, i) => owned[i]
+      ? `<button class="dr-skin ${this.draftSkin === i ? 'on' : ''}" data-i="${i}" style="filter:${skinFilter(i)}">
+           <img src="img/${h.id}.png" data-emoji="${h.emoji}"></button>`
+      : `<button class="dr-skin locked" data-i="${i}"><img src="img/${h.id}.png" style="filter:${skinFilter(i)}" data-emoji="${h.emoji}"><span>🔒${s.price}</span></button>`
+    ).join('') + `<div class="dr-skinname">${SKINS[this.draftSkin].name}</div>`;
+    host.querySelectorAll('img[data-emoji]').forEach(im => {
+      im.onerror = function () {
+        const d = document.createElement('div');
+        d.style.cssText = 'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:24px';
+        d.textContent = this.dataset.emoji;
+        this.replaceWith(d);
+      };
+    });
+    host.querySelectorAll('.dr-skin:not(.locked)').forEach(b => {
+      b.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.draftSkin = parseInt(b.dataset.i, 10) || 0;
+        this.renderDraftSkins(h, myTurn, grid);
+        const sel = grid.querySelector('.dr-hero-card.sel img');
+        if (sel) sel.style.filter = skinFilter(this.draftSkin);
+        menuSfx.play('click');
+      });
+    });
+    const sel = grid.querySelector('.dr-hero-card.sel img');
+    if (sel) sel.style.filter = skinFilter(this.draftSkin);
   },
 
   showSelect() {
@@ -245,6 +300,7 @@ const Flow = {
   },
 };
 
+let st_phaseIsBan = false;
 const menuSfx = new SFX();
 window.Flow = Flow;
 

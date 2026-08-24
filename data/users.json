@@ -20,7 +20,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester1_8124": {
     "salt": "98ac93f12188f3c6b998109a777654f3",
@@ -43,7 +44,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester2_8174": {
     "salt": "3879c923d23d74c6dab4373efc91f518",
@@ -66,7 +68,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester0_18489": {
     "salt": "be3e96a71b97c1610f7a6757699cdd4b",
@@ -89,7 +92,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester1_18584": {
     "salt": "a95385c856cdbb35f7946209efae92dc",
@@ -112,7 +116,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester2_18631": {
     "salt": "2c231a6500e8e6014f707baf02a27ffb",
@@ -135,7 +140,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "finisher_98157": {
     "salt": "33c25330822c367deba4d3751f2fa6c8",
@@ -158,7 +164,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester0_75784": {
     "salt": "ce8e6664687921c5b31c72d5cd965da1",
@@ -181,7 +188,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester1_75886": {
     "salt": "cd07ccf143ee08626412cce56cef5e84",
@@ -204,7 +212,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester2_75936": {
     "salt": "3c851dc328abf98a29a0067e6fefe769",
@@ -227,7 +236,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "gamal": {
     "salt": "bc50d4053030a5743a71a3798668151d",
@@ -250,7 +260,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester0_28324": {
     "salt": "3b7868c40fc2f3d8f2fdf31ddaf4fe53",
@@ -273,7 +284,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester1_28419": {
     "salt": "47a6230c897411f5469c9f8a631edd33",
@@ -296,7 +308,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester2_28466": {
     "salt": "1dc05160d849ecd8b7ce8effa8794300",
@@ -319,7 +332,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester0_80848": {
     "salt": "b1e6b0d4be4e1757aa7cb580068ce825",
@@ -346,7 +360,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester1_80997": {
     "salt": "3d74fac7c792ad94362de3ba1bf849fe",
@@ -369,7 +384,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester2_81050": {
     "salt": "29fa2dac140ea394617c1562e6570121",
@@ -392,7 +408,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester0_75393": {
     "salt": "61b54230eaea07eb5caee19524e1edfd",
@@ -419,7 +436,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester1_75512": {
     "salt": "d5d38a3b8b88438a2203815c5b44fa6f",
@@ -442,7 +460,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester2_75563": {
     "salt": "5a4e7c35a29d85e56c28595b33d7cd47",
@@ -465,7 +484,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester0_81450": {
     "salt": "6281e03e98a4978c875c287b640ec484",
@@ -492,7 +512,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester1_81556": {
     "salt": "34f761e583a8f20b315348a2e091deb8",
@@ -515,7 +536,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester2_81606": {
     "salt": "3412548f3dacc9bcfcbe84ed43d3094e",
@@ -538,7 +560,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester0_22075": {
     "salt": "fcb0cbe6b07adc05e40537c9cb01b076",
@@ -565,7 +588,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester1_22184": {
     "salt": "560564f997a030ed6da5e19c5e7dd012",
@@ -588,7 +612,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester2_22235": {
     "salt": "8b3d0323653cebe31f445770975b2b7a",
@@ -611,7 +636,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester0_98896": {
     "salt": "f819488538c73dae07e0be1ec34f4163",
@@ -638,7 +664,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester1_98993": {
     "salt": "29190fc9fcb17c8d87e5a52f55ce3e38",
@@ -661,7 +688,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester2_99043": {
     "salt": "cf3e577ff2f011b6984d49bf6da94af9",
@@ -684,7 +712,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester0_23499": {
     "salt": "028c85cdc144fb8803addf0fc819a74d",
@@ -712,7 +741,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester1_23602": {
     "salt": "dde1ac2b283d5e365a279c2e566f7fe7",
@@ -735,7 +765,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester2_23654": {
     "salt": "5de5dd6185a20ab3050c636f99641f92",
@@ -758,7 +789,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester0_48876": {
     "salt": "91e2c9b972937603a6c7481d5872bcb8",
@@ -786,7 +818,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester1_48981": {
     "salt": "68aa0bc7d97c30c229052a98894176a8",
@@ -809,7 +842,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester2_49039": {
     "salt": "c4504e4fdad13f1375ea9959ddfafad4",
@@ -832,7 +866,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester0_33290": {
     "salt": "77803d02836763a4b9fd575f36411dc4",
@@ -860,7 +895,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester1_33392": {
     "salt": "3225ad3d9e7d0ed91e9bd362335539d7",
@@ -883,7 +919,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester2_33442": {
     "salt": "376c314915624f575d41f1658e6d5afc",
@@ -906,7 +943,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester0_35043": {
     "salt": "4bb0cc4392b8a3dd7a6734ac7be304e0",
@@ -945,7 +983,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester1_35140": {
     "salt": "c607f8cf637527e86a889bb880295c67",
@@ -979,7 +1018,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester2_35188": {
     "salt": "27c016d945334943a2554e37027f1cb8",
@@ -1013,7 +1053,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester0_52938": {
     "salt": "f88092dfcb70a5a08ccd4ae0e68ea042",
@@ -1052,7 +1093,8 @@
       "tier": 0,
       "premium": false
     },
-    "friends": []
+    "friends": [],
+    "equip": {}
   },
   "tester1_53032": {
     "salt": "61fbb025c64f702b1af511701da023d2",
@@ -1086,7 +1128,8 @@
       "tier": 0,
       "premium": false
     },
-    "friends": []
+    "friends": [],
+    "equip": {}
   },
   "tester2_53082": {
     "salt": "943781423d410b2992dcb45e0e1570d5",
@@ -1120,7 +1163,8 @@
       "tier": 0,
       "premium": false
     },
-    "friends": []
+    "friends": [],
+    "equip": {}
   },
   "dbg_34982": {
     "salt": "36d8a36c793ec8c535790224a61ccb05",
@@ -1143,7 +1187,8 @@
       "xp": 0,
       "tier": 0,
       "premium": false
-    }
+    },
+    "equip": {}
   },
   "tester0_1636": {
     "salt": "417dd0440571e305ab8338e72c2f0d9f",
@@ -1183,7 +1228,8 @@
         "dur": 23,
         "hero": "kael"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_1737": {
     "salt": "99acf652ee1b868190196c2fce38421e",
@@ -1218,7 +1264,8 @@
         "dur": 23,
         "hero": "nyx"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_1788": {
     "salt": "61efaf8dd313bca64767bc4f8e7bcf2d",
@@ -1253,7 +1300,8 @@
         "dur": 23,
         "hero": "bastion"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester0_16771": {
     "salt": "f8a24939e79812c5a42984a6ddc96a89",
@@ -1293,7 +1341,8 @@
         "dur": 23,
         "hero": "kael"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_16882": {
     "salt": "d1c346dce8907c5080c0022b483d2131",
@@ -1328,7 +1377,8 @@
         "dur": 23,
         "hero": "nyx"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_16938": {
     "salt": "c36ade42ad4efc5940e9ddc78cb8fbb9",
@@ -1363,7 +1413,8 @@
         "dur": 23,
         "hero": "bastion"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester0_76458": {
     "salt": "5eec00fbe7013ab6abf1da1447b3496b",
@@ -1403,7 +1454,8 @@
         "dur": 23,
         "hero": "kael"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_76562": {
     "salt": "17c83c7682391acd538601ae7ebdda50",
@@ -1438,7 +1490,8 @@
         "dur": 23,
         "hero": "nyx"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_76616": {
     "salt": "8db9b1dc81f548902df0fc99ab1e6176",
@@ -1473,7 +1526,8 @@
         "dur": 23,
         "hero": "bastion"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester0_24174": {
     "salt": "5b0964e591dda2083150ee2ba102d559",
@@ -1513,7 +1567,8 @@
         "dur": 23,
         "hero": "kael"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_24276": {
     "salt": "4c7f9eb0311ef9ad186864c855096b93",
@@ -1548,7 +1603,8 @@
         "dur": 23,
         "hero": "nyx"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_24327": {
     "salt": "e805caab7a025465111bfd2e40c17820",
@@ -1583,7 +1639,8 @@
         "dur": 23,
         "hero": "bastion"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester0_70036": {
     "salt": "599a9c07e68b843a074827f18ea2f490",
@@ -1623,7 +1680,8 @@
         "dur": 23,
         "hero": "kael"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_70133": {
     "salt": "ff51e4cbe60f28e6a430583c2d5505de",
@@ -1658,7 +1716,8 @@
         "dur": 23,
         "hero": "nyx"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_70182": {
     "salt": "19c4c481288e3242b033a07a6b5c0265",
@@ -1693,7 +1752,8 @@
         "dur": 23,
         "hero": "bastion"
       }
-    ]
+    ],
+    "equip": {}
   },
   "daaa": {
     "salt": "53fcfe3bdab34e028891bda5b669a120",
@@ -1722,7 +1782,8 @@
       "deaths": 0,
       "towers": 0
     },
-    "lastDaily": "Sun Aug 23 2026"
+    "lastDaily": "Sun Aug 23 2026",
+    "equip": {}
   },
   "tester0_68704": {
     "salt": "1d8eaeaef2c31b32f717a71b2160af71",
@@ -1762,7 +1823,8 @@
         "dur": 23,
         "hero": "kael"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_68813": {
     "salt": "e973f26348a19d875a1e194df90302bb",
@@ -1797,7 +1859,8 @@
         "dur": 23,
         "hero": "nyx"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_68865": {
     "salt": "b1ad6743656ca02375a05597a1206a3d",
@@ -1832,7 +1895,8 @@
         "dur": 23,
         "hero": "bastion"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester0_59541": {
     "salt": "f3d6c7331e5dd36b9ea33fbd03a736d4",
@@ -1872,7 +1936,8 @@
         "dur": 23,
         "hero": "kael"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_59666": {
     "salt": "0860ee2ee9a6eebe5eca3875700f7d30",
@@ -1907,7 +1972,8 @@
         "dur": 23,
         "hero": "nyx"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_59715": {
     "salt": "fc916d55f8c1f6adc314073d3f5bd551",
@@ -1942,7 +2008,8 @@
         "dur": 23,
         "hero": "bastion"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester0_43685": {
     "salt": "dfe89b5051b44ec5b22a6d817c3b65dc",
@@ -1982,7 +2049,8 @@
         "dur": 23,
         "hero": "kael"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_43828": {
     "salt": "70172ce9cd22aa8437c7cad331728a92",
@@ -2017,7 +2085,8 @@
         "dur": 23,
         "hero": "nyx"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_43880": {
     "salt": "7a7619a80974e5f7327fe1242bb2d048",
@@ -2052,7 +2121,8 @@
         "dur": 23,
         "hero": "bastion"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester0_90876": {
     "salt": "d5b870f1fdde8d38e359a50cee6e5cc4",
@@ -2081,7 +2151,8 @@
       "deaths": 0,
       "towers": 0
     },
-    "lastDaily": "Mon Aug 24 2026"
+    "lastDaily": "Mon Aug 24 2026",
+    "equip": {}
   },
   "tester1_91012": {
     "salt": "47f9283a082fc6bfdfab4c21bc3554ae",
@@ -2105,7 +2176,8 @@
       "kills": 0,
       "deaths": 0,
       "towers": 0
-    }
+    },
+    "equip": {}
   },
   "tester2_91081": {
     "salt": "2a819c9f7b2e589160063b4c5bb41e14",
@@ -2129,7 +2201,8 @@
       "kills": 0,
       "deaths": 0,
       "towers": 0
-    }
+    },
+    "equip": {}
   },
   "tester0_12395": {
     "salt": "1a4141a22a887df2b17325413414fb8d",
@@ -2158,7 +2231,8 @@
       "deaths": 0,
       "towers": 0
     },
-    "lastDaily": "Mon Aug 24 2026"
+    "lastDaily": "Mon Aug 24 2026",
+    "equip": {}
   },
   "tester1_12495": {
     "salt": "ac795b631012d4845149216b955d4312",
@@ -2182,7 +2256,8 @@
       "kills": 0,
       "deaths": 0,
       "towers": 0
-    }
+    },
+    "equip": {}
   },
   "tester2_12542": {
     "salt": "31f9102466140595b9a480ade03e0ac8",
@@ -2206,7 +2281,8 @@
       "kills": 0,
       "deaths": 0,
       "towers": 0
-    }
+    },
+    "equip": {}
   },
   "dbg_98097": {
     "salt": "d53714ff01eeaa169f42ac23a0c8169d",
@@ -2230,7 +2306,8 @@
       "kills": 0,
       "deaths": 0,
       "towers": 0
-    }
+    },
+    "equip": {}
   },
   "tester0_3786": {
     "salt": "7405bcbfb1a76121cfe11e484fa92041",
@@ -2259,7 +2336,8 @@
       "deaths": 0,
       "towers": 0
     },
-    "lastDaily": "Mon Aug 24 2026"
+    "lastDaily": "Mon Aug 24 2026",
+    "equip": {}
   },
   "tester1_3883": {
     "salt": "ae3290ddd61e6c41d89093e37256ac5d",
@@ -2283,7 +2361,8 @@
       "kills": 0,
       "deaths": 0,
       "towers": 0
-    }
+    },
+    "equip": {}
   },
   "tester2_3930": {
     "salt": "f646893fd0d4220e8dc4dbec0d297952",
@@ -2307,7 +2386,8 @@
       "kills": 0,
       "deaths": 0,
       "towers": 0
-    }
+    },
+    "equip": {}
   },
   "dbg_58980": {
     "salt": "250429232cebd390def46218cb83712c",
@@ -2331,7 +2411,8 @@
       "kills": 0,
       "deaths": 0,
       "towers": 0
-    }
+    },
+    "equip": {}
   },
   "tester0_33465": {
     "salt": "09598ecf366359791a26a894a08ef9d6",
@@ -2360,7 +2441,8 @@
       "deaths": 0,
       "towers": 0
     },
-    "lastDaily": "Mon Aug 24 2026"
+    "lastDaily": "Mon Aug 24 2026",
+    "equip": {}
   },
   "tester1_33559": {
     "salt": "035d80977d528688d745d982fc23a49f",
@@ -2384,7 +2466,8 @@
       "kills": 0,
       "deaths": 0,
       "towers": 0
-    }
+    },
+    "equip": {}
   },
   "tester2_33606": {
     "salt": "43f43e28255cf62af98cc37ef1704dd4",
@@ -2408,7 +2491,8 @@
       "kills": 0,
       "deaths": 0,
       "towers": 0
-    }
+    },
+    "equip": {}
   },
   "tester0_40537": {
     "salt": "dca5da603791376972def7176d488949",
@@ -2448,7 +2532,8 @@
         "dur": 23,
         "hero": "morrow"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_40638": {
     "salt": "186c2e292979a3e4264bf6ef4c19efc1",
@@ -2483,7 +2568,8 @@
         "dur": 23,
         "hero": "seraph"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_40700": {
     "salt": "3cbc300aa654be374f116fc289c68e64",
@@ -2518,7 +2604,8 @@
         "dur": 23,
         "hero": "syon"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester0_43395": {
     "salt": "da7846b214fe58915092dfe78a3ca1c9",
@@ -2547,7 +2634,8 @@
       "deaths": 0,
       "towers": 0
     },
-    "lastDaily": "Mon Aug 24 2026"
+    "lastDaily": "Mon Aug 24 2026",
+    "equip": {}
   },
   "tester1_43490": {
     "salt": "c110634d47ccccb810b80f4c4c818623",
@@ -2571,7 +2659,8 @@
       "kills": 0,
       "deaths": 0,
       "towers": 0
-    }
+    },
+    "equip": {}
   },
   "tester2_43538": {
     "salt": "d4e20c0e65d326a951d411a8cee131ca",
@@ -2595,7 +2684,8 @@
       "kills": 0,
       "deaths": 0,
       "towers": 0
-    }
+    },
+    "equip": {}
   },
   "tester0_19513": {
     "salt": "d5cd7b244f76f1087327121495586ea6",
@@ -2624,7 +2714,8 @@
       "deaths": 0,
       "towers": 0
     },
-    "lastDaily": "Mon Aug 24 2026"
+    "lastDaily": "Mon Aug 24 2026",
+    "equip": {}
   },
   "tester1_19608": {
     "salt": "ef80c1f8e1975f53a4e162896eb5d8b0",
@@ -2648,7 +2739,8 @@
       "kills": 0,
       "deaths": 0,
       "towers": 0
-    }
+    },
+    "equip": {}
   },
   "tester2_19655": {
     "salt": "c9718c45f02b580ff600551a36ee4099",
@@ -2672,7 +2764,8 @@
       "kills": 0,
       "deaths": 0,
       "towers": 0
-    }
+    },
+    "equip": {}
   },
   "tester0_5947": {
     "salt": "2c441c37512f74e51f4bb09b70279722",
@@ -2712,7 +2805,8 @@
         "dur": 23,
         "hero": "shira"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_6052": {
     "salt": "c853249405ebb925a08d937856688304",
@@ -2747,7 +2841,8 @@
         "dur": 23,
         "hero": "grumm"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_6103": {
     "salt": "017e177feb7caf81346f952c2059182a",
@@ -2782,7 +2877,8 @@
         "dur": 23,
         "hero": "dorum"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester0_27367": {
     "salt": "27d38f65b47b7ae131101547b1ca03a0",
@@ -2822,7 +2918,8 @@
         "dur": 23,
         "hero": "braska"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_27462": {
     "salt": "a96a0fd8c204bf9948653c99766a33c2",
@@ -2857,7 +2954,8 @@
         "dur": 23,
         "hero": "lian"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_27509": {
     "salt": "4f3a349cc111539f4f0c0d6db7b54ce6",
@@ -2892,7 +2990,8 @@
         "dur": 23,
         "hero": "lunara"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester0_34138": {
     "salt": "41f6ca414f352ff3ce0eb9a674f7ed6b",
@@ -2932,7 +3031,8 @@
         "dur": 23,
         "hero": "wyn"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_34235": {
     "salt": "e3e11042ad0aaf7dd45f8f120b1a24f5",
@@ -2967,7 +3067,8 @@
         "dur": 23,
         "hero": "toruuk"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_34283": {
     "salt": "95e6847285f2a1dd4c73c0fce2d9712d",
@@ -3002,7 +3103,8 @@
         "dur": 23,
         "hero": "tova"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester0_45720": {
     "salt": "acf1db39e1f108e0dd24b028d45ab11e",
@@ -3042,7 +3144,8 @@
         "dur": 23,
         "hero": "grumm"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_45818": {
     "salt": "fc3b01ae1345b33f115229a1a3c7786e",
@@ -3077,7 +3180,8 @@
         "dur": 23,
         "hero": "vexen"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_45869": {
     "salt": "d7c1acce25a890dffbeed7d8ec05aaa5",
@@ -3112,7 +3216,8 @@
         "dur": 23,
         "hero": "helga"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester0_29322": {
     "salt": "ac73780436fd8cc8ec8776d6628001f3",
@@ -3152,7 +3257,8 @@
         "dur": 23,
         "hero": "ordo"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_29434": {
     "salt": "e6414bc3399723d758798d43dde10568",
@@ -3187,7 +3293,8 @@
         "dur": 23,
         "hero": "kavra"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_29485": {
     "salt": "2f707cc8fb056169fe7c31e5506c713a",
@@ -3222,7 +3329,8 @@
         "dur": 23,
         "hero": "kessa"
       }
-    ]
+    ],
+    "equip": {}
   },
   "probe_79033": {
     "salt": "626bcae700f4604365c101a7333cdf71",
@@ -3246,7 +3354,8 @@
       "kills": 0,
       "deaths": 0,
       "towers": 0
-    }
+    },
+    "equip": {}
   },
   "tester0_8228": {
     "salt": "6e7890994671640030ff7085da19eb47",
@@ -3286,7 +3395,8 @@
         "dur": 23,
         "hero": "mala"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_8340": {
     "salt": "bd531ed28b72c6bd3c05915ac8b53625",
@@ -3321,7 +3431,8 @@
         "dur": 23,
         "hero": "nima"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_8392": {
     "salt": "09acb0e6a42710b11a98e0aae8cdb858",
@@ -3356,7 +3467,8 @@
         "dur": 23,
         "hero": "bastion"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester0_42442": {
     "salt": "d05c9d65378f533388d569f110206c78",
@@ -3396,7 +3508,8 @@
         "dur": 23,
         "hero": "tala"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_42544": {
     "salt": "12811d25c2c6613487f08cfca7b1dffe",
@@ -3431,7 +3544,8 @@
         "dur": 23,
         "hero": "kavra"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_42596": {
     "salt": "f560b0edf7242342669a1206cd40bd29",
@@ -3466,7 +3580,8 @@
         "dur": 23,
         "hero": "zeph"
       }
-    ]
+    ],
+    "equip": {}
   },
   "gamal1": {
     "salt": "6c76c651582fedb8a59cd3a7b9bc3ea4",
@@ -3491,7 +3606,8 @@
       "deaths": 0,
       "towers": 0
     },
-    "lastDaily": "Mon Aug 24 2026"
+    "lastDaily": "Mon Aug 24 2026",
+    "equip": {}
   },
   "tester0_94968": {
     "salt": "903b2a6e0dadb2bf47144ef5c4b581b0",
@@ -3531,7 +3647,8 @@
         "dur": 23,
         "hero": "helga"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_95112": {
     "salt": "98191a257c9d2bfe4892d37bd71a2e25",
@@ -3566,7 +3683,8 @@
         "dur": 23,
         "hero": "riom"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_95178": {
     "salt": "0c4d32fb304091c1219d3504745fae2e",
@@ -3601,7 +3719,8 @@
         "dur": 23,
         "hero": "tova"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester0_10496": {
     "salt": "923911e17ee5bbf4e269a98a5d1c106e",
@@ -3641,7 +3760,8 @@
         "dur": 23,
         "hero": "dorum"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_10594": {
     "salt": "5e7603b20b9638cc777ab10bb345f4f3",
@@ -3676,7 +3796,8 @@
         "dur": 23,
         "hero": "vex"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_10643": {
     "salt": "9199199547a9151d9aebf4aae3fc32e0",
@@ -3711,7 +3832,8 @@
         "dur": 23,
         "hero": "fern"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester0_60650": {
     "salt": "8d95004c75c83969bcaca8ba0af3d4de",
@@ -3751,7 +3873,8 @@
         "dur": 23,
         "hero": "mala"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester1_60764": {
     "salt": "2330ea3b9c7a95858c00defcd5c23c2a",
@@ -3786,7 +3909,8 @@
         "dur": 23,
         "hero": "dorum"
       }
-    ]
+    ],
+    "equip": {}
   },
   "tester2_60813": {
     "salt": "7c1c121075d8f639465472b33df0a413",
@@ -3820,6 +3944,286 @@
         "a": 0,
         "dur": 23,
         "hero": "sengo"
+      }
+    ],
+    "equip": {}
+  },
+  "tester0_43386": {
+    "salt": "df6c80ed143ee28e6b8ee6999123a047",
+    "hash": "f060f6b58a58828b273c6edffa17c90a29b716541f05781e7ff442fd40995a73",
+    "created": 1787547643498,
+    "gems": 700,
+    "elo": 1000,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "equip": {
+      "vex": 2
+    },
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026"
+  },
+  "tester1_43507": {
+    "salt": "84c6f7bdd5c0db80f6c3c6de36136afc",
+    "hash": "ef10c21de4da1ff4b33be9fb5c842feef4e3d906a9067d26c71ebbb7270336e7",
+    "created": 1787547643568,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "equip": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    }
+  },
+  "tester2_43572": {
+    "salt": "4cbc6a855a09f29bc4f11d48590f234c",
+    "hash": "768ad779de73ebd15aeb1fc3188b4b8de9c300b6624705c94958a5c6136e4311",
+    "created": 1787547643624,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "equip": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    }
+  },
+  "tester0_39395": {
+    "salt": "3ef0c48ff852931a74a710457cc6da01",
+    "hash": "d77aa0e0867c3e1d84b72cfd108178cce5df4a55ec58015d0acd9299b44756d2",
+    "created": 1787547739483,
+    "gems": 700,
+    "elo": 1000,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "equip": {
+      "vex": 2
+    },
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026"
+  },
+  "tester1_39492": {
+    "salt": "97c51523abf3f5f36cd39f585547039b",
+    "hash": "05e64152839c2501ba6d63d807c0b12a87aaa1ee86e298fdf600201d1fe2a371",
+    "created": 1787547739539,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "equip": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    }
+  },
+  "tester2_39542": {
+    "salt": "0dba8404d54a5812b4bc90790bbee26c",
+    "hash": "b7e2a4207fd75214ea467987396fcd9976843fa3d7ce79f9743ec9ad971ecec9",
+    "created": 1787547739586,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "equip": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    }
+  },
+  "tester0_94139": {
+    "salt": "daa5892b3d16977d51f09155754a8eb1",
+    "hash": "871d77af91f2db992ecd785d3fbce9ccfdb9703e44f14bf0fb7b01dd8176f7f2",
+    "created": 1787547894226,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "equip": {
+      "vex": 2
+    },
+    "friends": [],
+    "guild": "T924",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026",
+    "history": [
+      {
+        "d": 1787547947593,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "lian"
+      }
+    ]
+  },
+  "tester1_94235": {
+    "salt": "a36c331c81febe3abcaa8b28316abdb7",
+    "hash": "12a1c662669bf6c77242ed24a58a9f7544d9c8eaa085684e5b618a861abe1de7",
+    "created": 1787547894280,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "equip": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787547947593,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "bastion"
+      }
+    ]
+  },
+  "tester2_94283": {
+    "salt": "aedf0cc798985840982188adaf98a23e",
+    "hash": "4c35fc0c178a52fef61bf4a06ee8927f62d251c8879ff1eed72bf415957a81b9",
+    "created": 1787547894322,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "equip": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787547947593,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "braska"
       }
     ]
   }

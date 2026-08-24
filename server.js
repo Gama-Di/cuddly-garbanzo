@@ -90,6 +90,7 @@ function loadUsers() {
     if (!u.elo) u.elo = 1000;
     if (!u.skins) u.skins = {};          // heroId -> [ownedSkinIdx, ...]
     if (!u.friends) u.friends = [];
+    if (!u.equip) u.equip = {};          // heroId -> skinIdx (validated vs ownership)
     if (!u.bp) u.bp = { season: SEASON, xp: 0, tier: 0, premium: false };
     if (u.guild && !guilds[u.guild]) u.guild = null;
   }
@@ -114,7 +115,7 @@ function register(username, password) {
   users[username] = {
     salt, hash: hashPw(password, salt),
     created: Date.now(),
-    gems: 500, elo: 1000, skins: {}, friends: [], guild: null,
+    gems: 500, elo: 1000, skins: {}, equip: {}, friends: [], guild: null,
     bp: { season: SEASON, xp: 0, tier: 0, premium: false },
     stats: { games: 0, wins: 0, losses: 0, kills: 0, deaths: 0, towers: 0 },
   };
@@ -488,7 +489,7 @@ class Draft {
     const usedNames = new Set();
     const botNames = AI_NAMES.slice().sort(() => Math.random() - 0.5);
     for (const p of players) {
-      this.teams[p.team].push({ name: p.username, conn: p.conn, bot: false, heroId: null });
+      this.teams[p.team].push({ name: p.username, conn: p.conn, bot: false, heroId: null, skinIdx: null });
       usedNames.add(p.username);
     }
     for (let t = 0; t < 2; t++) {
@@ -548,8 +549,8 @@ class Draft {
       actorIsBot: turn ? turn.actor.bot : true,
       timerEnds: this.turnAt + (this.mode === 'ranked' ? (this.step < 2 ? 14000 : 20000) : 16000),
       bans: this.bans,
-      picks: [this.teams[0].map(s => ({ name: s.name, heroId: s.heroId, bot: s.bot })),
-              this.teams[1].map(s => ({ name: s.name, heroId: s.heroId, bot: s.bot }))],
+      picks: [this.teams[0].map(s => ({ name: s.name, heroId: s.heroId, bot: s.bot, sk: s.skinIdx === null ? undefined : s.skinIdx })),
+              this.teams[1].map(s => ({ name: s.name, heroId: s.heroId, bot: s.bot, sk: s.skinIdx === null ? undefined : s.skinIdx }))],
       available: this.available(turn ? turn.team : 0),
     };
   }
@@ -575,7 +576,7 @@ class Draft {
     }
     return pool[Math.floor(Math.random() * pool.length)];
   }
-  apply(type, heroId, byName) {
+  apply(type, heroId, byName, skinIdx) {
     const turn = this.currentTurn();
     if (!turn) return false;
     if (byName !== undefined && turn.actor.name !== byName) return false;
@@ -585,6 +586,20 @@ class Draft {
       this.banIdx[turn.team]++;
     } else {
       turn.actor.heroId = heroId;
+      if (skinIdx === undefined || skinIdx === null) {
+        // default: the player's equipped skin (validated against ownership)
+        const uRec = users[turn.actor.name];
+        let sk = 0;
+        if (uRec && uRec.equip && uRec.equip[heroId] !== undefined) {
+          const owned = (uRec.skins && uRec.skins[heroId]) || [];
+          sk = owned.includes(uRec.equip[heroId]) ? uRec.equip[heroId] : 0;
+        }
+        turn.actor.skinIdx = sk;
+      } else {
+        const uRec = users[turn.actor.name];
+        const owned = (uRec && uRec.skins && uRec.skins[heroId]) || [];
+        turn.actor.skinIdx = owned.includes(skinIdx) ? skinIdx : 0;
+      }
       this.pickIdx[turn.team]++;
     }
     this.step++;
@@ -633,7 +648,7 @@ class Draft {
     if (m.t === 'draftBan' || m.t === 'draftPick') {
       if (!conn.user) return;
       const heroId = String(m.heroId || '');
-      this.apply(m.t === 'draftBan' ? 'ban' : 'pick', heroId, conn.user.username);
+      this.apply(m.t === 'draftBan' ? 'ban' : 'pick', heroId, conn.user.username, m.skinIdx);
     }
   }
   onLeave(conn) {
@@ -668,7 +683,7 @@ class Match {
     this.heroByConn = new Map();
     this.done = false;
 
-    const humans = players.map((p, i) => ({ name: displayName(p.username), heroId: p.heroId, team: p.team !== undefined ? p.team : i % 2, username: p.username }));
+    const humans = players.map((p, i) => ({ name: displayName(p.username), heroId: p.heroId, team: p.team !== undefined ? p.team : i % 2, username: p.username, skinIdx: p.skinIdx !== undefined ? p.skinIdx : undefined }));
     const botDefs = (botRoster || []).map(b => ({ name: b.name, heroId: b.heroId, team: b.team }));
     this.game = new Game(null, true, { humans, bots: botDefs });
     this.game.onEvent = (e) => { if (this.events.length < 40) this.events.push(e); };
@@ -903,6 +918,8 @@ class Match {
       if (un.kind === 'hero') {
         base.d = un.def.id; base.n = un.name; base.l = un.level; base.f = Math.round(un.facing * 100);
         base.kd = un.kills; base.dd = un.deaths; base.ad = un.assists; base.ge = Math.floor(un.goldEarned);
+        base.sk = un.skinIdx !== undefined ? un.skinIdx : 0;
+        base.dm = Math.round(un.dmgDealt);
         if (un.shieldVal > 1) base.sh = Math.round(un.shieldVal);
         if (un.stunT > 0) base.st = 1;
         if (un.slowT > 0) base.sl = 1;
@@ -1097,7 +1114,7 @@ async function handleApi(req, res, url) {
     const u = userForToken(token);
     if (!u) return json(res, 401, { ok: false });
     const rec = users[u.username];
-    return json(res, 200, { ok: true, username: u.username, stats: u.stats, gems: rec.gems, elo: rec.elo, skins: rec.skins, history: rec.history || [] });
+    return json(res, 200, { ok: true, username: u.username, stats: u.stats, gems: rec.gems, elo: rec.elo, skins: rec.skins, equip: rec.equip || {}, history: rec.history || [] });
   }
   if (url.pathname === '/api/shop/buy' && req.method === 'POST') {
     const b = await readBody(req);
@@ -1115,6 +1132,8 @@ async function handleApi(req, res, url) {
     rec.gems -= price;
     owned.push(idx);
     rec.skins[hero.id] = owned;
+    if (!rec.equip) rec.equip = {};
+    if (rec.equip[hero.id] === undefined) rec.equip[hero.id] = idx;
     saveUsers();
     console.log(`[shop] ${u.username} bought ${hero.id} skin#${idx} for ${price} gems (${rec.gems} left)`);
     return json(res, 200, { ok: true, gems: rec.gems, skins: rec.skins });
@@ -1246,6 +1265,23 @@ async function handleApi(req, res, url) {
       console.log(`[bp] ${u.username} bought the premium pass`);
     }
     return json(res, 200, { ok: true, bp: rec.bp, gems: rec.gems });
+  }
+  if (url.pathname === '/api/equip' && req.method === 'POST') {
+    const b = await readBody(req);
+    const u = userForToken(b.token || (req.headers.authorization || '').replace(/^Bearer\s+/i, ''));
+    if (!u) return json(res, 401, { ok: false });
+    const rec = users[u.username];
+    const hero = HEROES.find(h => h.id === b.heroId);
+    const idx = [0, 1, 2, 3, 4, 5, 6, 7].includes(b.skinIdx) ? b.skinIdx : 0;
+    if (!hero) return json(res, 400, { ok: false, error: 'bad request' });
+    if (idx !== 0) {
+      const owned = (rec.skins && rec.skins[hero.id]) || [];
+      if (!owned.includes(idx)) return json(res, 400, { ok: false, error: 'Skin not owned' });
+    }
+    if (!rec.equip) rec.equip = {};
+    rec.equip[hero.id] = idx;
+    saveUsers();
+    return json(res, 200, { ok: true, equip: rec.equip });
   }
   if (url.pathname === '/api/replays') {
     return json(res, 200, { ok: true, replays: replayIndex() });

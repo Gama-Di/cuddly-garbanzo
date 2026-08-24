@@ -68,12 +68,17 @@ function currentTheme() {
 
 /* cosmetic skins: hue-shift variants of the hero's art */
 const SKINS = [
-  { id: 'classic', name: 'Classic', hue: 0, price: 0 },
-  { id: 'emerald', name: 'Emerald Ward', hue: 115, price: 300 },
-  { id: 'frost', name: 'Frostfall', hue: 195, price: 400 },
-  { id: 'inferno', name: 'Inferno', hue: 305, price: 600 },
+  { id: 'classic', name: 'Classic', hue: 0, price: 0, filter: '' },
+  { id: 'emerald', name: 'Emerald Ward', hue: 115, price: 300, filter: 'hue-rotate(115deg) saturate(1.1)' },
+  { id: 'frost', name: 'Frostfall', hue: 195, price: 400, filter: 'hue-rotate(195deg) saturate(1.15) brightness(1.05)' },
+  { id: 'inferno', name: 'Inferno', hue: 305, price: 600, filter: 'hue-rotate(305deg) saturate(1.3)' },
+  { id: 'golden', name: 'Radiant Gold', hue: 45, price: 800, filter: 'hue-rotate(45deg) saturate(1.6) brightness(1.12)' },
+  { id: 'void', name: 'Void-touched', hue: 265, price: 800, filter: 'hue-rotate(265deg) saturate(1.35) brightness(0.92)' },
+  { id: 'sakura', name: 'Sakura Bloom', hue: 330, price: 500, filter: 'hue-rotate(330deg) saturate(1.25) brightness(1.06)' },
+  { id: 'abyss', name: 'Abyssal Deep', hue: 220, price: 500, filter: 'hue-rotate(220deg) saturate(1.2) brightness(0.88)' },
 ];
 const SKIN_PRICES = SKINS.map(s => s.price);
+const skinFilter = (idx) => (SKINS[idx] && SKINS[idx].filter) || '';
 
 /* bushes: stealth zones (units inside are hidden unless enemies are close) */
 const BUSHES = [
@@ -87,21 +92,31 @@ const BUSHES = [
 function equippedSkin(heroId) {
   if (HEADLESS) return 0;
   try {
-    const v = parseInt(localStorage.getItem('aa_skin_' + heroId) || '0', 10);
+    let v = parseInt(localStorage.getItem('aa_skin_' + heroId) || '0', 10);
+    if (isNaN(v)) v = 0;
     return (v >= 0 && v < SKINS.length) ? v : 0;
   } catch (e) { return 0; }
 }
 function skinHueFilter(heroId) {
-  const s = SKINS[equippedSkin(heroId)];
-  return s.hue ? `hue-rotate(${s.hue}deg) saturate(1.08)` : '';
+  return skinFilter(equippedSkin(heroId));
 }
-function makeVariant(img, hue) {
+function makeVariant(img, filter) {
   const c = document.createElement('canvas');
   c.width = img.width; c.height = img.height;
   const x = c.getContext('2d');
-  if (hue) x.filter = `hue-rotate(${hue}deg) saturate(1.08)`;
+  if (filter) x.filter = filter;
   x.drawImage(img, 0, 0);
   return c;
+}
+/* lazy skin-variant cache: (heroId|skinIdx) -> canvas/image */
+const SKIN_VARIANTS = {};
+function skinVariant(heroId, idx) {
+  const key = heroId + '|' + idx;
+  if (SKIN_VARIANTS[key] !== undefined) return SKIN_VARIANTS[key];
+  const base = SPRITES_FULL[heroId] || SPRITES[heroId];
+  if (!base) { SKIN_VARIANTS[key] = null; return null; }
+  SKIN_VARIANTS[key] = idx === 0 ? base : makeVariant(base, skinFilter(idx));
+  return SKIN_VARIANTS[key];
 }
 function tintImage(img, color, alpha) {
   const c = document.createElement('canvas');
@@ -1436,6 +1451,7 @@ class Game {
     const roles = ['lane', 'lane', 'lane', 'jungle'];
     const lanes = [1, 0, 2, 2, 1];
     const p = new Hero(this, 0, playerDef, t0.x + 60, t0.y - 60, 'You', true);
+    p.skinIdx = equippedSkin(playerDef.id);
     p.brain = this.headless ? new Brain(this, p, 'lane', 1, 0.6) : null;
     this.heroes[0].push(p); this.units.push(p);
     for (let i = 0; i < 4; i++) {
@@ -1475,6 +1491,7 @@ class Game {
         const hm = teamHumans[slot];
         if (hm) {
           const h = new Hero(this, team, heroById(hm.heroId), t.x + rand(-60, 100), t.y - 60 + rand(-60, 60), hm.name, false);
+          if (hm.skinIdx !== undefined && hm.skinIdx !== null) h.skinIdx = hm.skinIdx;
           h.netInput = { move: null };
           h.humanLaneIdx = laneIdx;
           this.humans.push(h);
@@ -2512,6 +2529,7 @@ class Game {
         m.def = heroById(u.d); m.name = u.n; m.level = u.l; m.facing = (u.f || 0) / 100;
         m.serverX = m.x; m.serverY = m.y;
         m.kills = u.kd || 0; m.deaths = u.dd || 0; m.assists = u.ad || 0; m.goldEarned = u.ge || 0;
+        m.skinIdx = u.sk || 0; m.dmgDealt = u.dm || 0;
         m.shieldVal = u.sh || 0; m.stunT = u.st || 0; m.slowT = u.sl || 0; m.buffRedT = u.rb || 0;
         m.respT = u.rs || 0; m.isPlayer = (u.i === this.youId);
         m.mana = 1; m.maxMana = 1;
@@ -3391,10 +3409,10 @@ class Game {
     return this.fogCv;
   }
   skinSprite(u) {
-    if (u.isPlayer && SKIN_CACHE[u.def.id]) {
-      return SKIN_CACHE[u.def.id][equippedSkin(u.def.id)] || SPRITES_FULL[u.def.id];
-    }
-    return SPRITES_FULL[u.def.id];
+    const idx = (u.skinIdx !== undefined && u.skinIdx !== null) ? u.skinIdx
+      : (u.isPlayer ? equippedSkin(u.def.id) : 0);
+    if (idx === 0) return SPRITES_FULL[u.def.id];
+    return skinVariant(u.def.id, idx) || SPRITES_FULL[u.def.id];
   }
   drawUnit(ctx, u) {
     // shadow
@@ -3452,8 +3470,9 @@ class Game {
           }
         }
       } else {
-        /* ---- fallback: portrait token ---- */
-        const spr = SPRITES[u.def.id];
+        /* ---- fallback: portrait token (skin-aware) ---- */
+        const skIdx = (u.skinIdx !== undefined && u.skinIdx !== null) ? u.skinIdx : (u.isPlayer ? equippedSkin(u.def.id) : 0);
+        const spr = (skIdx > 0 && skinVariant(u.def.id, skIdx)) || SPRITES[u.def.id];
         if (spr) {
           ctx.save();
           ctx.beginPath(); ctx.arc(u.x, u.y, u.r + 5, 0, TAU); ctx.clip();
@@ -3946,6 +3965,63 @@ function riftifyText(main) {
     .replace('TURTLE', 'DRAGON').replace('Turtle', 'Dragon');
 }
 
+/* ---------- hero attribute panel ---------- */
+function openHeroInfo(heroId) {
+  const h = heroById(heroId);
+  const s = h.def ? h : h;   // h is the hero def here
+  const st = h.stats;
+  const lvl15 = (k, kL) => Math.round(st[k] + st[kL] * 14);
+  const bar = (label, v, max, color) => `
+    <div class="ai-row"><span class="ai-label">${label}</span>
+      <div class="ai-bar"><i style="width:${Math.min(100, v / max * 100)}%;background:${color}"></i></div>
+      <span class="ai-val">${v}</span></div>`;
+  const skills = h.skills.map((sk, i) => `
+    <div class="ai-skill">
+      <b>${sk.icon} ${sk.name} ${i === 3 ? '<span class="ai-ult">ULT</span>' : ''}</b>
+      <small>${sk.unlock ? 'Unlocks Lv' + sk.unlock + ' · ' : ''}⏱ ${sk.cd}s · 🔵 ${sk.mana}</small>
+      <div class="ai-desc">${sk.desc}</div>
+    </div>`).join('');
+  const html = `
+    <div class="ai-head">
+      <img class="ai-face" src="img/${h.id}.png" data-emoji="${h.emoji}">
+      <div>
+        <div class="ai-title">${h.emoji} ${h.name} <small>· ${h.title}</small></div>
+        <div class="ai-role">${h.role}</div>
+      </div>
+    </div>
+    <div class="ai-grid">
+      <div class="ai-col">
+        <div class="ai-sec">ATTRIBUTES (Lv1 → Lv15)</div>
+        ${bar('❤️ HP', st.hp + st.hpL * 0 + ' → ' + lvl15('hp', 'hpL'), 4000, '#4ade80')}
+        ${bar('⚔️ ATK', st.atk + ' → ' + lvl15('atk', 'atkL'), 260, '#f87171')}
+        ${bar('🛡 DEF', st.def + ' → ' + lvl15('def', 'defL'), 210, '#60a5fa')}
+        ${bar('⚡ ASPD', st.aspd.toFixed(2) + ' → ' + (st.aspd + st.aspdL * 14).toFixed(2), 2.2, '#fbbf24')}
+        ${bar('👟 SPEED', st.ms, 300, '#a78bfa')}
+        ${bar('📏 RANGE', st.range, 480, '#7dd3fc')}
+        ${bar('🔮 MANA', st.mana + ' → ' + lvl15('mana', 'manaL'), 1400, '#38bdf8')}
+      </div>
+      <div class="ai-col">
+        <div class="ai-sec">☆ PASSIVE — ${h.passive.name}</div>
+        <div class="ai-desc">${h.passive.desc}</div>
+        <div class="ai-sec">SKILLS</div>
+        ${skills}
+      </div>
+    </div>`;
+  if (window.Lobby) {
+    Lobby.modal(`<h2>📖 Hero Attributes</h2>${html}<button class="modal-close">Close</button>`);
+    const m = document.getElementById('modal');
+    const fi = m.querySelector('img.ai-face');
+    if (fi) fi.onerror = function () {
+      const d = document.createElement('div');
+      d.className = 'ai-face';
+      d.style.cssText = 'display:flex;align-items:center;justify-content:center;font-size:34px';
+      d.textContent = this.dataset.emoji;
+      this.replaceWith(d);
+    };
+    m.querySelector('.modal-close').addEventListener('click', () => Lobby.closeModal());
+  }
+}
+
 /* stats summary that works for real heroes AND mirror (network) hero objects */
 function statLineFor(p) {
   const s = p.def.stats, lvl = (p.level || 1) - 1, it = p.items || {};
@@ -4107,6 +4183,7 @@ function buildSelectScreen() {
             return;
           }
           try { localStorage.setItem('aa_skin_' + h.id, String(si)); } catch (err) {}
+          if (typeof net !== 'undefined' && net && net.equipSkin) net.equipSkin(h.id, si);
           dots.querySelectorAll('.hc-skin').forEach(x => x.classList.remove('on'));
           d.classList.add('on');
           if (img && img.style.display !== 'none') img.style.filter = skinHueFilter(h.id);
@@ -4115,6 +4192,12 @@ function buildSelectScreen() {
       });
       c.appendChild(dots);
     }
+    const info = document.createElement('div');
+    info.className = 'hc-info';
+    info.textContent = '📖';
+    info.title = 'View attributes';
+    info.addEventListener('click', (e) => { e.stopPropagation(); openHeroInfo(h.id); });
+    c.appendChild(info);
     c.addEventListener('click', () => {
       selectedHero = h.id;
       grid.querySelectorAll('.hero-card').forEach(x => x.classList.remove('sel'));
@@ -4157,12 +4240,60 @@ function showEndScreen(g) {
     document.getElementById('end-title').style.color = win ? '#4ade80' : '#f87171';
     const p = g.player;
     document.getElementById('end-sub').textContent = `${fmtTime(g.time)} · Blue ${g.kills[0]} — ${g.kills[1]} Red`;
+
+    // gather hero performance (mirror or solo)
+    const heroes = [];
+    for (let t = 0; t < 2; t++) {
+      for (const h of (g.heroes && g.heroes[t]) || []) {
+        heroes.push({ name: h.name, heroId: h.def ? h.def.id : h.heroId, team: t, bot: !!h.bot,
+          k: h.kills || h.kd || 0, d: h.deaths || h.dd || 0, a: h.assists || h.ad || 0, dm: h.dmgDealt || h.dm || 0, sk: h.skinIdx || 0 });
+      }
+    }
+    // MVP: best score on the winning team
+    let mvp = null, best = -1;
+    for (const h of heroes) {
+      if (h.team !== g.winner) continue;
+      const score = h.k * 3 + h.a + h.dm / 1200;
+      if (score > best) { best = score; mvp = h; }
+    }
+    const mvpHtml = mvp ? `
+      <div class="mvp-card">
+        <img class="mvp-face" src="img/${mvp.heroId}.png" data-emoji="⭐" style="filter:${skinFilter(mvp.sk || 0)}">
+        <div style="flex:1;text-align:left">
+          <div class="mvp-tag">🏆 MATCH MVP</div>
+          <b style="font-size:16px">${mvp.name}</b>
+          <div style="font-size:12px;color:#9fb4da">${mvp.k}/${mvp.d}/${mvp.a} · ${Math.round(mvp.dm).toLocaleString()} damage</div>
+        </div>
+      </div>` : '';
+    const mvpImg = document.getElementById('end-screen').querySelector('.mvp-face');
+    // damage recap (top 8)
+    const top = heroes.slice().sort((a, b) => b.dm - a.dm).slice(0, 8);
+    const maxDm = Math.max(1, ...top.map(h => h.dm));
+    const chart = top.map(h => `
+      <div class="dmg-row">
+        <span style="width:120px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:${TEAM_COLORS[h.team]}">${h.name}</span>
+        <div class="dmg-bar"><i style="width:${Math.round(h.dm / maxDm * 100)}%;background:${TEAM_COLORS[h.team]}"></i></div>
+        <span style="width:70px;text-align:right;font-size:11px">${(h.dm / 1000).toFixed(1)}k</span>
+      </div>`).join('');
+
     document.getElementById('end-stats').innerHTML = [
       [`${p.kills} / ${p.deaths} / ${p.assists}`, 'K / D / A'],
       [Math.floor(p.goldEarned), 'GOLD EARNED'],
       [Math.floor(p.dmgDealt), 'DAMAGE DEALT'],
       ['Lv ' + p.level, 'FINAL LEVEL'],
     ].map(s => `<div><b>${s[0]}</b><span>${s[1]}</span></div>`).join('');
+    const extra = document.getElementById('end-extra');
+    if (extra) {
+      extra.innerHTML = mvpHtml + (chart ? `<div style="font-size:10.5px;letter-spacing:2px;color:#7c8db0;margin:4px 0 8px">DAMAGE RECAP</div>${chart}` : '');
+      const mi = extra.querySelector('img.mvp-face');
+      if (mi) mi.onerror = function () {
+        const d = document.createElement('div');
+        d.className = 'mvp-face';
+        d.style.cssText = 'display:flex;align-items:center;justify-content:center;font-size:26px';
+        d.textContent = this.dataset.emoji;
+        this.replaceWith(d);
+      };
+    }
     document.getElementById('game-screen').classList.remove('on');
     document.getElementById('end-screen').classList.add('on');
   }, 1400);

@@ -58,13 +58,23 @@ class Net {
     const st = document.getElementById('auth-status');
     if (st) st.textContent = '⚠️ Could not reach the server — try logging in again';
   }
+  async equipSkin(heroId, idx) {
+    if (!this.online || !this.me) return;
+    this.me.equip = this.me.equip || {};
+    this.me.equip[heroId] = idx;
+    try {
+      await fetch('/api/equip', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: this.token, heroId, skinIdx: idx }) });
+    } catch (e) {}
+  }
+
   async refreshMe() {
     if (!this.token) return;
     try {
       const r = await fetch('/api/me?token=' + encodeURIComponent(this.token));
       const j = await r.json();
       if (j.ok) {
-        this.me = { gems: j.gems, elo: j.elo, skins: j.skins || {}, stats: j.stats, history: j.history || [] };
+        this.me = { gems: j.gems, elo: j.elo, skins: j.skins || {}, equip: j.equip || {}, stats: j.stats, history: j.history || [] };
         this.username = j.username;
         if (this.online && typeof UI !== 'undefined') UI.updateBanner();
         // daily login reward
