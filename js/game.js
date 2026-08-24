@@ -2900,6 +2900,25 @@ class Game {
       }
     }
   }
+  tryBuy(it) {
+    const p = this.player;
+    if (!p) return;
+    if (this.mode === 'mirror') {
+      if (this.net && this.net.sendBuy) this.net.sendBuy(it.id);
+      return;
+    }
+    if (!p.canBuy(it)) {
+      const note = document.getElementById('shop-note');
+      if (p.gold < it.cost) { if (note) note.textContent = 'Not enough gold!'; }
+      else if ((p.items[it.id] || 0) >= (it.max || 1)) { if (note) note.textContent = 'Max stacks owned!'; }
+      else if (it.builds && !p.hasComponents(it)) { if (note) note.textContent = 'Buy the recipe components first!'; }
+      else if (note) note.textContent = 'Return to base (or die) to buy items!';
+      return;
+    }
+    p.buy(it);
+    this.sfx.play('gold');
+    this.refreshShop();
+  }
   canBuyMirror(p, it) {
     // shared affordability check that works on mirror heroes too
     const owned = p.items[it.id] || 0;

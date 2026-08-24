@@ -3467,5 +3467,30 @@
         "hero": "zeph"
       }
     ]
+  },
+  "gamal1": {
+    "salt": "6c76c651582fedb8a59cd3a7b9bc3ea4",
+    "hash": "e73d7e179e9eb72de119fb0e8d5aeb02e6eb211c5493230f07cbf06a80afb9bd",
+    "created": 1787544088945,
+    "gems": 600,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026"
   }
 }
