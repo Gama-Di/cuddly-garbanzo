@@ -54,18 +54,20 @@ const Flow = {
         clearInterval(iv);
         bar.style.width = '100%'; pct.textContent = '100%';
         tap.style.display = 'block';
-        const go = () => {
+        let resolved = false;
+        const finish = () => {
+          if (resolved) return;
+          resolved = true;
           menuSfx.resume(); menuSfx.play('announce');
-          if (!net.token) Flow.screen('auth');
-          else if (net.online) Flow.showMenu();
-          else {
-            // wait briefly for hello; fall back to login if the server is unreachable
-            const w = setInterval(() => {
-              if (net.online) { clearInterval(w); Flow.showMenu(); }
-              else if (net.helloFailed) { clearInterval(w); Flow.screen('auth'); net.refreshMenuHint(); }
-            }, 250);
-            setTimeout(() => { clearInterval(w); if (!net.online && !net.helloFailed) net.reconnect(); }, 6000);
-          }
+          if (net.online) Flow.showMenu();
+          else Flow.screen('auth');
+        };
+        const go = () => {
+          if (!net.token || net.online) { finish(); return; }
+          const w = setInterval(() => {
+            if (net.online || net.helloFailed) { clearInterval(w); finish(); }
+          }, 200);
+          setTimeout(() => { clearInterval(w); finish(); }, 6000);   // NEVER hang on the splash
         };
         tap.addEventListener('click', go, { once: true });
         tap.addEventListener('touchstart', (e) => { e.preventDefault(); go(); }, { once: true });

@@ -97,5 +97,23 @@
    "tester0_34138"
   ],
   "created": 1787542185032
+ },
+ "T808": {
+  "tag": "T808",
+  "name": "Test Guild T808",
+  "owner": "tester0_45720",
+  "members": [
+   "tester0_45720"
+  ],
+  "created": 1787542595811
+ },
+ "T833": {
+  "tag": "T833",
+  "name": "Test Guild T833",
+  "owner": "tester0_29322",
+  "members": [
+   "tester0_29322"
+  ],
+  "created": 1787542680836
  }
 }

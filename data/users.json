@@ -3003,5 +3003,225 @@
         "hero": "tova"
       }
     ]
+  },
+  "tester0_45720": {
+    "salt": "acf1db39e1f108e0dd24b028d45ab11e",
+    "hash": "ebdcdc3aa5cbf72f851ee0556866adac582ed616e4910e2ecc124f5945746225",
+    "created": 1787542545809,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "T808",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026",
+    "history": [
+      {
+        "d": 1787542597479,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "grumm"
+      }
+    ]
+  },
+  "tester1_45818": {
+    "salt": "fc3b01ae1345b33f115229a1a3c7786e",
+    "hash": "0920a9042e9d400267ff371ec392122f80b217d8eb4d06e4308a0debba0c77b4",
+    "created": 1787542545866,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787542597479,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "vexen"
+      }
+    ]
+  },
+  "tester2_45869": {
+    "salt": "d7c1acce25a890dffbeed7d8ec05aaa5",
+    "hash": "9384081897fcd6aa286083165310b083ef5dafe665cb92a3cf68f1adf3dace1f",
+    "created": 1787542545911,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787542597479,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "helga"
+      }
+    ]
+  },
+  "tester0_29322": {
+    "salt": "ac73780436fd8cc8ec8776d6628001f3",
+    "hash": "cdd1553aaa47dc3386f8c647dd8046824a13eb72d598bb129339a3ebb97a4be2",
+    "created": 1787542629426,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "T833",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026",
+    "history": [
+      {
+        "d": 1787542682468,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "ordo"
+      }
+    ]
+  },
+  "tester1_29434": {
+    "salt": "e6414bc3399723d758798d43dde10568",
+    "hash": "62bc5e08b1f9d8732dbe063b079e92d72300d6f18151959a5549efc6e029a097",
+    "created": 1787542629482,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787542682468,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "kavra"
+      }
+    ]
+  },
+  "tester2_29485": {
+    "salt": "2f707cc8fb056169fe7c31e5506c713a",
+    "hash": "a7f7f21b4eed774e8976bc7655b501f482d6c6efef74d03d4cb6539860cf91ff",
+    "created": 1787542629527,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787542682468,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "kessa"
+      }
+    ]
   }
 }

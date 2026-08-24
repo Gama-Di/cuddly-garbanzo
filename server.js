@@ -59,7 +59,25 @@ const SNAP_EVERY = 3;          // snapshot every 3 ticks (~10 Hz)
 /* ================================================================
  * Accounts
  * ================================================================ */
-const sessions = new Map();    // token -> username
+const sessions = new Map();    // token -> username (persisted to data/sessions.json)
+const SESSIONS_FILE = path.join(DATA_DIR, 'sessions.json');
+function loadSessions() {
+  try {
+    const s = JSON.parse(fs.readFileSync(SESSIONS_FILE, 'utf8'));
+    for (const [t, u] of Object.entries(s)) sessions.set(t, u);
+  } catch (e) {}
+}
+let sessionSaveT = 0;
+function saveSessions() {
+  const now = Date.now();
+  if (now - sessionSaveT < 2000) return;   // debounce
+  sessionSaveT = now;
+  try {
+    const out = {};
+    for (const [t, u] of sessions.entries()) out[t] = u;
+    fs.writeFileSync(SESSIONS_FILE, JSON.stringify(out));
+  } catch (e) {}
+}
 let users = {};                // username -> {salt, hash, stats}
 
 function loadUsers() {
@@ -114,6 +132,7 @@ function login(username, password) {
 function issueToken(username) {
   const token = crypto.randomBytes(24).toString('hex');
   sessions.set(token, username);
+  saveSessions();
   return { ok: true, token, username, stats: users[username].stats };
 }
 function userForToken(token) {
@@ -1286,6 +1305,9 @@ setInterval(() => {
 }, 30000);
 
 loadUsers();
+loadSessions();
+for (const [t, u] of Array.from(sessions.entries())) if (!users[u]) sessions.delete(t);
+setInterval(saveSessions, 60000);
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`⚔️  Aether Arena server → http://0.0.0.0:${PORT}`);
   console.log(`   accounts: ${Object.keys(users).length} registered · engine heroes: ${HEROES.length}`);

@@ -602,6 +602,17 @@
   📲 <b>Install Aether Arena</b> — add to home screen for the full-screen app!
 </div>
 
+<div id="errbar" style="display:none;position:fixed;top:0;left:0;right:0;z-index:99;background:#7f1d1d;color:#fff;font:12px monospace;padding:6px 12px;white-space:pre-wrap;"></div>
+<script>
+  window.addEventListener('error', function (e) {
+    var bar = document.getElementById('errbar');
+    if (bar) { bar.style.display = 'block'; bar.textContent = 'Error: ' + (e.message || 'unknown') + (e.filename ? ' @' + e.filename.split('/').pop() + ':' + e.lineno : ''); }
+  });
+  window.addEventListener('unhandledrejection', function (e) {
+    var bar = document.getElementById('errbar');
+    if (bar) { bar.style.display = 'block'; bar.textContent = 'Promise: ' + (e.reason && e.reason.message ? e.reason.message : e.reason); }
+  });
+</script>
 <script src="js/util.js"></script>
 <script>
   // PWA: register service worker + show install hint
