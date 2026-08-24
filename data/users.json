@@ -4226,5 +4226,120 @@
         "hero": "braska"
       }
     ]
+  },
+  "tester0_66541": {
+    "salt": "8fe80d96c9e836c4ca8cd53aaa739884",
+    "hash": "e91ed58156857568dbb0394e49af21e37478f6f3a4589b7e32450033a7dc8248",
+    "created": 1787549466632,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "equip": {
+      "vex": 2
+    },
+    "friends": [],
+    "guild": "T954",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026",
+    "history": [
+      {
+        "d": 1787549518607,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "bric"
+      }
+    ]
+  },
+  "tester1_66642": {
+    "salt": "6d996d36e853795fb86e21b97fec0457",
+    "hash": "cbc71432336a0fe847e7d2ae2d43090199b100e387da8e887f3589c175c27f7a",
+    "created": 1787549466690,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "equip": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787549518607,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "braska"
+      }
+    ]
+  },
+  "tester2_66693": {
+    "salt": "c80ae48f5a1ecf3c579ed2209bae722f",
+    "hash": "33212a5239109c2c1d7dcf52367b120438111a7a4ef74d811234955c04cc1dc4",
+    "created": 1787549466737,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "equip": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787549518607,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "braska"
+      }
+    ]
   }
 }

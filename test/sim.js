@@ -14,6 +14,7 @@ const load = (f) => vm.runInContext(fs.readFileSync(path.join(__dirname, '..', '
 load('util.js');
 load('heroes.js');
 load('heroes2.js');
+load('heroes3.js');
 load('game.js');
 
 const heroId = process.argv[2] || 'kael';

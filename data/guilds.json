@@ -169,5 +169,14 @@
    "tester0_94139"
   ],
   "created": 1787547945929
+ },
+ "T954": {
+  "tag": "T954",
+  "name": "Test Guild T954",
+  "owner": "tester0_66541",
+  "members": [
+   "tester0_66541"
+  ],
+  "created": 1787549516957
  }
 }

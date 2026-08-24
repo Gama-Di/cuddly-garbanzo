@@ -17,7 +17,7 @@ const path = require('path');
 
 /* load the shared game engine (shared context, like the sim harness) */
 const vm = require('vm');
-for (const f of ['util.js', 'heroes.js', 'heroes2.js', 'game.js']) {
+for (const f of ['util.js', 'heroes.js', 'heroes2.js', 'heroes3.js', 'game.js']) {
   vm.runInThisContext(fs.readFileSync(path.join(__dirname, 'js', f), 'utf8'), { filename: f });
 }
 const { Game, HEROES, ITEMS, heroById, SKINS, SKIN_PRICES } = globalThis;
