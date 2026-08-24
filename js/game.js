@@ -619,7 +619,8 @@ class Hero extends Unit {
     const spd = this.ms * (this.slowT > 0 ? (1 - this.slowPct) : 1);
     if (mx || my) {
       const l = Math.hypot(mx, my) || 1;
-      const vx = (mx / l) * spd, vy = (my / l) * spd;
+      const mag = Math.min(1, l);          // analog: half-stick = half speed
+      const vx = (mx / l) * spd * mag, vy = (my / l) * spd * mag;
       this.x += vx * dt; this.y += vy * dt;
       this.facing = Math.atan2(vy, vx);
       this.vx = vx; this.vy = vy;
@@ -2340,8 +2341,9 @@ class Game {
     // camera
     const p = this.player;
     if (p && p.alive) {
-      this.cam.x = lerp(this.cam.x, p.x, Math.min(1, dt * 6));
-      this.cam.y = lerp(this.cam.y, p.y, Math.min(1, dt * 6));
+      const ck = 1 - Math.exp(-10 * dt);
+      this.cam.x = lerp(this.cam.x, p.x, ck);
+      this.cam.y = lerp(this.cam.y, p.y, ck);
     }
     if (this.cam.shake > 0) this.cam.shake = Math.max(0, this.cam.shake - dt * 30);
 
@@ -2409,6 +2411,13 @@ class Game {
     this.mirrorPrev = this.mirrorCur;
     this.mirrorCur = snap;
     this.mirrorT = 0;
+    this.snapAt = performance.now();
+    if (this.mirrorPrev) this.prevAt = (this.prevAt || this.snapAt - 70);
+    if (this.lastArrival) {
+      const iv = this.snapAt - this.lastArrival;
+      if (iv > 20 && iv < 800) this.ivEma = this.ivEma ? (this.ivEma * 0.8 + iv * 0.2) : iv;
+    }
+    this.lastArrival = this.snapAt;
     if (snap.vis) {
       const g = new Uint8Array(1600);
       for (let r = 0; r < 40; r++) {
@@ -2476,7 +2485,16 @@ class Game {
     const cur = this.mirrorCur;
     if (!cur) return;
     const prev = this.mirrorPrev || cur;
-    const alpha = clamp(this.mirrorT / (this.snapInt || (this.replayMode ? 0.2 : 0.08)), 0, 1);
+    let alpha;
+    if (this.replayMode || !this.snapAt || !this.prevAt) {
+      alpha = clamp(this.mirrorT / (this.snapInt || (this.replayMode ? 0.2 : 0.08)), 0, 1);
+    } else {
+      // render ~1.3 snapshots behind real time (adaptive to jitter) — no micro-freeze
+      const delay = clamp((this.ivEma || 70) * 1.3, 90, 320);
+      const renderT = performance.now() - delay;
+      const span = Math.max(16, this.snapAt - this.prevAt);
+      alpha = clamp((renderT - this.prevAt) / span, 0, 1);
+    }
     const prevMap = {};
     for (const u of prev.u) prevMap[u.i] = u;
     const units = [], heroes = [[], []];
@@ -2518,13 +2536,18 @@ class Game {
     this.heroes = heroes;
     if (you) {
       this.player = you;
-      // client-side prediction: keep an input-driven offset over the server position
-      if (you.isPlayer) {
-        if (!this.predOff) this.predOff = { x: 0, y: 0 };
-        const jump = Math.hypot((you.serverX + this.predOff.x) - you.x, (you.serverY + this.predOff.y) - you.y);
-        if (jump > 400) this.predOff = { x: 0, y: 0 };   // teleport (recall/blink/death) — resync
-        you.x = you.serverX + this.predOff.x;
-        you.y = you.serverY + this.predOff.y;
+      // full local simulation: your hero never steps with snapshots, server only corrects
+      if (you.isPlayer && !this.replayMode) {
+        if (!this.ppred) this.ppred = { x: you.serverX, y: you.serverY, spd: null };
+        const pp = this.ppred;
+        if (!you.alive) {
+          pp.x = you.serverX; pp.y = you.serverY;
+        } else {
+          const drift = Math.hypot(you.serverX - pp.x, you.serverY - pp.y);
+          if (drift > 350) { pp.x = you.serverX; pp.y = you.serverY; }   // teleport/blink/respawn
+        }
+        pp.tx = you.serverX; pp.ty = you.serverY;   // gentle correction target
+        you.x = pp.x; you.y = pp.y;
       }
       if (you.isPlayer) {
         const me = cur.me || {};
@@ -2533,6 +2556,7 @@ class Game {
         you.skillLv = (me.sv && me.sv.length === 4) ? me.sv.slice() : [1, 1, 1, 1];
         you.wardCdT = me.wc || 0;
         you.activeCds = me.ac || {};
+        if (me.ms && this.ppred) this.ppred.spd = me.ms;
         you.mana = me.mn || 0; you.maxMana = me.mm || 1;
         you.gold = me.g || 0; you.goldEarned = me.ge || 0; you.dmgDealt = me.dm || 0;
         you.kills = me.k || 0; you.deaths = me.d || 0; you.assists = me.as || 0;
@@ -2563,18 +2587,26 @@ class Game {
   }
 
   updateMirror(dt) {
-    // prediction: integrate local input instantly; server gently corrects
-    if (this.player && this.player.isPlayer && this.predOff) {
+    // local player simulation: instant response, gentle server correction
+    if (this.player && this.player.isPlayer && this.ppred && !this.replayMode) {
       const p = this.player;
-      if (p.alive && p.moveDir) {
-        const spd = (p.def.stats.ms || 260);
-        this.predOff.x += p.moveDir.x * spd * dt;
-        this.predOff.y += p.moveDir.y * spd * dt;
-        const mag = Math.hypot(this.predOff.x, this.predOff.y);
-        if (mag > 220) { this.predOff.x *= 220 / mag; this.predOff.y *= 220 / mag; }
-      } else {
-        this.predOff.x *= Math.max(0, 1 - 4 * dt);
-        this.predOff.y *= Math.max(0, 1 - 4 * dt);
+      const pp = this.ppred;
+      if (p.alive) {
+        if (pp.tx !== undefined) {
+          const k = Math.min(1, 6 * dt);          // smooth pull, not a snap
+          pp.x += (pp.tx - pp.x) * k;
+          pp.y += (pp.ty - pp.y) * k;
+        }
+        if (p.moveDir) {
+          const spd = pp.spd || p.def.stats.ms || 260;
+          const l = Math.hypot(p.moveDir.x, p.moveDir.y) || 1;
+          const mag = Math.min(1, l);
+          pp.x += (p.moveDir.x / l) * spd * mag * dt;
+          pp.y += (p.moveDir.y / l) * spd * mag * dt;
+          pp.x = clamp(pp.x, 60, WORLD - 60); pp.y = clamp(pp.y, 60, WORLD - 60);
+          p.facing = Math.atan2(p.moveDir.y, p.moveDir.x);
+        }
+        p.x = pp.x; p.y = pp.y;
       }
     }
     if (this.replaySource && this.replaySource.length) {
@@ -2589,8 +2621,9 @@ class Game {
     this.interpolateMirror();
     this.fx.update(dt);
     if (this.player && this.player.alive) {
-      this.cam.x = lerp(this.cam.x, this.player.x, Math.min(1, dt * 6));
-      this.cam.y = lerp(this.cam.y, this.player.y, Math.min(1, dt * 6));
+      const ck2 = 1 - Math.exp(-10 * dt);
+      this.cam.x = lerp(this.cam.x, this.player.x, ck2);
+      this.cam.y = lerp(this.cam.y, this.player.y, ck2);
     }
     if (this.cam.shake > 0) this.cam.shake = Math.max(0, this.cam.shake - dt * 30);
     if (this.input) this.input.apply(this.player);

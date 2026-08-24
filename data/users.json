@@ -3602,5 +3602,115 @@
         "hero": "tova"
       }
     ]
+  },
+  "tester0_10496": {
+    "salt": "923911e17ee5bbf4e269a98a5d1c106e",
+    "hash": "75fbade84a6bb95dd9c35a53d304121188bf4916aee9dea9e21ebd2666b5f02b",
+    "created": 1787546010586,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "T795",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026",
+    "history": [
+      {
+        "d": 1787546064453,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "dorum"
+      }
+    ]
+  },
+  "tester1_10594": {
+    "salt": "5e7603b20b9638cc777ab10bb345f4f3",
+    "hash": "bda0a6c1a0dd4d8d3ae77e18c3591e8b2336f2e20e9369d3dd2dfd04add5fa9c",
+    "created": 1787546010640,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787546064453,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "vex"
+      }
+    ]
+  },
+  "tester2_10643": {
+    "salt": "9199199547a9151d9aebf4aae3fc32e0",
+    "hash": "7f891264138ae36395bcc8aed84fab911431f2472087084b2073a2116c30a993",
+    "created": 1787546010684,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787546064453,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "fern"
+      }
+    ]
   }
 }

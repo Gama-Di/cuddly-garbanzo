@@ -881,6 +881,7 @@ class Match {
         me: {
           cd: h.cds.map(c => +c.toFixed(1)),
           sp: h.skillPoints, sv: h.skillLv, wc: +Math.max(0, h.wardCdT || 0).toFixed(1),
+          ms: Math.round(h.ms),
           mn: Math.round(h.mana), mm: Math.round(h.maxMana),
           g: Math.floor(h.gold), ge: Math.floor(h.goldEarned), dm: Math.round(h.dmgDealt),
           k: h.kills, d: h.deaths, as: h.assists,
