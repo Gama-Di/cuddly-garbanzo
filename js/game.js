@@ -83,6 +83,10 @@ const BUSHES = [
   { x: 1400, y: 2620, r: 85 }, { x: 1000, y: 1900, r: 85 }, { x: 430, y: 1300, r: 85 }, { x: 1900, y: 2420, r: 85 },
   { x: 1800, y: 580, r: 85 }, { x: 2200, y: 1300, r: 85 }, { x: 2770, y: 1900, r: 85 }, { x: 1300, y: 780, r: 85 },
 ];
+
+/* scale the whole 3200-layout to the bigger world */
+
+
 function equippedSkin(heroId) {
   if (HEADLESS) return 0;
   try {
@@ -177,9 +181,11 @@ function loadSprites() {
 
 /* ---------------- config ---------------- */
 const CFG = {
-  WORLD: 3200,
-  VIEW_H: 1250,               // world units visible vertically
-  WAVE_INT: 30,
+  WORLD: 4200,                // big arena (was 3200)
+  VIEW_H: 1350,               // default world units visible vertically (zoomable)
+  MS_MUL: 0.92,               // global pace: slightly slower movement
+  ZOOM_MIN: 950, ZOOM_MAX: 2100,
+  WAVE_INT: 26,
   FIRST_WAVE: 5,
   MAX_MINIONS: 96,
   GOLD_START: 260,
@@ -201,6 +207,7 @@ const AI_NAMES = ['Kai', 'Mira', 'Zed', 'Nova', 'Rex', 'Ivy', 'Ozzy', 'Luna', 'F
 
 /* ---------------- map layout ---------------- */
 const WORLD = CFG.WORLD;
+const MAP_SCALE = 1.3125;     // 3200-layout -> 4200 world
 const THRONE_POS = [{ x: 400, y: 2800 }, { x: 2800, y: 400 }];
 
 const LANES = [
@@ -226,6 +233,21 @@ const CAMPS_BLUE = [
 ];
 const TURTLE_POS = { x: 900, y: 1080 };
 const LORD_POS = { x: 2300, y: 2120 };
+
+/* scale the whole 3200-layout to the bigger world */
+(function scaleMapConstants() {
+  const s = (v) => v * MAP_SCALE;
+  const scale2 = (p) => { p.x = s(p.x); p.y = s(p.y); };
+  const scaleArr = (a) => { for (let i = 0; i < a.length; i++) if (typeof a[i] === 'number') a[i] = s(a[i]); };
+  THRONE_POS.forEach(scale2);
+  BASE_TURRET.forEach(scale2);
+  for (const lane of LANES) for (const pt of lane.pts) scaleArr(pt);
+  for (const t of TOWER_SPOTS) { t[2] = s(t[2]); t[3] = s(t[3]); }   // only x/y — lane & tier stay metadata
+  for (const c of CAMPS_BLUE) scale2(c);
+  scale2(TURTLE_POS);
+  scale2(LORD_POS);
+  for (const b of BUSHES) scale2(b);
+})();
 
 /* ================================================================
  * Entities
@@ -342,7 +364,7 @@ class Hero extends Unit {
     }
     const pMo = this.passiveOf('momentum');
     if (pMo) m += (this.momentumStacks || 0) * (pMo.per || 8);
-    return m * amp;
+    return m * amp * (CFG.MS_MUL || 1);
   }
   get range() {
     let rg = this.def.stats.range;
@@ -787,10 +809,10 @@ class Monster extends Unit {
     this.kind = 'monster'; this.monKind = kind; this.camp = camp;
     this.homeX = camp.x; this.homeY = camp.y;
     const m = Math.max(0, g.time / 60 - 1);
-    if (kind === 'lizard') { this.maxHp = 680 + 60 * m; this.atk = 60 + 6 * m; this.gold = 34; this.xp = 42; this.ms = 150; this.range = 100; this.aspd = 0.8; }
-    if (kind === 'golem') { this.maxHp = 1500 + 90 * m; this.atk = 95 + 7 * m; this.gold = 95; this.xp = 120; this.ms = 150; this.range = 110; this.aspd = 0.7; }
-    if (kind === 'turtle') { this.maxHp = 4400 + 120 * m; this.atk = 170 + 8 * m; this.gold = 0; this.xp = 0; this.ms = 140; this.range = 150; this.aspd = 0.6; this.big = true; }
-    if (kind === 'lord') { this.maxHp = 7000 + 160 * m; this.atk = 230 + 10 * m; this.gold = 0; this.xp = 0; this.ms = 150; this.range = 170; this.aspd = 0.6; this.big = true; }
+    if (kind === 'lizard') { this.maxHp = 680 + 60 * m; this.atk = 60 + 6 * m; this.gold = 34; this.xp = 42; this.ms = 138; this.range = 100; this.aspd = 0.8; }
+    if (kind === 'golem') { this.maxHp = 1500 + 90 * m; this.atk = 95 + 7 * m; this.gold = 95; this.xp = 120; this.ms = 138; this.range = 110; this.aspd = 0.7; }
+    if (kind === 'turtle') { this.maxHp = 4400 + 120 * m; this.atk = 170 + 8 * m; this.gold = 0; this.xp = 0; this.ms = 130; this.range = 150; this.aspd = 0.6; this.big = true; }
+    if (kind === 'lord') { this.maxHp = 7000 + 160 * m; this.atk = 230 + 10 * m; this.gold = 0; this.xp = 0; this.ms = 138; this.range = 170; this.aspd = 0.6; this.big = true; }
     this.hp = this.maxHp; this.aggroT = 0;
   }
   update(dt) {
@@ -1207,23 +1229,23 @@ class Game {
     this.trees = [];
     const rng = mulberry32(1337);
     let guard = 0;
-    while (this.trees.length < 150 && guard++ < 4000) {
-      const x = 140 + rng() * (WORLD - 280), y = 140 + rng() * (WORLD - 280);
+    while (this.trees.length < 260 && guard++ < 6000) {
+      const x = 210 + rng() * (WORLD - 420), y = 210 + rng() * (WORLD - 420);
       // keep off lanes
       let ok = true;
       for (const lane of LANES) {
         for (let i = 0; i < lane.pts.length - 1 && ok; i++) {
-          if (distToSeg(x, y, lane.pts[i], lane.pts[i + 1]) < 240) ok = false;
+          if (distToSeg(x, y, lane.pts[i], lane.pts[i + 1]) < 340) ok = false;
         }
       }
       if (!ok) continue;
       // keep off river band
-      if (Math.abs(x - y) < 300) continue;
+      if (Math.abs(x - y) < 430) continue;
       // keep off bases/camps/towers
-      if (dist(x, y, 400, 2800) < 520 || dist(x, y, 2800, 400) < 520) continue;
-      for (const c of this.camps) if (dist(x, y, c.x, c.y) < 220) { ok = false; break; }
+      if (dist(x, y, 600, 4200) < 750 || dist(x, y, 4200, 600) < 750) continue;
+      for (const c of this.camps) if (dist(x, y, c.x, c.y) < 310) { ok = false; break; }
       if (!ok) continue;
-      for (const t of this.units) if (t.kind === 'tower' && dist(x, y, t.x, t.y) < 220) { ok = false; break; }
+      for (const t of this.units) if (t.kind === 'tower' && dist(x, y, t.x, t.y) < 310) { ok = false; break; }
       if (!ok) continue;
       this.trees.push({ x, y, r: 14 + rng() * 16 });
     }
@@ -1481,7 +1503,7 @@ class Game {
 
   towersDown() { return this.towersDownN[0] + this.towersDownN[1]; }
 
-  atBase(h) { const t = THRONE_POS[h.team]; return dist(h.x, h.y, t.x, t.y) < 430; }
+  atBase(h) { const t = THRONE_POS[h.team]; return dist(h.x, h.y, t.x, t.y) < 620; }
 
   /* lane helpers */
   lanePoints(laneIdx) { return LANES[laneIdx].pts; }
@@ -2540,6 +2562,9 @@ class Game {
 
   /* ============ BROWSER-ONLY: canvas / hud / render ============ */
   setupCanvas() {
+    let vh = CFG.VIEW_H;
+    try { vh = parseInt(localStorage.getItem('aa_viewh') || String(CFG.VIEW_H), 10) || CFG.VIEW_H; } catch (e) {}
+    this.viewH = clamp(vh, CFG.ZOOM_MIN || 950, CFG.ZOOM_MAX || 2100);
     this.cv = document.getElementById('cv');
     this.ctx = this.cv.getContext('2d');
     this.mmCv = document.getElementById('mm');
@@ -2822,6 +2847,18 @@ class Game {
       };
       eb.addEventListener('touchstart', efire, { passive: false });
       eb.addEventListener('mousedown', efire);
+    }
+    const zb = document.getElementById('btn-zoom');
+    if (zb) {
+      const cycle = () => {
+        const presets = [1100, 1350, 1700, 2000];
+        const cur = this.viewH || CFG.VIEW_H;
+        const next = presets.find(p => p > cur + 50) || presets[0];
+        this.setCameraHeight(next);
+        if (this.player) this.fx.text(this.player.x, this.player.y - 70, '\uD83C\uDFA5 camera ' + next, '#7dd3fc');
+      };
+      zb.addEventListener('click', cycle);
+      zb.addEventListener('touchstart', (e) => { e.preventDefault(); cycle(); }, { passive: false });
     }
     const mb = document.getElementById('btn-music');
     if (mb) mb.addEventListener('click', () => { this.musicOn = !this.musicOn; if (this.musicOn) this.sfx.startMusic(); else this.sfx.stopMusic(); });
@@ -3106,13 +3143,17 @@ class Game {
     x.strokeStyle = 'rgba(255,255,255,0.35)'; x.lineWidth = 1;
     x.strokeRect((this.cam.x - vw / 2) * S, (this.cam.y - vh / 2) * S, vw * S, vh * S);
   }
-  zoomVal() { return (this.cv ? this.cv.height / (CFG.VIEW_H * this.dpr) : 0.6); }
+  zoomVal() { return (this.cv ? this.cv.height / ((this.viewH || CFG.VIEW_H) * this.dpr) : 0.6); }
+  setCameraHeight(h, save) {
+    this.viewH = clamp(Math.round(h), CFG.ZOOM_MIN || 950, CFG.ZOOM_MAX || 2100);
+    if (save !== false) { try { localStorage.setItem('aa_viewh', String(this.viewH)); } catch (e) {} }
+  }
 
   /* ---------------- render ---------------- */
   draw() {
     if (this.headless || !this.ctx) return;
     const ctx = this.ctx, W = this.cv.width, H = this.cv.height;
-    const z = H / CFG.VIEW_H;
+    const z = H / (this.viewH || CFG.VIEW_H);
     ctx.fillStyle = '#05080f';
     ctx.fillRect(0, 0, W, H);
     let cx = clamp(this.cam.x, 0, WORLD), cy = clamp(this.cam.y, 0, WORLD);
@@ -3608,7 +3649,40 @@ class Input {
     };
     gs.addEventListener('touchend', joyEnd);
     gs.addEventListener('touchcancel', joyEnd);
+    this.initCameraControls();
   }
+  initCameraControls() {
+    const g = this.g;
+    window.addEventListener('wheel', (e) => {
+      if (typeof currentGame === 'undefined' || currentGame !== g) return;
+      e.preventDefault();
+      g.setCameraHeight((g.viewH || CFG.VIEW_H) + Math.sign(e.deltaY) * 90, false);
+    }, { passive: false });
+    let pinchBase = 0, pinchH = 0;
+    const gs = document.getElementById('game-screen');
+    const touchDist = (t1, t2) => Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
+    gs.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 2) {
+        pinchBase = touchDist(e.touches[0], e.touches[1]);
+        pinchH = g.viewH || CFG.VIEW_H;
+        this.joy.active = false; this.joy.dx = 0; this.joy.dy = 0;
+        if (this.setKnob) this.setKnob(0, 0);
+      }
+    }, { passive: false });
+    gs.addEventListener('touchmove', (e) => {
+      if (e.touches.length === 2 && pinchBase > 0) {
+        e.preventDefault();
+        const d = touchDist(e.touches[0], e.touches[1]);
+        g.setCameraHeight(pinchH * (pinchBase / Math.max(30, d)), false);
+      }
+    }, { passive: false });
+    const pinchEnd = () => {
+      if (pinchBase > 0) { pinchBase = 0; g.setCameraHeight(g.viewH, true); }
+    };
+    gs.addEventListener('touchend', pinchEnd);
+    gs.addEventListener('touchcancel', pinchEnd);
+  }
+
   trackJoy(t) {
     let dx = (t.clientX - this.joy.cx), dy = (t.clientY - this.joy.cy);
     const l = Math.hypot(dx, dy);

@@ -2893,5 +2893,115 @@
         "hero": "lunara"
       }
     ]
+  },
+  "tester0_34138": {
+    "salt": "41f6ca414f352ff3ce0eb9a674f7ed6b",
+    "hash": "94ec98bf8fd4d9e083ad29a0bf48ef518f3f0bc9f9e1bbf76b71aefc221788be",
+    "created": 1787542134227,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "T029",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026",
+    "history": [
+      {
+        "d": 1787542186688,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "wyn"
+      }
+    ]
+  },
+  "tester1_34235": {
+    "salt": "e3e11042ad0aaf7dd45f8f120b1a24f5",
+    "hash": "7faa71b7540f66f070620fe6fa514dc108de8e4efbef95c4628463a7dc3facab",
+    "created": 1787542134281,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787542186688,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "toruuk"
+      }
+    ]
+  },
+  "tester2_34283": {
+    "salt": "95e6847285f2a1dd4c73c0fce2d9712d",
+    "hash": "6581cb87b7721aa087b92b856f0f6eff955600a31a42ac29c7ecc979ca0ab27b",
+    "created": 1787542134325,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787542186688,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "tova"
+      }
+    ]
   }
 }
