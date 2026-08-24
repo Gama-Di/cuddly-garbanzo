@@ -2783,5 +2783,115 @@
         "hero": "dorum"
       }
     ]
+  },
+  "tester0_27367": {
+    "salt": "27d38f65b47b7ae131101547b1ca03a0",
+    "hash": "07b946dc65c00f4b435a613470ce03da8dd8b54e28bad410a5a9f6af09fc8d65",
+    "created": 1787541127454,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "T246",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026",
+    "history": [
+      {
+        "d": 1787541179887,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "braska"
+      }
+    ]
+  },
+  "tester1_27462": {
+    "salt": "a96a0fd8c204bf9948653c99766a33c2",
+    "hash": "a736fb8fd24bfa19596313c370538784be08c33ecceaa3f968067a3d588609c9",
+    "created": 1787541127507,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787541179887,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "lian"
+      }
+    ]
+  },
+  "tester2_27509": {
+    "salt": "4f3a349cc111539f4f0c0d6db7b54ce6",
+    "hash": "582db39bff468fc86f469a1f3a17c138856b865104cf8544a9f43e2daeaf0de6",
+    "created": 1787541127548,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787541179887,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "lunara"
+      }
+    ]
   }
 }

@@ -348,7 +348,8 @@ class Hero extends Unit {
     let rg = this.def.stats.range;
     for (const b of this.buffs) rg += (b.rangeAdd || 0);
     const pRpl = this.passiveOf('range_per_level');
-    if (pRpl) rg += (pRpl.per || 14) * (this.level - 1);
+    if (pRpl) rg += Math.min(pRpl.cap || 130, (pRpl.per || 14) * (this.level - 1));
+    rg += this.itemStat('range');
     return rg;
   }
   get cdr() { return Math.min(0.4, this.itemStat('cdr')); }
@@ -1063,8 +1064,8 @@ class Brain {
     if (!(g.atBase(h) || !h.alive)) return;
     const prefs = {
       Fighter: ['vorpal', 'titan', 'boots', 'aegis', 'vamp'],
-      Marksman: ['vorpal', 'wind', 'boots', 'vamp', 'fury'],
-      Mage: ['orb', 'vorpal', 'titan', 'boots', 'fury'],
+      Marksman: ['vorpal', 'wind', 'spyglass', 'boots', 'vamp'],
+      Mage: ['orb', 'vorpal', 'spyglass', 'titan', 'boots'],
       Tank: ['aegis', 'titan', 'boots', 'bulwark', 'vorpal'],
       Assassin: ['vorpal', 'boots', 'fury', 'vamp', 'wind'],
       Support: ['titan', 'orb', 'aegis', 'boots', 'vorpal'],
@@ -3739,9 +3740,10 @@ function statLineFor(p) {
   const aspd = s.aspd + s.aspdL * lvl + is('aspd');
   const dfn = s.def + s.defL * lvl + is('def');
   const ms = s.ms + is('ms');
+  const rng = s.range + is('range') + (p.def.passive && p.def.passive.kind === 'range_per_level' ? Math.min(p.def.passive.cap || 130, (p.def.passive.per || 14) * lvl) : 0);
   const cdr = Math.min(0.4, is('cdr'));
   const ls = is('ls');
-  return `⚔️ ATK <b>${Math.round(atk)}</b> · ⚡ ASPD <b>${aspd.toFixed(2)}</b> · 🛡 DEF <b>${Math.round(dfn)}</b> · 👟 MS <b>${Math.round(ms)}</b> · 📏 RANGE <b>${Math.round(s.range)}</b> · 🔵 CDR <b>${Math.round(cdr * 100)}%</b>` +
+  return `⚔️ ATK <b>${Math.round(atk)}</b> · ⚡ ASPD <b>${aspd.toFixed(2)}</b> · 🛡 DEF <b>${Math.round(dfn)}</b> · 👟 MS <b>${Math.round(ms)}</b> · 📏 RANGE <b>${Math.round(rng)}</b> · 🔵 CDR <b>${Math.round(cdr * 100)}%</b>` +
     `<br>❤️ HP <b>${Math.round(p.hp)}/${Math.round(p.maxHp || hp)}</b> · 🩸 LIFESTEAL <b>${Math.round(ls * 100)}%</b>`;
 }
 

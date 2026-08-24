@@ -52,7 +52,7 @@ const EXTRA = [
       { k: 'dash', n: 'Gatebreaker', i: '💥', cd: 44, m: 100, u: 5, dist: 520, dmg: 260, dl: 70, slow: [0.5, 2] },
     ] },
   { id: 'dorum', name: 'DORUM', title: 'Runewall', role: 'Tank', emoji: '🗿', tint: '#64748b',
-    pass: { k: 'shield_battery', shield: 85, every: 12, after: 8, n: 'Rune Plating', d: 'Gains an 85 shield every 12s while out of combat.' },
+    pass: { k: 'shield_battery', shield: 60, every: 15, after: 8, n: 'Rune Plating', d: 'Gains a 60 shield every 15s while out of combat.' },
     sk: [
       { k: 'proj', n: 'Rune Shard', i: '🔹', cd: 6, m: 40, u: 1, range: 540, speed: 900, dmg: 110, dl: 48, slow: [0.3, 1.5] },
       { k: 'nova', n: 'Glyph Pulse', i: '🌀', cd: 9, m: 50, u: 2, radius: 240, dmg: 100, dl: 44, slow: [0.45, 2] },
@@ -109,7 +109,7 @@ const EXTRA = [
       { k: 'buff', n: 'Zenith', i: '🔆', cd: 14, m: 50, u: 3, dur: 4, atkAdd: 30, msAdd: 0.12 },
       { k: 'nova', n: 'Solar Flare', i: '🌞', cd: 46, m: 105, u: 5, radius: 310, dmg: 250, dl: 62, slow: [0.4, 2] },
     ] },
-  { id: 'rukh', name: 'RUKH', title: 'Skyborne', role: 'Fighter', emoji: '🦅', tint: '#93c5fd',
+  { id: 'rukh', name: 'RUKH', title: 'Skyborne', role: 'Fighter', emoji: '🦅', tint: '#93c5fd', st: { atk: 100 },
     pass: { k: 'chase', msAdd: 55, hpPct: 0.5, n: 'Bird of Prey', d: '+55 move speed toward enemies below 50% HP.' },
     sk: [
       { k: 'dash', n: 'Dive Bomb', i: '🪃', cd: 8, m: 45, u: 1, dist: 400, dmg: 120, dl: 55 },
@@ -143,7 +143,7 @@ const EXTRA = [
       { k: 'buff', n: 'Nightveil', i: '🌑', cd: 13, m: 45, u: 3, dur: 3, msAdd: 0.25, atkAdd: 25 },
       { k: 'blink', n: 'Widow\'s Kiss', i: '💋', cd: 40, m: 90, u: 5, range: 650, dmg: 290, dl: 80, reset: 0 },
     ] },
-  { id: 'korv', name: 'KORV', title: 'Grayfang', role: 'Assassin', emoji: '🐺', tint: '#9ca3af',
+  { id: 'korv', name: 'KORV', title: 'Grayfang', role: 'Assassin', emoji: '🐺', tint: '#9ca3af', st: { hp: 1180 },
     pass: { k: 'momentum', per: 10, n: 'Pack Sprint', d: 'Basic attacks stack +10 move speed (max 5), decays out of combat.' },
     sk: [
       { k: 'dash', n: 'Lunge', i: '🦵', cd: 7, m: 45, u: 1, dist: 360, dmg: 120, dl: 56 },
@@ -244,9 +244,9 @@ const EXTRA = [
 
   // ============ MAGES (7) ============
   { id: 'ashka', name: 'ASHKA', title: 'Flamecaller', role: 'Mage', emoji: '🌋', tint: '#f87171',
-    pass: { k: 'vamp_spell', pct: 0.16, n: 'Fire Eater', d: 'Skills heal her for 16% of damage dealt.' },
+    pass: { k: 'vamp_spell', pct: 0.2, n: 'Fire Eater', d: 'Skills heal her for 20% of damage dealt.' },
     sk: [
-      { k: 'proj', n: 'Fireball', i: '🔥', cd: 5, m: 50, u: 1, range: 600, speed: 900, dmg: 135, dl: 60, magic: true },
+      { k: 'proj', n: 'Fireball', i: '🔥', cd: 5, m: 50, u: 1, range: 600, speed: 900, dmg: 145, dl: 62, magic: true },
       { k: 'nova', n: 'Flame Ring', i: '◍', cd: 9, m: 65, u: 2, radius: 235, dmg: 145, dl: 65, magic: true, slow: [0.35, 1.5] },
       { k: 'dash', n: 'Flashover', i: '⚡', cd: 10, m: 45, u: 3, dist: 300, dmg: 85, dl: 38, magic: true },
       { k: 'meteor', n: 'Cataclysm', i: '☄️', cd: 44, m: 120, u: 5, radius: 300, delay: 0.85, dmg: 370, dl: 95, magic: true, slow: [0.3, 1.5] },
@@ -262,10 +262,10 @@ const EXTRA = [
   { id: 'oziel', name: 'OZIEL', title: 'Gravecaller', role: 'Mage', emoji: '⚰️', tint: '#a3e635',
     pass: { k: 'xp_hunter', mul: 1.15, n: 'Dark Study', d: 'Gains +15% experience.' },
     sk: [
-      { k: 'proj', n: 'Soul Bolt', i: '🟢', cd: 5, m: 50, u: 1, range: 580, speed: 880, dmg: 125, dl: 58, magic: true, drain: 0.4 },
+      { k: 'proj', n: 'Soul Bolt', i: '🟢', cd: 5, m: 50, u: 1, range: 580, speed: 880, dmg: 125, dl: 58, magic: true, drain: 0.32 },
       { k: 'nova', n: 'Grave Chill', i: '🪦', cd: 9, m: 60, u: 2, radius: 240, dmg: 130, dl: 58, magic: true, slow: [0.45, 2] },
       { k: 'heal', n: 'Dark Pact', i: '🖤', cd: 12, m: 60, u: 3, heal: 210, hl: 66, radius: 500 },
-      { k: 'meteor', n: 'Plague of Souls', i: '🦠', cd: 45, m: 118, u: 5, radius: 310, delay: 0.9, dmg: 350, dl: 90, magic: true, slow: [0.4, 2] },
+      { k: 'meteor', n: 'Plague of Souls', i: '🦠', cd: 45, m: 118, u: 5, radius: 310, delay: 0.9, dmg: 330, dl: 88, magic: true, slow: [0.4, 2] },
     ] },
   { id: 'lunara', name: 'LUNARA', title: 'Moonweaver', role: 'Mage', emoji: '🌙', tint: '#c4b5fd',
     pass: { k: 'spell_echo', slowPct: 0.25, dur: 1.3, n: 'Moonlag', d: 'Skills slow enemies by 25% for 1.3s.' },
@@ -346,8 +346,8 @@ const EXTRA = [
     sk: [
       { k: 'proj', n: 'Note Bolt', i: '🎵', cd: 6, m: 45, u: 1, range: 590, speed: 960, dmg: 136, dl: 54, slow: [0.35, 1.8] },
       { k: 'nova', n: 'Lullaby', i: '😴', cd: 10, m: 60, u: 2, radius: 235, dmg: 95, dl: 42, slow: [0.5, 2.2] },
-      { k: 'buff', n: 'Battle Anthem', i: '🎺', cd: 14, m: 55, u: 3, dur: 5, aspdAdd: 0.3, msAdd: 0.15 },
-      { k: 'healnova', n: 'Grand Chorus', i: '🎼', cd: 50, m: 125, u: 5, radius: 400, heal: 260, hl: 72 },
+      { k: 'buff', n: 'Battle Anthem', i: '🎺', cd: 14, m: 55, u: 3, dur: 5, aspdAdd: 0.4, msAdd: 0.15 },
+      { k: 'healnova', n: 'Grand Chorus', i: '🎼', cd: 48, m: 125, u: 5, radius: 400, heal: 290, hl: 76 },
     ] },
 ];
 
@@ -386,7 +386,7 @@ const EXTRA = [
     const a = ARCH[e.role];
     const h = {
       id: e.id, name: e.name, title: e.title, role: e.role, emoji: e.emoji, tint: e.tint,
-      stats: Object.assign({}, a),
+      stats: Object.assign({}, a, e.st || {}),
       passive: Object.assign({ name: e.pass.n, icon: '☆', desc: e.pass.d, kind: e.pass.k }, e.pass),
       skills: e.sk.map((s) => {
         const out = KINDMAP[s.k](s);

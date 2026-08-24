@@ -11,10 +11,10 @@ const HEROES = [
   {
     id: 'kael', name: 'KAEL', title: 'Blade Dancer', role: 'Fighter',
     passive: { name: "Berserker's Grit", icon: '☆', desc: 'Below 40% HP: +18% attack speed, +10% move speed.', kind: 'rage', hpPct: 0.4, aspdMul: 1.18, msMul: 1.1 }, emoji: '⚔️', tint: '#f59e0b',
-    stats: { hp: 1350, hpL: 152, mana: 420, manaL: 40, atk: 92, atkL: 9, dtype: 'phys',
+    stats: { hp: 1420, hpL: 152, mana: 420, manaL: 40, atk: 96, atkL: 9, dtype: 'phys',
              aspd: 0.85, aspdL: 0.022, range: 115, ms: 268, def: 42, defL: 6.5, regen: 9 },
     skills: [
-      { name: 'Cleave', icon: '🌀', kind: 'nova', cd: 6, mana: 45, unlock: 1, radius: 190, dmg: 110, dmgL: 55, lifesteal: 0.35,
+      { name: 'Cleave', icon: '🌀', kind: 'nova', cd: 6, mana: 45, unlock: 1, radius: 190, dmg: 120, dmgL: 57, lifesteal: 0.35,
         desc: 'Slash nearby enemies and restore 35% of damage dealt as HP.' },
       { name: 'Dash Strike', icon: '💨', kind: 'dash', cd: 9, mana: 50, unlock: 2, dashDist: 330, dmg: 90, dmgL: 50, slowPct: 0.35, slowDur: 1.6,
         desc: 'Dash forward, damaging and slowing enemies on the path.' },
@@ -190,10 +190,11 @@ const ITEMS = [
   { id: 'wind', icon: '🌪️', name: 'Windrunner', cost: 400, builds: ['feather', 'feather'], stats: { aspd: 0.35, ms: 30 }, desc: '+35% attack speed, +30 MS' },
   { id: 'orb', icon: '🔵', name: 'Arcane Orb', cost: 400, builds: ['tome', 'tome'], stats: { cdr: 0.18 }, desc: '18% cooldown reduction' },
   { id: 'vamp', icon: '🩸', name: 'Bloodstone', cost: 400, builds: ['sword', 'ring'], stats: { ls: 0.2, atk: 15 }, desc: '20% lifesteal, +15 attack' },
-  { id: 'fury', icon: '💥', name: 'Doomfist', cost: 550, builds: ['sword', 'tome'], stats: { dmgAmp: 0.12 }, desc: '+12% ALL damage' },
+  { id: 'fury', icon: '💥', name: 'Doomfist', cost: 500, builds: ['sword', 'tome'], stats: { dmgAmp: 0.12 }, desc: '+12% ALL damage' },
   // active items
   { id: 'boots', icon: '👟', name: 'Sprint Boots', cost: 300, builds: ['feather', 'feather'], stats: { ms: 55 }, active: { name: 'Sprint', cd: 60, kind: 'sprint' }, desc: '+55 MS · ACTIVE: +35% speed 3s' },
   { id: 'bulwark', icon: '🧱', name: 'Bulwark Charm', cost: 400, builds: ['vest', 'vest'], stats: { def: 40 }, active: { name: 'Barrier', cd: 90, kind: 'shield' }, desc: '+40 DEF · ACTIVE: 350 shield' },
   { id: 'blinkring', icon: '💫', name: 'Blink Ring', cost: 500, builds: ['tome', 'feather'], stats: { cdr: 0.08 }, active: { name: 'Blink', cd: 75, kind: 'blink' }, desc: '+8% CDR · ACTIVE: blink 320' },
+  { id: 'spyglass', icon: '🔭', name: 'Storm Spyglass', cost: 400, builds: ['feather', 'tome'], stats: { range: 90 }, desc: '+90 attack range (stacks with passives)' },
 ];
 const itemById = (id) => ITEMS.find(x => x.id === id);
