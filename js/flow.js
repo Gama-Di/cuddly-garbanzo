@@ -14,7 +14,7 @@ loadSprites = function () {
   for (const h of HEROES) { urls.push('img/' + h.id + '.png'); urls.push('img/full/' + h.id + '.png'); }
   for (const ty of ['melee', 'ranged', 'siege']) urls.push(`img/minion_${ty}.png`);
   for (const mk of ['lizard', 'golem', 'turtle', 'lord']) urls.push(`img/monster_${mk}.png`);
-  for (const tx of ['tex_ground', 'tex_lane', 'tex_water', 'rift_ground', 'rift_lane', 'rift_water']) urls.push(`img/${tx}.png`);
+  for (const tx of ['tex_ground', 'tex_lane', 'tex_water']) urls.push(`img/${tx}.png`);
   SPRITE_LOAD.total = urls.length;
   let pending = urls.length;
   for (const u of urls) {

@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" href="/img/favicon.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <title>Aether Arena — 5v5 MOBA</title>
-<meta name="aa-build" content="13">
+<meta name="aa-build" content="14">
 <style>
   :root {
     --blue: #38bdf8; --blue-d: #0c4a6e;
@@ -392,7 +392,7 @@
     <div class="sp-barwrap"><div class="sp-bar" id="sp-bar"></div></div>
     <div class="sp-pct" id="sp-pct">0%</div>
     <div class="sp-tap" id="sp-tap" style="display:none">TAP TO START</div>
-    <div class="sp-note" id="sp-build">build 13 · <span id="sp-conn">connecting…</span></div>
+    <div class="sp-note" id="sp-build">build 14 · <span id="sp-conn">connecting…</span></div>
   </div>
 </div>
 
@@ -405,11 +405,6 @@
     <button id="menu-play" class="menu-play">PLAY</button>
     <div class="menu-row">
       <button class="menu-alt" id="menu-practice">🎮 Practice vs AI</button>
-    </div>
-    <div class="maptheme-row">
-      <span style="font-size:11px;color:#7c8db0;letter-spacing:2px">MAP:</span>
-      <button id="theme-aether" class="maptheme on">🌌 Aether Arena</button>
-      <button id="theme-rift" class="maptheme">🌿 Summoner's Rift</button>
     </div>
   </div>
   <div class="lobby-btns menu-bottom">
@@ -614,7 +609,7 @@
     if (bar) { bar.style.display = 'block'; bar.textContent = 'Promise: ' + (e.reason && e.reason.message ? e.reason.message : e.reason); }
   });
 </script>
-<script src="js/util.js?v=13"></script>
+<script src="js/util.js?v=14"></script>
 <script>
   // PWA: register service worker + show install hint
   if ('serviceWorker' in navigator && location.protocol === 'https:') {
@@ -650,12 +645,12 @@
     });
   }
 </script>
-<script src="js/heroes.js?v=13"></script>
-<script src="js/heroes2.js?v=13"></script>
-<script src="js/game.js?v=13"></script>
-<script src="js/net.js?v=13"></script>
-<script src="js/lobby.js?v=13"></script>
-<script src="js/flow.js?v=13"></script>
+<script src="js/heroes.js?v=14"></script>
+<script src="js/heroes2.js?v=14"></script>
+<script src="js/game.js?v=14"></script>
+<script src="js/net.js?v=14"></script>
+<script src="js/lobby.js?v=14"></script>
+<script src="js/flow.js?v=14"></script>
 <script>
   (function () {
     // diagnostics beacon: report client state to the server while not in a match
@@ -677,7 +672,7 @@
         : 'menu';
       try {
         fetch('/api/log', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ tag: 'beacon', build: 13, phase: phase,
+          body: JSON.stringify({ tag: 'beacon', build: 14, phase: phase,
             ws: (net.ws && net.ws.readyState !== undefined) ? net.ws.readyState : 'none',
             online: !!net.online, helloFailed: !!net.helloFailed, token: !!net.token,
             err: errs.slice(-2).join(' | '), ua: navigator.userAgent }) }).catch(function () {});

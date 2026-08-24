@@ -63,10 +63,7 @@ const MAP_THEMES = {
   },
 };
 function currentTheme() {
-  try {
-    const t = localStorage.getItem('aa_maptheme');
-    return MAP_THEMES[t] ? MAP_THEMES[t] : MAP_THEMES.rift;   // Rift is the default look
-  } catch (e) { return MAP_THEMES.rift; }
+  return MAP_THEMES.aether;   // single map: the Aether Arena
 }
 
 /* cosmetic skins: hue-shift variants of the hero's art */
@@ -4178,21 +4175,7 @@ if (!HEADLESS) {
   loadSprites();
   buildSelectScreen();
   document.getElementById('cancel-queue').addEventListener('click', () => { if (window.net) window.net.unqueue(); });
-  // map theme selector
-  const syncThemeBtns = () => {
-    const cur = currentTheme().id;
-    const a = document.getElementById('theme-aether'), r = document.getElementById('theme-rift');
-    if (!a || !r) return;
-    a.classList.toggle('on', cur === 'aether');
-    r.classList.toggle('on', cur === 'rift');
-  };
-  const setTheme = (id) => {
-    try { localStorage.setItem('aa_maptheme', id); } catch (e) {}
-    syncThemeBtns();
-  };
-  document.getElementById('theme-aether').addEventListener('click', () => setTheme('aether'));
-  document.getElementById('theme-rift').addEventListener('click', () => setTheme('rift'));
-  syncThemeBtns();
+
   document.getElementById('start-btn').addEventListener('click', () => {
     if (typeof window.startBattle === 'function') return window.startBattle();
     startGame(selectedHero);
