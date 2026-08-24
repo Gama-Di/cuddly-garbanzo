@@ -1,0 +1,14 @@
+{
+  "name": "aether-arena",
+  "version": "1.0.0",
+  "description": "5v5 online MOBA — 56 heroes, draft, ranked, guilds. Zero dependencies.",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/net-test.js",
+    "balance": "node test/balance.js 6 12"
+  },
+  "engines": { "node": ">=20" },
+  "license": "MIT"
+}
