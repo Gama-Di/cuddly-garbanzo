@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: aether-arena
+    runtime: node
+    plan: starter
+    branch: main
+    buildCommand: npm ci || true
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+    disk:
+      name: aether-data
+      mountPath: /data
+      sizeGB: 1

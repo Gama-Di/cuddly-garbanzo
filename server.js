@@ -46,7 +46,7 @@ function onlineUsernames() {
 
 const PORT = parseInt(process.env.PORT || '8000', 10);
 const ROOT = __dirname;
-const DATA_DIR = path.join(ROOT, 'data');
+const DATA_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : path.join(ROOT, 'data');
 const USERS_FILE = path.join(DATA_DIR, 'users.json');
 const GUILDS_FILE = path.join(DATA_DIR, 'guilds.json');
 let guilds = {};
@@ -1296,6 +1296,9 @@ async function handleApi(req, res, url) {
       res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
       return res.end(raw);
     } catch (e) { return json(res, 404, { ok: false, error: 'replay not found' }); }
+  }
+  if (url.pathname === '/api/health') {
+    return json(res, 200, { ok: true, uptime: Math.round(process.uptime()), heroes: HEROES.length, version: 'v17' });
   }
   if (url.pathname === '/api/log') {
     const b = await readBody(req);

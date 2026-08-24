@@ -6,6 +6,10 @@ generated in code.
 
 ![type](https://img.shields.io/badge/type-browser_game-blue) ![deps](https://img.shields.io/badge/dependencies-0-green) ![online](https://img.shields.io/badge/online-5v5_with_accounts-38bdf8)
 
+## 🚀 Deploy
+
+See **[DEPLOY.md](DEPLOY.md)** — Railway/Render/Fly/VPS one-config deploys (health check, volume persistence, docker-compose included). GitHub Pages won't work (needs the live server).
+
 ## 🎮 Play
 
 **Online 5v5 (with accounts):**

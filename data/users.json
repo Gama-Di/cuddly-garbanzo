@@ -4341,5 +4341,120 @@
         "hero": "braska"
       }
     ]
+  },
+  "tester0_8948": {
+    "salt": "a0bbb1967dad672ba187d0ebe17ee915",
+    "hash": "207e0cc943690c31bd2c91ccc5e295c50309e3661fef4f1efbbf972e0b4b59a9",
+    "created": 1787550409040,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "equip": {
+      "vex": 2
+    },
+    "friends": [],
+    "guild": "T266",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026",
+    "history": [
+      {
+        "d": 1787550460931,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "volt"
+      }
+    ]
+  },
+  "tester1_9050": {
+    "salt": "431a571a4ee99078ba8520ae6a8438d8",
+    "hash": "730e953a4d75c4772ae8e3d92984ae0ca7035af91bac4da5036b790c6dd52302",
+    "created": 1787550409099,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "equip": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787550460931,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "umbra"
+      }
+    ]
+  },
+  "tester2_9102": {
+    "salt": "0ff86477d2cc412d782c6e43b950f761",
+    "hash": "5592e53390269e1b5ce9c7cc3fc658b797f520c5adc2710035942998c705b0b6",
+    "created": 1787550409146,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "equip": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787550460931,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "vexen"
+      }
+    ]
   }
 }

@@ -1,0 +1,23 @@
+app = "aether-arena"
+primary_region = "sin"
+
+[build]
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+
+  [[http_service.checks]]
+    path = "/api/health"
+    interval = "30s"
+    timeout = "5s"
+
+[mounts]
+  source = "aether_data"
+  destination = "/data"
+
+[env]
+  NODE_ENV = "production"
+  DATA_DIR = "/data"
