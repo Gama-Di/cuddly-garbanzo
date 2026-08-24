@@ -231,6 +231,9 @@ window.Flow = Flow;
 
 /* boot bindings */
 (function () {
+  // the splash is the entry screen — ALWAYS start its loader (this was
+  // never called on real page loads; only in tests → stuck splash bug)
+  try { Flow.startSplash(); } catch (e) { console.error('splash failed', e); }
   document.getElementById('menu-play').addEventListener('click', () => Flow.showModes());
   document.getElementById('menu-practice').addEventListener('click', () => Flow.showSelect());
   document.getElementById('menu-logout').addEventListener('click', () => { localStorage.removeItem('aa_token'); location.reload(); });
