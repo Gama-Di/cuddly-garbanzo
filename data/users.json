@@ -3357,5 +3357,115 @@
         "hero": "bastion"
       }
     ]
+  },
+  "tester0_42442": {
+    "salt": "d05c9d65378f533388d569f110206c78",
+    "hash": "e1ac498f5149d8ec7bb04485c2bfb22ab6b5da74ac181f22e360e4fac4c18e36",
+    "created": 1787543442535,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "T175",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026",
+    "history": [
+      {
+        "d": 1787543493813,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "tala"
+      }
+    ]
+  },
+  "tester1_42544": {
+    "salt": "12811d25c2c6613487f08cfca7b1dffe",
+    "hash": "d7addab4add1a77a1705bbbb7bbc9eef363946cbaa2f62d54b13ee02e9121485",
+    "created": 1787543442592,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787543493813,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "kavra"
+      }
+    ]
+  },
+  "tester2_42596": {
+    "salt": "f560b0edf7242342669a1206cd40bd29",
+    "hash": "ee3c606ce0f82d58d748ef2dd2b43adfd9734c26e956bc36a8f4b0adac0dd208",
+    "created": 1787543442642,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787543493813,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "zeph"
+      }
+    ]
   }
 }

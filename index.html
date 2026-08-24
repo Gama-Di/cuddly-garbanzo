@@ -658,6 +658,33 @@
 <script src="js/flow.js?v=8"></script>
 <script>
   (function () {
+    // diagnostics beacon: report client state to the server while not in a match
+    var errs = [];
+    window.addEventListener('error', function (e) { errs.push((e.message || 'err') + '@' + (e.lineno || '?')); });
+    var lastSent = 0;
+    setInterval(function () {
+      if (!window.net) return;
+      var inGame = document.getElementById('game-screen').classList.contains('on');
+      var now = Date.now();
+      if (inGame || now - lastSent < 3000) return;
+      if (!net.token && !net.helloFailed && !net.online) return;   // nothing to diagnose pre-login
+      lastSent = now;
+      var phase = document.getElementById('splash-screen').classList.contains('on') ? 'splash'
+        : document.getElementById('auth-screen').classList.contains('on') ? 'auth'
+        : document.getElementById('mm-screen').classList.contains('on') ? 'matchmaking'
+        : document.getElementById('draft-screen').classList.contains('on') ? 'draft'
+        : document.getElementById('game-screen').classList.contains('on') ? 'game'
+        : 'menu';
+      try {
+        fetch('/api/log', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ tag: 'beacon', build: 8, phase: phase,
+            ws: (net.ws && net.ws.readyState !== undefined) ? net.ws.readyState : 'none',
+            online: !!net.online, helloFailed: !!net.helloFailed, token: !!net.token,
+            err: errs.slice(-2).join(' | '), ua: navigator.userAgent }) }).catch(function () {});
+      } catch (e) {}
+    }, 3000);
+  })();
+  (function () {
     var upd = function () {
       var el = document.getElementById('sp-conn');
       if (!el) return;

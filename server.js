@@ -1260,6 +1260,11 @@ async function handleApi(req, res, url) {
       return res.end(raw);
     } catch (e) { return json(res, 404, { ok: false, error: 'replay not found' }); }
   }
+  if (url.pathname === '/api/log') {
+    const b = await readBody(req);
+    console.log(`[diag] ${b.tag || '?'} build=${b.build || '?'} phase=${b.phase || '?'} ws=${b.ws} online=${!!b.online} helloFailed=${!!b.helloFailed} token=${!!b.token} err=${b.err || '-'} ua=${(b.ua || '').slice(0, 60)}`);
+    return json(res, 200, { ok: true });
+  }
   json(res, 404, { ok: false, error: 'not found' });
 }
 

@@ -19,9 +19,19 @@ class Net {
   }
 
   connect() {
+    if (this.helloFailed) this.helloFailed = false;
     const proto = location.protocol === 'https:' ? 'wss' : 'ws';
     const ws = new WebSocket(`${proto}://${location.host}`);
     this.ws = ws;
+    // watchdog: a connection stuck in CONNECTING (hung proxy) resolves as failed
+    clearTimeout(this._wdT);
+    this._wdT = setTimeout(() => {
+      if (!this.online) {
+        this.helloFailed = true;
+        try { ws.close(); } catch (e) {}
+        if (typeof UI !== 'undefined') UI.updateBanner();
+      }
+    }, 7000);
     ws.onopen = () => {
       if (!this.token) { this.onAuthFail(); return; }
       ws.send(JSON.stringify({ t: 'hello', token: this.token }));
@@ -76,6 +86,7 @@ class Net {
   onMsg(m) {
     switch (m.t) {
       case 'hello':
+        clearTimeout(this._wdT);
         if (m.ok) {
           this.online = true;
           this.username = m.username;
