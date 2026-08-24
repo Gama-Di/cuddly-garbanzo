@@ -65,8 +65,8 @@ const MAP_THEMES = {
 function currentTheme() {
   try {
     const t = localStorage.getItem('aa_maptheme');
-    return MAP_THEMES[t] ? MAP_THEMES[t] : MAP_THEMES.aether;
-  } catch (e) { return MAP_THEMES.aether; }
+    return MAP_THEMES[t] ? MAP_THEMES[t] : MAP_THEMES.rift;   // Rift is the default look
+  } catch (e) { return MAP_THEMES.rift; }
 }
 
 /* cosmetic skins: hue-shift variants of the hero's art */
@@ -183,7 +183,7 @@ function loadSprites() {
 const CFG = {
   WORLD: 4200,                // big arena (was 3200)
   VIEW_H: 1350,               // default world units visible vertically (zoomable)
-  MS_MUL: 0.92,               // global pace: slightly slower movement
+  MS_MUL: 1.0,                // full speed (bigger map already slows relative pace)
   ZOOM_MIN: 950, ZOOM_MAX: 2100,
   WAVE_INT: 26,
   FIRST_WAVE: 5,
@@ -1284,6 +1284,21 @@ class Game {
     }
     this.vis = [new Uint8Array(N * N), new Uint8Array(N * N)];
     this.visT = 0;
+
+    // ambient fireflies (visual only) scattered through the jungle
+    this.fireflies = [];
+    const frng = mulberry32(777);
+    let fguard = 0;
+    while (this.fireflies.length < 70 && fguard++ < 3000) {
+      const x = 300 + frng() * (WORLD - 600), y = 300 + frng() * (WORLD - 600);
+      if (Math.abs(x - y) < 360) continue;                       // not in the river
+      let nearLane = false;
+      for (const lane of LANES) {
+        for (let i = 0; i < lane.pts.length - 1; i++) if (distToSeg(x, y, lane.pts[i], lane.pts[i + 1]) < 300) nearLane = true;
+      }
+      if (nearLane) continue;
+      this.fireflies.push({ x, y, ph: frng() * TAU, spd: 0.4 + frng() * 0.8, hue: frng() < 0.5 ? '#fde68a' : '#86efac' });
+    }
   }
 
   /* ---------------- vision (fog of war) ---------------- */
@@ -2461,7 +2476,7 @@ class Game {
     const cur = this.mirrorCur;
     if (!cur) return;
     const prev = this.mirrorPrev || cur;
-    const alpha = clamp(this.mirrorT / (this.snapInt || 0.1), 0, 1);
+    const alpha = clamp(this.mirrorT / (this.snapInt || (this.replayMode ? 0.2 : 0.08)), 0, 1);
     const prevMap = {};
     for (const u of prev.u) prevMap[u.i] = u;
     const units = [], heroes = [[], []];
@@ -2480,6 +2495,7 @@ class Game {
       m.hp = u.h; m.maxHp = u.m; m.alive = !!u.a;
       if (u.k === 0) {
         m.def = heroById(u.d); m.name = u.n; m.level = u.l; m.facing = (u.f || 0) / 100;
+        m.serverX = m.x; m.serverY = m.y;
         m.kills = u.kd || 0; m.deaths = u.dd || 0; m.assists = u.ad || 0; m.goldEarned = u.ge || 0;
         m.shieldVal = u.sh || 0; m.stunT = u.st || 0; m.slowT = u.sl || 0; m.buffRedT = u.rb || 0;
         m.respT = u.rs || 0; m.isPlayer = (u.i === this.youId);
@@ -2502,6 +2518,14 @@ class Game {
     this.heroes = heroes;
     if (you) {
       this.player = you;
+      // client-side prediction: keep an input-driven offset over the server position
+      if (you.isPlayer) {
+        if (!this.predOff) this.predOff = { x: 0, y: 0 };
+        const jump = Math.hypot((you.serverX + this.predOff.x) - you.x, (you.serverY + this.predOff.y) - you.y);
+        if (jump > 400) this.predOff = { x: 0, y: 0 };   // teleport (recall/blink/death) — resync
+        you.x = you.serverX + this.predOff.x;
+        you.y = you.serverY + this.predOff.y;
+      }
       if (you.isPlayer) {
         const me = cur.me || {};
         you.cds = (me.cd || [0, 0, 0, 0]).map(x => +x);
@@ -2539,6 +2563,20 @@ class Game {
   }
 
   updateMirror(dt) {
+    // prediction: integrate local input instantly; server gently corrects
+    if (this.player && this.player.isPlayer && this.predOff) {
+      const p = this.player;
+      if (p.alive && p.moveDir) {
+        const spd = (p.def.stats.ms || 260);
+        this.predOff.x += p.moveDir.x * spd * dt;
+        this.predOff.y += p.moveDir.y * spd * dt;
+        const mag = Math.hypot(this.predOff.x, this.predOff.y);
+        if (mag > 220) { this.predOff.x *= 220 / mag; this.predOff.y *= 220 / mag; }
+      } else {
+        this.predOff.x *= Math.max(0, 1 - 4 * dt);
+        this.predOff.y *= Math.max(0, 1 - 4 * dt);
+      }
+    }
     if (this.replaySource && this.replaySource.length) {
       if (!this.replayPaused) this.replayT += dt * 5 * (this.replaySpeed || 1);
       const target = Math.min(this.replaySource.length - 1, Math.floor(this.replayT));
@@ -3185,6 +3223,67 @@ class Game {
 
     // ground
     if (this.groundCanvas) ctx.drawImage(this.groundCanvas, 0, 0, 1600, 1600, 0, 0, WORLD, WORLD);
+
+    // ---- ambient map life ----
+    const T = this.theme || MAP_THEMES.rift;
+    const t = this.time;
+    // river flow lines
+    ctx.save();
+    ctx.globalAlpha = 0.5;
+    ctx.strokeStyle = T.riverEdge;
+    ctx.lineWidth = 4;
+    ctx.setLineDash([30, 58]);
+    ctx.lineDashOffset = -(t * 85) % 88;
+    const rvn = Math.SQRT1_2;
+    for (let i = -1; i <= 1; i++) {
+      const ox = -rvn * i * 70, oy = rvn * i * 70;
+      ctx.beginPath();
+      ctx.moveTo(-300 + ox, 300 + oy);
+      ctx.lineTo(WORLD + 300 + ox, WORLD - 300 + oy);
+      ctx.stroke();
+    }
+    ctx.setLineDash([]);
+    // lane energy dashes
+    ctx.globalAlpha = 0.55;
+    ctx.strokeStyle = T.laneEdge;
+    ctx.lineWidth = 6;
+    ctx.setLineDash([14, 60]);
+    ctx.lineDashOffset = -(t * 110) % 74;
+    for (const lane of LANES) {
+      ctx.beginPath();
+      lane.pts.forEach((p, i2) => i2 ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]));
+      ctx.stroke();
+    }
+    ctx.setLineDash([]);
+    ctx.restore();
+    // base beacons
+    for (let bt = 0; bt < 2; bt++) {
+      const bp = THRONE_POS[bt];
+      const pulse = 0.10 + 0.07 * Math.sin(t * 2.2 + bt * 1.7);
+      const gr = ctx.createRadialGradient(bp.x, bp.y, 40, bp.x, bp.y, 520);
+      gr.addColorStop(0, TEAM_COLORS[bt] + 'aa');
+      gr.addColorStop(1, TEAM_COLORS[bt] + '00');
+      ctx.globalAlpha = pulse;
+      ctx.fillStyle = gr;
+      ctx.beginPath(); ctx.arc(bp.x, bp.y, 520, 0, TAU); ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+    // fireflies
+    if (this.fireflies) {
+      const vw = 1400, vh = 1400;
+      for (let i = 0; i < this.fireflies.length; i++) {
+        const f = this.fireflies[i];
+        const fx = f.x + Math.sin(t * f.spd + f.ph) * 34;
+        const fy = f.y + Math.cos(t * f.spd * 0.8 + f.ph * 2) * 26;
+        if (Math.abs(fx - cx) > vw / 2 || Math.abs(fy - cy) > vh / 2) continue;
+        const a = 0.35 + 0.3 * Math.sin(t * 2.4 + f.ph * 3);
+        if (a <= 0.05) continue;
+        ctx.globalAlpha = a;
+        ctx.fillStyle = f.hue;
+        ctx.beginPath(); ctx.arc(fx, fy, 2.4, 0, TAU); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
 
     // enemy tower danger rings
     const myTeam = this.player ? this.player.team : 0;

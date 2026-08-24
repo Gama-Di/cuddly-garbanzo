@@ -3492,5 +3492,115 @@
       "towers": 0
     },
     "lastDaily": "Mon Aug 24 2026"
+  },
+  "tester0_94968": {
+    "salt": "903b2a6e0dadb2bf47144ef5c4b581b0",
+    "hash": "71321515dba63b0eaf6e85768ad00d409d3d723b66f3826365783e1ab10f98b3",
+    "created": 1787545395102,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "T245",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026",
+    "history": [
+      {
+        "d": 1787545447903,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "helga"
+      }
+    ]
+  },
+  "tester1_95112": {
+    "salt": "98191a257c9d2bfe4892d37bd71a2e25",
+    "hash": "bea1def8d2f45156256679d68dbf45caa0dd39649322f562da6738d8c606baa5",
+    "created": 1787545395176,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787545447904,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "riom"
+      }
+    ]
+  },
+  "tester2_95178": {
+    "salt": "0c4d32fb304091c1219d3504745fae2e",
+    "hash": "bada33d20cd327babffd573e96a8fa8c89dd783f1f4c3cafac032c3630631e30",
+    "created": 1787545395224,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787545447903,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "tova"
+      }
+    ]
   }
 }

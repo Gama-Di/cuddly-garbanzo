@@ -133,5 +133,14 @@
    "tester0_42442"
   ],
   "created": 1787543492178
+ },
+ "T245": {
+  "tag": "T245",
+  "name": "Test Guild T245",
+  "owner": "tester0_94968",
+  "members": [
+   "tester0_94968"
+  ],
+  "created": 1787545446248
  }
 }

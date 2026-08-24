@@ -54,7 +54,7 @@ try { guilds = JSON.parse(fs.readFileSync(GUILDS_FILE, 'utf8')); } catch (e) { g
 function saveGuilds() { try { fs.writeFileSync(GUILDS_FILE, JSON.stringify(guilds, null, 1)); } catch (e) {} }
 const QUEUE_FILL_MS = parseInt(process.env.QF_MS || '20000', 10);   // solo/short-handed queues get bots after this
 const TICK_MS = 33;            // ~30 fps sim
-const SNAP_EVERY = 3;          // snapshot every 3 ticks (~10 Hz)
+const SNAP_EVERY = 2;          // snapshot every 2 ticks (~15 Hz)
 
 /* ================================================================
  * Accounts
