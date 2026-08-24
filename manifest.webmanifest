@@ -1,0 +1,16 @@
+{
+  "name": "Aether Arena — 5v5 MOBA",
+  "short_name": "Aether Arena",
+  "description": "5v5 online MOBA: 3 lanes, jungle, 10 heroes, ranked ELO, skins & replays.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#05080f",
+  "theme_color": "#0b1220",
+  "icons": [
+    { "src": "img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "img/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

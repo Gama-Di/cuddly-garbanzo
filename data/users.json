@@ -1,0 +1,2523 @@
+{
+  "tester0_7988": {
+    "salt": "efc308eeda7b8adf450c279232fec9d0",
+    "hash": "b95028239d1d8823db0b5ec509e6027a92d064c8719c3fe8e5a65d2172a8d4b3",
+    "created": 1787494108087,
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester1_8124": {
+    "salt": "98ac93f12188f3c6b998109a777654f3",
+    "hash": "2de5440a601245807a736228010fb0fb2f67e4009c14f3e7bb5f06854cd8d59f",
+    "created": 1787494108172,
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester2_8174": {
+    "salt": "3879c923d23d74c6dab4373efc91f518",
+    "hash": "c6fda2cdaa7385de3ae908a5f2ef5dbaa35de7cb52f4abea875755547fbdff6e",
+    "created": 1787494108216,
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester0_18489": {
+    "salt": "be3e96a71b97c1610f7a6757699cdd4b",
+    "hash": "c159a73639db1bfcb3e04a20a7865a2225bf6b45dd8589a7951da453b5eb8ce0",
+    "created": 1787494218576,
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester1_18584": {
+    "salt": "a95385c856cdbb35f7946209efae92dc",
+    "hash": "164c478ee58b8b51409d8d26d75399042c791c0ce00b06e3df51abe4b13378f0",
+    "created": 1787494218629,
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester2_18631": {
+    "salt": "2c231a6500e8e6014f707baf02a27ffb",
+    "hash": "c9d9811dd205b42cd28da2c8b997db5f2243d974b28922505847d35918778f66",
+    "created": 1787494218672,
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "finisher_98157": {
+    "salt": "33c25330822c367deba4d3751f2fa6c8",
+    "hash": "bcd122dffa1e4db4490fa903bda589a1f38973c57843aec36c0dd2f0abc4bdfe",
+    "created": 1787494323130,
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester0_75784": {
+    "salt": "ce8e6664687921c5b31c72d5cd965da1",
+    "hash": "5a0b1201bdc29fa7d2c1975a65bc2f766f69d3794a8550fc5281de2966a4a8b4",
+    "created": 1787494975878,
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester1_75886": {
+    "salt": "cd07ccf143ee08626412cce56cef5e84",
+    "hash": "251d43ea40b3c843f3c590a7af0d41f020f07546116b0a7334930496754fffad",
+    "created": 1787494975934,
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester2_75936": {
+    "salt": "3c851dc328abf98a29a0067e6fefe769",
+    "hash": "d35c34fa678e85708f4c3dd34895b83f6067af78b0b5889e49c75ba633ce537b",
+    "created": 1787494975976,
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "gamal": {
+    "salt": "bc50d4053030a5743a71a3798668151d",
+    "hash": "d9eff7f2611a7055e46b8e1769de15357b2a31b6cdea8f15e068b2fea2ed5eee",
+    "created": 1787495536551,
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester0_28324": {
+    "salt": "3b7868c40fc2f3d8f2fdf31ddaf4fe53",
+    "hash": "824d86ef3d7325f41a266f619a6a97cacb637207463504c2ba3250a55875914c",
+    "created": 1787498828411,
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester1_28419": {
+    "salt": "47a6230c897411f5469c9f8a631edd33",
+    "hash": "f2ffb353457b2a446d784f8d75c8ee32ce33daadd0c75b5dcebf56dd4ec67204",
+    "created": 1787498828464,
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester2_28466": {
+    "salt": "1dc05160d849ecd8b7ce8effa8794300",
+    "hash": "e5a568a612a998638e0da7aa64ae441839431cc90bd4860c6fbea6527a0a7fdd",
+    "created": 1787498828506,
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester0_80848": {
+    "salt": "b1e6b0d4be4e1757aa7cb580068ce825",
+    "hash": "ad9915f851a68b1032d7dab4cda22e12065379f7ed2039d969c44986bae1a7bf",
+    "created": 1787504380987,
+    "gems": 660,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester1_80997": {
+    "salt": "3d74fac7c792ad94362de3ba1bf849fe",
+    "hash": "b6a5f761ad4665b0b7ac448d5708a360c9709a0448ec06b3b6fd4576d1f41076",
+    "created": 1787504381048,
+    "gems": 600,
+    "elo": 1016,
+    "skins": {},
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester2_81050": {
+    "salt": "29fa2dac140ea394617c1562e6570121",
+    "hash": "b984f7cd3d70245bb931c7183f8fb8ec417d01597b9b89c4ad60242386f326ea",
+    "created": 1787504381093,
+    "gems": 560,
+    "elo": 985,
+    "skins": {},
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester0_75393": {
+    "salt": "61b54230eaea07eb5caee19524e1edfd",
+    "hash": "89dd0ced9b1f893f5dadd4c627863d8b1ad3c06968ee46d2fd8165b0654ab027",
+    "created": 1787504475504,
+    "gems": 660,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester1_75512": {
+    "salt": "d5d38a3b8b88438a2203815c5b44fa6f",
+    "hash": "8ce2380b000e77afd4715bd6121d68cd6d69663ef5bcec6003286ff501474e37",
+    "created": 1787504475560,
+    "gems": 600,
+    "elo": 1016,
+    "skins": {},
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester2_75563": {
+    "salt": "5a4e7c35a29d85e56c28595b33d7cd47",
+    "hash": "0013bede4a2b0ef4452294593cfda4cc4e5b2b602fc20f53779612c433695ec5",
+    "created": 1787504475605,
+    "gems": 560,
+    "elo": 985,
+    "skins": {},
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester0_81450": {
+    "salt": "6281e03e98a4978c875c287b640ec484",
+    "hash": "a0407b877d89ff749bf404fab52e6a530761ecc10e8961803cbb239603ade276",
+    "created": 1787504581547,
+    "gems": 660,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 1,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester1_81556": {
+    "salt": "34f761e583a8f20b315348a2e091deb8",
+    "hash": "4c69c7ec7eaed866ac3f4ab4f9a1ffe5a368418f2045d603371b9fb11d0e279c",
+    "created": 1787504581603,
+    "gems": 600,
+    "elo": 1016,
+    "skins": {},
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester2_81606": {
+    "salt": "3412548f3dacc9bcfcbe84ed43d3094e",
+    "hash": "068682af36b94180347b7ce9cc631431dea0620b00ae754c5c341f835ad5977d",
+    "created": 1787504581650,
+    "gems": 560,
+    "elo": 985,
+    "skins": {},
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester0_22075": {
+    "salt": "fcb0cbe6b07adc05e40537c9cb01b076",
+    "hash": "a855fd808998a6dafccbcd42f015a416481b6f9f1c34422a218a3c7d82c96e4f",
+    "created": 1787504722175,
+    "gems": 660,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 1,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester1_22184": {
+    "salt": "560564f997a030ed6da5e19c5e7dd012",
+    "hash": "2d7d1de8f7842d0911497714c9ed4eee4606f0c9fa5f16fc215b33338bfa6f2b",
+    "created": 1787504722232,
+    "gems": 600,
+    "elo": 1016,
+    "skins": {},
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester2_22235": {
+    "salt": "8b3d0323653cebe31f445770975b2b7a",
+    "hash": "49091f612e27f2c2a1f93857a3d8200e4dbaae37e4561e24024de106d745478f",
+    "created": 1787504722277,
+    "gems": 560,
+    "elo": 985,
+    "skins": {},
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 1,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester0_98896": {
+    "salt": "f819488538c73dae07e0be1ec34f4163",
+    "hash": "89828626449f1fcb3ec3dfb51596c2f163b3f3237bfcded3b0f0db119cfa87b5",
+    "created": 1787504798985,
+    "gems": 660,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester1_98993": {
+    "salt": "29190fc9fcb17c8d87e5a52f55ce3e38",
+    "hash": "cc99b6ac49a2249fc6a99f5547fb3dd82c5a395ccebdf9f2562491e2524b5688",
+    "created": 1787504799041,
+    "gems": 600,
+    "elo": 1016,
+    "skins": {},
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 2,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester2_99043": {
+    "salt": "cf3e577ff2f011b6984d49bf6da94af9",
+    "hash": "4856b58bd5263000b8c82a910307843f769ccece94506d9a42aa62d8cbebad50",
+    "created": 1787504799085,
+    "gems": 560,
+    "elo": 985,
+    "skins": {},
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester0_23499": {
+    "salt": "028c85cdc144fb8803addf0fc819a74d",
+    "hash": "a0b4a639d1d1fbdabdc0fed253f39618c04f22109074744e8544f192c2e2af38",
+    "created": 1787505823593,
+    "gems": 760,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 1,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Sun Aug 23 2026",
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester1_23602": {
+    "salt": "dde1ac2b283d5e365a279c2e566f7fe7",
+    "hash": "e474d2262ae0879aa18db3ff31503a2cd4969e8b83f0076b4ea26662eb8b5844",
+    "created": 1787505823652,
+    "gems": 600,
+    "elo": 1016,
+    "skins": {},
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 1,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester2_23654": {
+    "salt": "5de5dd6185a20ab3050c636f99641f92",
+    "hash": "a2a35054344718ac748147e63a0e4c9ddceb75980f11f30a94f5275935f9cf59",
+    "created": 1787505823699,
+    "gems": 560,
+    "elo": 985,
+    "skins": {},
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester0_48876": {
+    "salt": "91e2c9b972937603a6c7481d5872bcb8",
+    "hash": "ea9ea3c9bd3e99ce7dcb0c2bbce862a078208e1d367a9f34bb76786126173777",
+    "created": 1787507048972,
+    "gems": 700,
+    "elo": 1000,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Sun Aug 23 2026",
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester1_48981": {
+    "salt": "68aa0bc7d97c30c229052a98894176a8",
+    "hash": "f5f789cc8025a8c70a197b931ff6bfced17c6166365526019a92daf2f750fb4d",
+    "created": 1787507049037,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester2_49039": {
+    "salt": "c4504e4fdad13f1375ea9959ddfafad4",
+    "hash": "c71598bd656e0ce1443435073394181221f3e4950090ec44e7c44481c9564dc9",
+    "created": 1787507049082,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester0_33290": {
+    "salt": "77803d02836763a4b9fd575f36411dc4",
+    "hash": "02c9727b6b1278d8ad19daf70783b8391e3014dc78bfed0552202dc9f2a8998d",
+    "created": 1787507133384,
+    "gems": 700,
+    "elo": 1000,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Sun Aug 23 2026",
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester1_33392": {
+    "salt": "3225ad3d9e7d0ed91e9bd362335539d7",
+    "hash": "bfe8f0d3af95baafbeecfed7d1ce0e18744daa071b1c8a490f0d335fc3f7db26",
+    "created": 1787507133440,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester2_33442": {
+    "salt": "376c314915624f575d41f1658e6d5afc",
+    "hash": "eb4dc438052bc8edb1335ccf9b112abe49ee8d1ce003b81b1c11daac33ff1340",
+    "created": 1787507133485,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester0_35043": {
+    "salt": "4bb0cc4392b8a3dd7a6734ac7be304e0",
+    "hash": "f5b4a9ac278b7e2d90a3789622351208d97735cc7a68c1c2eb2766c05ef63ac0",
+    "created": 1787507235130,
+    "gems": 760,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Sun Aug 23 2026",
+    "history": [
+      {
+        "d": 1787507309858,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 55,
+        "hero": "kael"
+      }
+    ],
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester1_35140": {
+    "salt": "c607f8cf637527e86a889bb880295c67",
+    "hash": "df86e84434c8ff9de3a0331235a5b582964fb2b61d3f8e251b7d0fe4d25754cb",
+    "created": 1787507235186,
+    "gems": 600,
+    "elo": 1016,
+    "skins": {},
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787507309858,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 55,
+        "hero": "nyx"
+      }
+    ],
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester2_35188": {
+    "salt": "27c016d945334943a2554e37027f1cb8",
+    "hash": "8ea79a6e4553d98afff225e52139e7e8154af536179c3a714268f49b6032446a",
+    "created": 1787507235229,
+    "gems": 560,
+    "elo": 985,
+    "skins": {},
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787507309858,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 55,
+        "hero": "bastion"
+      }
+    ],
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester0_52938": {
+    "salt": "f88092dfcb70a5a08ccd4ae0e68ea042",
+    "hash": "3564a571b559049f90a464598e9c6dfd6d77ae9628be73f3ba20808394899766",
+    "created": 1787512053024,
+    "gems": 760,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Sun Aug 23 2026",
+    "history": [
+      {
+        "d": 1787512096775,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 24,
+        "hero": "kael"
+      }
+    ],
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "friends": []
+  },
+  "tester1_53032": {
+    "salt": "61fbb025c64f702b1af511701da023d2",
+    "hash": "b81b17d2a173b3400e79241f7378d293a0dc7b29b85e5603750e1ac23fd7511b",
+    "created": 1787512053080,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787512096775,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 24,
+        "hero": "nyx"
+      }
+    ],
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "friends": []
+  },
+  "tester2_53082": {
+    "salt": "943781423d410b2992dcb45e0e1570d5",
+    "hash": "b742524551e7c33fa96053383e6058ed2fa6612acf571f7108c00ea8f61ec4c2",
+    "created": 1787512053122,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787512096775,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 24,
+        "hero": "bastion"
+      }
+    ],
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "friends": []
+  },
+  "dbg_34982": {
+    "salt": "36d8a36c793ec8c535790224a61ccb05",
+    "hash": "6e149b79667b985787991a5852033326805f43731773a0d0a989aeba04f60cb3",
+    "created": 1787512159786,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "friends": [],
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    }
+  },
+  "tester0_1636": {
+    "salt": "417dd0440571e305ab8338e72c2f0d9f",
+    "hash": "1eee48554b98a7804a48384b74c88aea016c85a9dd19adb46b14f9134b954235",
+    "created": 1787512301726,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "TEST",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Sun Aug 23 2026",
+    "history": [
+      {
+        "d": 1787512344257,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "kael"
+      }
+    ]
+  },
+  "tester1_1737": {
+    "salt": "99acf652ee1b868190196c2fce38421e",
+    "hash": "172be376c3abfb8abf9f75fc831a1f850ba071e0d34f4019e9a46d67cba47949",
+    "created": 1787512301785,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787512344258,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "nyx"
+      }
+    ]
+  },
+  "tester2_1788": {
+    "salt": "61efaf8dd313bca64767bc4f8e7bcf2d",
+    "hash": "b774f588f38589e0a0ca41483ad2d0ecf8e14072752d9ab6745e006b461ae0f8",
+    "created": 1787512301831,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787512344258,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "bastion"
+      }
+    ]
+  },
+  "tester0_16771": {
+    "salt": "f8a24939e79812c5a42984a6ddc96a89",
+    "hash": "df2f279d3812c1c53b51494b838b125af695081f8f5636274123129b34018fe9",
+    "created": 1787512416874,
+    "gems": 760,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Sun Aug 23 2026",
+    "history": [
+      {
+        "d": 1787512459418,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "kael"
+      }
+    ]
+  },
+  "tester1_16882": {
+    "salt": "d1c346dce8907c5080c0022b483d2131",
+    "hash": "58e25ea0120b9d88a2b3d3d2584391962002b2206c92cf015ebc922716e04e29",
+    "created": 1787512416935,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787512459418,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "nyx"
+      }
+    ]
+  },
+  "tester2_16938": {
+    "salt": "c36ade42ad4efc5940e9ddc78cb8fbb9",
+    "hash": "8792577304bc9dc344d426e9be29ca618bc27a75319fe18e1b2b7c35977f8da8",
+    "created": 1787512416984,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787512459418,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "bastion"
+      }
+    ]
+  },
+  "tester0_76458": {
+    "salt": "5eec00fbe7013ab6abf1da1447b3496b",
+    "hash": "10f24d60b510272e787ffc48d8c79f6dafd601e04d354f80f577bfdf6acafcc1",
+    "created": 1787512476553,
+    "gems": 760,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Sun Aug 23 2026",
+    "history": [
+      {
+        "d": 1787512519068,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "kael"
+      }
+    ]
+  },
+  "tester1_76562": {
+    "salt": "17c83c7682391acd538601ae7ebdda50",
+    "hash": "4e7e7af458d8d89870ee4bf0d3daa3c47fed071b800db560a677ddb5cfe26a84",
+    "created": 1787512476614,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787512519068,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "nyx"
+      }
+    ]
+  },
+  "tester2_76616": {
+    "salt": "8db9b1dc81f548902df0fc99ab1e6176",
+    "hash": "eec9cad3586f23cfad37022e75adc102de21fab0e99ab5c64fc7bff83e1bc641",
+    "created": 1787512476660,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787512519068,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "bastion"
+      }
+    ]
+  },
+  "tester0_24174": {
+    "salt": "5b0964e591dda2083150ee2ba102d559",
+    "hash": "ef9941ef0adcc988a39c8bd1d8a08b3b1b27ecb2ac48b243ad14c861e40677dd",
+    "created": 1787512624266,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "T158",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Sun Aug 23 2026",
+    "history": [
+      {
+        "d": 1787512666791,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "kael"
+      }
+    ]
+  },
+  "tester1_24276": {
+    "salt": "4c7f9eb0311ef9ad186864c855096b93",
+    "hash": "d8ff89405da250c3cafc253615fbdd697bdd5e45cbe36010975eef30fe97d7d2",
+    "created": 1787512624324,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787512666791,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "nyx"
+      }
+    ]
+  },
+  "tester2_24327": {
+    "salt": "e805caab7a025465111bfd2e40c17820",
+    "hash": "964596bd0649ff2f757a2cfd3414b28238790f24f7540b350e9dc6244f0b0ae4",
+    "created": 1787512624369,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787512666791,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "bastion"
+      }
+    ]
+  },
+  "tester0_70036": {
+    "salt": "599a9c07e68b843a074827f18ea2f490",
+    "hash": "d7ca2b5de6091a4d3eb5b07bf7adb94e2eca80fde1fdbb93cd565de1b6c31d6c",
+    "created": 1787512670125,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "T014",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Sun Aug 23 2026",
+    "history": [
+      {
+        "d": 1787512712676,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "kael"
+      }
+    ]
+  },
+  "tester1_70133": {
+    "salt": "ff51e4cbe60f28e6a430583c2d5505de",
+    "hash": "e1ea069f5c4cecdb163d3f2e8738f9cbc6f73edc9204dbe929d492df79474149",
+    "created": 1787512670179,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787512712676,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "nyx"
+      }
+    ]
+  },
+  "tester2_70182": {
+    "salt": "19c4c481288e3242b033a07a6b5c0265",
+    "hash": "98e0a7b9cf2a2637a9b565b42ec5a243dc4c565005bc91418a05dcf6413b6528",
+    "created": 1787512670224,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787512712676,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "bastion"
+      }
+    ]
+  },
+  "daaa": {
+    "salt": "53fcfe3bdab34e028891bda5b669a120",
+    "hash": "bec64fdaf32beaa56c87b024a9b456dab60a48768aea1cd5570465b55918232b",
+    "created": 1787512844754,
+    "gems": 0,
+    "elo": 1000,
+    "skins": {
+      "kael": [
+        3
+      ]
+    },
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Sun Aug 23 2026"
+  },
+  "tester0_68704": {
+    "salt": "1d8eaeaef2c31b32f717a71b2160af71",
+    "hash": "920e6f188e9f7d03c07bb6a6b2b01c3bf774acc439da13db5ea4f4afb141837e",
+    "created": 1787513668805,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "T722",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Sun Aug 23 2026",
+    "history": [
+      {
+        "d": 1787513711377,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "kael"
+      }
+    ]
+  },
+  "tester1_68813": {
+    "salt": "e973f26348a19d875a1e194df90302bb",
+    "hash": "b057e781f38de1d7b69c8e257003f4d3870d0118ae5246a9193dc3324a2cbdf2",
+    "created": 1787513668863,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787513711377,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "nyx"
+      }
+    ]
+  },
+  "tester2_68865": {
+    "salt": "b1ad6743656ca02375a05597a1206a3d",
+    "hash": "4c3dde527ece47f2c081f5a01cce86e28a6e9e07c51e8f9a115904b0ceb309f8",
+    "created": 1787513668909,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787513711377,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "bastion"
+      }
+    ]
+  },
+  "tester0_59541": {
+    "salt": "f3d6c7331e5dd36b9ea33fbd03a736d4",
+    "hash": "f576ba20037d5a2955f605ab6d374e5991424ed661d8966d733fdcb797b1c9f3",
+    "created": 1787515059657,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "T552",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Sun Aug 23 2026",
+    "history": [
+      {
+        "d": 1787515102214,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "kael"
+      }
+    ]
+  },
+  "tester1_59666": {
+    "salt": "0860ee2ee9a6eebe5eca3875700f7d30",
+    "hash": "d71dde66b84608c0fb6e4289bd010c190bc20f80b4674a73352137d753695287",
+    "created": 1787515059713,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787515102215,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "nyx"
+      }
+    ]
+  },
+  "tester2_59715": {
+    "salt": "fc916d55f8c1f6adc314073d3f5bd551",
+    "hash": "d70c048f0ba2ff07deed320a7225e048946792a6c70c614f57768e2c2c4e8f4f",
+    "created": 1787515059756,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787515102214,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "bastion"
+      }
+    ]
+  },
+  "tester0_43685": {
+    "salt": "dfe89b5051b44ec5b22a6d817c3b65dc",
+    "hash": "44556c9c2d021ec2dbe515796f443d568adeb05d03ec9e667dea2a09230b1e18",
+    "created": 1787517143803,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "T726",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Sun Aug 23 2026",
+    "history": [
+      {
+        "d": 1787517186390,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "kael"
+      }
+    ]
+  },
+  "tester1_43828": {
+    "salt": "70172ce9cd22aa8437c7cad331728a92",
+    "hash": "8771d124c1ef0178d091d9e13b112d704d5a359420611569799fb8016f8728eb",
+    "created": 1787517143878,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787517186390,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "nyx"
+      }
+    ]
+  },
+  "tester2_43880": {
+    "salt": "7a7619a80974e5f7327fe1242bb2d048",
+    "hash": "0b2b41efab957daae8c90b81963cfec59ffb39f0fa6b570272bdccb766c2fb9c",
+    "created": 1787517143925,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787517186390,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "bastion"
+      }
+    ]
+  },
+  "tester0_90876": {
+    "salt": "d5b870f1fdde8d38e359a50cee6e5cc4",
+    "hash": "673c0fed5e7740544337555cf35b49656b33db251451ed7b322c7fd2814ecbd2",
+    "created": 1787538490993,
+    "gems": 700,
+    "elo": 1000,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026"
+  },
+  "tester1_91012": {
+    "salt": "47f9283a082fc6bfdfab4c21bc3554ae",
+    "hash": "c5cea4c70174789bb26532ba780325db79dea034530bf455e3e243a32dd488a0",
+    "created": 1787538491078,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    }
+  },
+  "tester2_91081": {
+    "salt": "2a819c9f7b2e589160063b4c5bb41e14",
+    "hash": "8c3502d092ff9fe3539879bea2ff966051ebedd4899b3f0364b007568be82c93",
+    "created": 1787538491143,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    }
+  },
+  "tester0_12395": {
+    "salt": "1a4141a22a887df2b17325413414fb8d",
+    "hash": "24c9080266ebb44fa1225d24c6baec92484410674096e9a75916268db7d72c61",
+    "created": 1787538612488,
+    "gems": 700,
+    "elo": 1000,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026"
+  },
+  "tester1_12495": {
+    "salt": "ac795b631012d4845149216b955d4312",
+    "hash": "fb0ecc71cd1297b64ed8165db5136ef7a060f62255ef8e1c01f42c726c422e36",
+    "created": 1787538612540,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    }
+  },
+  "tester2_12542": {
+    "salt": "31f9102466140595b9a480ade03e0ac8",
+    "hash": "837f4773a0467aea4624bed6b1a5f57c963decbd86af3540892f4f487949f322",
+    "created": 1787538612582,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    }
+  },
+  "dbg_98097": {
+    "salt": "d53714ff01eeaa169f42ac23a0c8169d",
+    "hash": "5e13f4ee50a83de68ec0ef9101fcec1882824874cc31aa52b890422526527ec4",
+    "created": 1787538722618,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    }
+  },
+  "tester0_3786": {
+    "salt": "7405bcbfb1a76121cfe11e484fa92041",
+    "hash": "0eec24a445ccf1a4b5d086230749c9e19192e992108bc0fe269d82bf551fbc4a",
+    "created": 1787538803874,
+    "gems": 700,
+    "elo": 1000,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026"
+  },
+  "tester1_3883": {
+    "salt": "ae3290ddd61e6c41d89093e37256ac5d",
+    "hash": "e87e0a6ee3274abeedc33708e1c847f03c750a6b425d2fcfda2ecf1afaf69ef3",
+    "created": 1787538803928,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    }
+  },
+  "tester2_3930": {
+    "salt": "f646893fd0d4220e8dc4dbec0d297952",
+    "hash": "a8430199ab2c196a32c29478950e6dd739485906674add379cfdcdbfab391ae0",
+    "created": 1787538803969,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    }
+  },
+  "dbg_58980": {
+    "salt": "250429232cebd390def46218cb83712c",
+    "hash": "c8eb8545e3d2647ad14e740124f25f1f5b2720bc77715c73064e256ea946e7a4",
+    "created": 1787538883501,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    }
+  },
+  "tester0_33465": {
+    "salt": "09598ecf366359791a26a894a08ef9d6",
+    "hash": "4b2e41be79b8b3acf97277abc0a94b9e5243e9b858c0c8545159c4b0a0d80788",
+    "created": 1787538933551,
+    "gems": 200,
+    "elo": 1000,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "T654",
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026"
+  },
+  "tester1_33559": {
+    "salt": "035d80977d528688d745d982fc23a49f",
+    "hash": "93e68f5c8de0e090deb85813984843a93bb99a1ba79228ee077d727ac833e241",
+    "created": 1787538933604,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    }
+  },
+  "tester2_33606": {
+    "salt": "43f43e28255cf62af98cc37ef1704dd4",
+    "hash": "c04dbe171e15f4fd4182b910c5c652ab269ce124ae6d5a3a4d1166204ab110ec",
+    "created": 1787538933644,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    }
+  },
+  "tester0_40537": {
+    "salt": "dca5da603791376972def7176d488949",
+    "hash": "8f9e2f9d427ecb9c10454863455619de72c6dc1a690eef7fe8ed3cbfdd8f1cb5",
+    "created": 1787539240629,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "T248",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026",
+    "history": [
+      {
+        "d": 1787539292889,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "morrow"
+      }
+    ]
+  },
+  "tester1_40638": {
+    "salt": "186c2e292979a3e4264bf6ef4c19efc1",
+    "hash": "0caeaf336a7b47f3e76007318ca9ad46e56e4b19fbd9e21fd682501ad05c3cf3",
+    "created": 1787539240697,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787539292889,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "seraph"
+      }
+    ]
+  },
+  "tester2_40700": {
+    "salt": "3cbc300aa654be374f116fc289c68e64",
+    "hash": "1f8effa4202d6f31b2fd34973824bf300daab3fe44fe0aa7147463b5a6c1f311",
+    "created": 1787539240743,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787539292889,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "syon"
+      }
+    ]
+  }
+}
