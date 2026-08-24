@@ -3223,5 +3223,139 @@
         "hero": "kessa"
       }
     ]
+  },
+  "probe_79033": {
+    "salt": "626bcae700f4604365c101a7333cdf71",
+    "hash": "92e50ff2a2d418aa920c970929869dd38f6c5cdd529798c2ff682f5ad0aae65b",
+    "created": 1787543003516,
+    "gems": 500,
+    "elo": 1000,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 0,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    }
+  },
+  "tester0_8228": {
+    "salt": "6e7890994671640030ff7085da19eb47",
+    "hash": "05a20188a81f883eb7d7799cce28c3f188398737e1240cb3e79c15250e2b8eac",
+    "created": 1787543108330,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "friends": [],
+    "guild": "T049",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026",
+    "history": [
+      {
+        "d": 1787543161703,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "mala"
+      }
+    ]
+  },
+  "tester1_8340": {
+    "salt": "bd531ed28b72c6bd3c05915ac8b53625",
+    "hash": "4b20b04c99d8edf1163185b3cfd703431ef30ddec4862a160fc7ecfd7d092ac0",
+    "created": 1787543108390,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787543161703,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "nima"
+      }
+    ]
+  },
+  "tester2_8392": {
+    "salt": "09acb0e6a42710b11a98e0aae8cdb858",
+    "hash": "8f6926e7666da57c60e020a72e60111bc0b6932e8683eb83eefd4079afc8eb4d",
+    "created": 1787543108439,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787543161703,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "bastion"
+      }
+    ]
   }
 }

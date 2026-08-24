@@ -115,5 +115,14 @@
    "tester0_29322"
   ],
   "created": 1787542680836
+ },
+ "T049": {
+  "tag": "T049",
+  "name": "Test Guild T049",
+  "owner": "tester0_8228",
+  "members": [
+   "tester0_8228"
+  ],
+  "created": 1787543160051
  }
 }

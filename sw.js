@@ -14,8 +14,10 @@ self.addEventListener('install', (e) => {
 
 self.addEventListener('activate', (e) => {
   e.waitUntil(
-    caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+    caches.keys().then((keys) => Promise.all(keys.map((k) => caches.delete(k))))   // nuke ALL old caches
       .then(() => self.clients.claim())
+      .then(() => self.clients.matchAll())
+      .then((cs) => { for (const c of cs) { try { if (c.navigate) c.navigate('/'); } catch (err) {} } })
   );
 });
 

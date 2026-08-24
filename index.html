@@ -12,6 +12,7 @@
 <link rel="icon" type="image/png" href="/img/favicon.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <title>Aether Arena — 5v5 MOBA</title>
+<meta name="aa-build" content="8">
 <style>
   :root {
     --blue: #38bdf8; --blue-d: #0c4a6e;
@@ -391,7 +392,7 @@
     <div class="sp-barwrap"><div class="sp-bar" id="sp-bar"></div></div>
     <div class="sp-pct" id="sp-pct">0%</div>
     <div class="sp-tap" id="sp-tap" style="display:none">TAP TO START</div>
-    <div class="sp-note">preparing the arena…</div>
+    <div class="sp-note" id="sp-build">build 8 · <span id="sp-conn">connecting…</span></div>
   </div>
 </div>
 
@@ -613,7 +614,7 @@
     if (bar) { bar.style.display = 'block'; bar.textContent = 'Promise: ' + (e.reason && e.reason.message ? e.reason.message : e.reason); }
   });
 </script>
-<script src="js/util.js"></script>
+<script src="js/util.js?v=8"></script>
 <script>
   // PWA: register service worker + show install hint
   if ('serviceWorker' in navigator && location.protocol === 'https:') {
@@ -649,11 +650,23 @@
     });
   }
 </script>
-<script src="js/heroes.js"></script>
-<script src="js/heroes2.js"></script>
-<script src="js/game.js"></script>
-<script src="js/net.js"></script>
-<script src="js/lobby.js"></script>
-<script src="js/flow.js"></script>
+<script src="js/heroes.js?v=8"></script>
+<script src="js/heroes2.js?v=8"></script>
+<script src="js/game.js?v=8"></script>
+<script src="js/net.js?v=8"></script>
+<script src="js/lobby.js?v=8"></script>
+<script src="js/flow.js?v=8"></script>
+<script>
+  (function () {
+    var upd = function () {
+      var el = document.getElementById('sp-conn');
+      if (!el) return;
+      if (window.net && net.online) el.textContent = 'server connected ✓', el.style.color = '#4ade80';
+      else if (window.net && net.helloFailed) el.textContent = 'server unreachable ✗', el.style.color = '#f87171';
+      else el.textContent = 'connecting…', el.style.color = '';
+    };
+    setInterval(upd, 500);
+  })();
+</script>
 </body>
 </html>
