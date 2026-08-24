@@ -1950,7 +1950,10 @@ class Game {
   /* ---------------- skills ---------------- */
   skillAim(h, i) {
     // returns a point to aim at
-    if (h.isPlayer && !this.headless && this.input && this.input.aimPt) return this.input.aimPt(h);
+    if (h.isPlayer && !this.headless && this.input && this.input.aimPt) {
+      const pt = this.input.aimPt(h);
+      if (pt) return pt;                     // no stick/mouse? fall through to auto-aim
+    }
     // AI: predict target motion
     const s = h.def.skills[i];
     let tgt = null;
