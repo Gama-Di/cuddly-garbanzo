@@ -4,6 +4,7 @@
  * feeding server snapshots into a mirror-mode Game for rendering.
  * ============================================================ */
 'use strict';
+const API = (p) => ((typeof window !== 'undefined' && window.GAME_SERVER) || '') + p;
 
 class Net {
   constructor() {
@@ -20,8 +21,10 @@ class Net {
 
   connect() {
     if (this.helloFailed) this.helloFailed = false;
-    const proto = location.protocol === 'https:' ? 'wss' : 'ws';
-    const ws = new WebSocket(`${proto}://${location.host}`);
+    const gs = (typeof window !== 'undefined' && window.GAME_SERVER) || '';
+    const proto = gs ? (gs.startsWith('http:') ? 'ws' : 'wss') : (location.protocol === 'https:' ? 'wss' : 'ws');
+    const host = gs ? gs.replace(/^https?:\/\//, '').replace(/\/$/, '') : location.host;
+    const ws = new WebSocket(`${proto}://${host}`);
     this.ws = ws;
     // watchdog: a connection stuck in CONNECTING (hung proxy) resolves as failed
     clearTimeout(this._wdT);
@@ -63,7 +66,7 @@ class Net {
     this.me.equip = this.me.equip || {};
     this.me.equip[heroId] = idx;
     try {
-      await fetch('/api/equip', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      await fetch(API('/api/equip'), { method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token: this.token, heroId, skinIdx: idx }) });
     } catch (e) {}
   }
@@ -71,7 +74,7 @@ class Net {
   async refreshMe() {
     if (!this.token) return;
     try {
-      const r = await fetch('/api/me?token=' + encodeURIComponent(this.token));
+      const r = await fetch(API('/api/me?token=' + encodeURIComponent(this.token)));
       const j = await r.json();
       if (j.ok) {
         this.me = { gems: j.gems, elo: j.elo, skins: j.skins || {}, equip: j.equip || {}, stats: j.stats, history: j.history || [] };
@@ -80,7 +83,7 @@ class Net {
         // daily login reward
         if (this.online) {
           try {
-            const d = await fetch('/api/daily', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ token: this.token }) });
+            const d = await fetch(API('/api/daily'), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ token: this.token }) });
             const dj = await d.json();
             if (dj.ok && dj.granted) {
               this.me.gems = dj.gems;
@@ -192,7 +195,10 @@ class Net {
     this.inQueue = false;
   }
 
-  queue(heroId, mode) { this.send({ t: 'queue', heroId, mode: mode || 'ranked' }); }
+  queue(heroId, mode) {
+    if (typeof window !== 'undefined' && window.OFFLINE_DEMO) { UI.toast('🌐 Online play needs the hosted server — Practice works fully offline!'); return; }
+    this.send({ t: 'queue', heroId, mode: mode || 'ranked' });
+  }
   unqueue() { this.inQueue = false; this.send({ t: 'unqueue' }); UI.setQueueStatus(false); }
 
   /* called by mirror game every frame */
@@ -287,7 +293,7 @@ const UI = {
     const status = this.el('auth-status');
     status.textContent = '…';
     try {
-      const r = await fetch('/api/auth', {
+      const r = await fetch(API('/api/auth'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ mode: this.authMode, username, password }),

@@ -4571,5 +4571,235 @@
         "hero": "korv"
       }
     ]
+  },
+  "tester0_69722": {
+    "salt": "6b872e096f8051488a78e77ae15faf75",
+    "hash": "fe2d4b86caa1a0fba60c23fe70cdbbe1d67bd8f389b1e08746cb22097d30b9b0",
+    "created": 1787553469815,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "equip": {
+      "vex": 2
+    },
+    "friends": [],
+    "guild": "T134",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026",
+    "history": [
+      {
+        "d": 1787553523799,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "brawn"
+      }
+    ]
+  },
+  "tester1_69824": {
+    "salt": "9200bf2ac5f8f6da98951a60a87e5e32",
+    "hash": "64c97e0f2ada1b74c12af16cebfc1ebb9880a24ecaf598ffaa90bcb478d6bdaf",
+    "created": 1787553469874,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "equip": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787553523799,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "brawn"
+      }
+    ]
+  },
+  "tester2_69877": {
+    "salt": "8bdb7d6993160eb7685d406c2a198f34",
+    "hash": "0a06ab8d3e3e428dd01936ab2b77b778dd81a2eb1d21e6f9f2287483b18a2965",
+    "created": 1787553469920,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "equip": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787553523799,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "lunara"
+      }
+    ]
+  },
+  "tester0_69933": {
+    "salt": "952c3d954edf763eb3fea201e7102246",
+    "hash": "aa7019ec78a0c52a0fa0ebbc6f561de4ece631c9c67192e69c7ef696495e3b35",
+    "created": 1787553970020,
+    "gems": 260,
+    "elo": 984,
+    "skins": {
+      "vex": [
+        2
+      ]
+    },
+    "equip": {
+      "vex": 2
+    },
+    "friends": [],
+    "guild": "T922",
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "lastDaily": "Mon Aug 24 2026",
+    "history": [
+      {
+        "d": 1787554025568,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "toruuk"
+      }
+    ]
+  },
+  "tester1_70029": {
+    "salt": "e41cfac72327730de086696afb7d78fd",
+    "hash": "0a569b4d35114e6d611f431825018b74d1092790a78361bdd7f2974b58d8d7c8",
+    "created": 1787553970074,
+    "gems": 600,
+    "elo": 1015,
+    "skins": {},
+    "equip": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 100,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787554025568,
+        "win": 1,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "lyra"
+      }
+    ]
+  },
+  "tester2_70077": {
+    "salt": "df8de1d674625cf51f06e7f9d5819945",
+    "hash": "11222b55ccb6e21df9bbff84a9ba7f78d0e6225ff974d91276886936b35c1a38",
+    "created": 1787553970117,
+    "gems": 560,
+    "elo": 984,
+    "skins": {},
+    "equip": {},
+    "friends": [],
+    "guild": null,
+    "bp": {
+      "season": 1,
+      "xp": 50,
+      "tier": 0,
+      "premium": false
+    },
+    "stats": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "deaths": 0,
+      "towers": 0
+    },
+    "history": [
+      {
+        "d": 1787554025568,
+        "win": 0,
+        "k": 0,
+        "dt": 0,
+        "a": 0,
+        "dur": 23,
+        "hero": "ren"
+      }
+    ]
   }
 }

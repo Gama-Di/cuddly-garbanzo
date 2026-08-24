@@ -196,5 +196,23 @@
    "tester0_18067"
   ],
   "created": 1787551568815
+ },
+ "T134": {
+  "tag": "T134",
+  "name": "Test Guild T134",
+  "owner": "tester0_69722",
+  "members": [
+   "tester0_69722"
+  ],
+  "created": 1787553522137
+ },
+ "T922": {
+  "tag": "T922",
+  "name": "Test Guild T922",
+  "owner": "tester0_69933",
+  "members": [
+   "tester0_69933"
+  ],
+  "created": 1787554023925
  }
 }

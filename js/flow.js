@@ -59,7 +59,7 @@ const Flow = {
           if (resolved) return;
           resolved = true;
           menuSfx.resume(); menuSfx.play('announce');
-          if (net.online) Flow.showMenu();
+          if (net.online || (typeof window !== 'undefined' && window.OFFLINE_DEMO)) Flow.showMenu();
           else Flow.screen('auth');
         };
         const go = () => {

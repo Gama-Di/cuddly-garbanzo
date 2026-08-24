@@ -108,7 +108,7 @@ const Lobby = {
 
   /* ---------------- leaderboard ---------------- */
   async openLeaderboard() {
-    const r = await fetch('/api/leaderboard');
+    const r = await fetch(API('/api/leaderboard'));
     const j = await r.json();
     const rows = (j.rows || []).map((u, i) => `
       <div class="lb-row ${net.username === u.username ? 'me' : ''}">
@@ -261,7 +261,7 @@ const Lobby = {
 
   /* ---------------- replays ---------------- */
   async openReplays() {
-    const r = await fetch('/api/replays');
+    const r = await fetch(API('/api/replays'));
     const j = await r.json();
     const rows = (j.replays || []).slice().reverse().map(rp => `
       <div class="shop-row">
