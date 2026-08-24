@@ -31,14 +31,23 @@ class Net {
       try { m = JSON.parse(ev.data); } catch (e) { return; }
       this.onMsg(m);
     };
-    ws.onclose = () => { this.onDisconnect(); };
-    ws.onerror = () => {};
+    ws.onclose = () => { if (!this.online) this.helloFailed = true; this.onDisconnect(); };
+    ws.onerror = () => { if (!this.online) this.helloFailed = true; };
   }
 
   send(obj) {
     if (this.ws && this.ws.readyState === 1) this.ws.send(JSON.stringify(obj));
   }
 
+  reconnect() {
+    if (this.online) return;
+    this.helloFailed = false;
+    this.connect();
+  }
+  refreshMenuHint() {
+    const st = document.getElementById('auth-status');
+    if (st) st.textContent = '⚠️ Could not reach the server — try logging in again';
+  }
   async refreshMe() {
     if (!this.token) return;
     try {
@@ -148,6 +157,7 @@ class Net {
     if (typeof Flow === 'undefined') UI.showAuth();
   }
   onDisconnect() {
+    if (!this.online) this.helloFailed = true;
     document.body.classList.remove('online');
     if (this.online && this.game) {
       this.online = false;

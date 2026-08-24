@@ -13,6 +13,7 @@ const ctx = vm.createContext({ console, Math, performance: { now: () => Date.now
 const load = (f) => vm.runInContext(fs.readFileSync(path.join(__dirname, '..', 'js', f), 'utf8'), ctx, { filename: f });
 load('util.js');
 load('heroes.js');
+load('heroes2.js');
 load('game.js');
 
 const heroId = process.argv[2] || 'kael';

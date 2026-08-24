@@ -113,11 +113,49 @@ function tintImage(img, color, alpha) {
   x.fillRect(0, 0, c.width, c.height);
   return c;
 }
+/* procedural sigil portraits for heroes without generated art */
+function makeSigil(h) {
+  const c = document.createElement('canvas');
+  c.width = 96; c.height = 96;
+  const x = c.getContext('2d');
+  let seed = 0;
+  for (const ch of h.id) seed = (seed * 31 + ch.charCodeAt(0)) % 9973;
+  const rnd = () => (seed = (seed * 137 + 71) % 9973) / 9973;
+  const g = x.createRadialGradient(48, 40, 8, 48, 48, 60);
+  g.addColorStop(0, '#16233d');
+  g.addColorStop(1, '#0a1220');
+  x.fillStyle = g;
+  x.beginPath(); x.arc(48, 48, 46, 0, TAU); x.fill();
+  x.strokeStyle = h.tint;
+  x.globalAlpha = 0.75;
+  const shards = 5 + Math.floor(rnd() * 4);
+  for (let i = 0; i < shards; i++) {
+    const a = (i / shards) * TAU + rnd() * 0.8;
+    const r1 = 24 + rnd() * 8, r2 = 36 + rnd() * 8;
+    x.lineWidth = 2 + rnd() * 3;
+    x.beginPath();
+    x.moveTo(48 + Math.cos(a) * r1, 48 + Math.sin(a) * r1);
+    x.lineTo(48 + Math.cos(a + 0.5) * r2, 48 + Math.sin(a + 0.5) * r2);
+    x.stroke();
+  }
+  x.globalAlpha = 1;
+  x.strokeStyle = h.tint; x.lineWidth = 4;
+  x.beginPath(); x.arc(48, 48, 42, 0, TAU); x.stroke();
+  x.globalAlpha = 0.3;
+  x.lineWidth = 2;
+  x.beginPath(); x.arc(48, 48, 35, rnd() * TAU, rnd() * TAU + 3); x.stroke();
+  x.globalAlpha = 1;
+  x.font = '38px serif'; x.textAlign = 'center'; x.textBaseline = 'middle';
+  x.fillText(h.emoji, 48, 50);
+  const im = new Image();
+  im.src = c.toDataURL('image/png');
+  return im;
+}
 function loadSprites() {
   if (HEADLESS) return;
-  const load = (src, cb) => { const im = new Image(); im.onload = () => cb(im); im.onerror = () => {}; im.src = src; };
+  const load = (src, cb, err) => { const im = new Image(); im.onload = () => cb(im); im.onerror = () => { if (err) err(); }; im.src = src; };
   for (const h of HEROES) {
-    load('img/' + h.id + '.png', (im) => { SPRITES[h.id] = im; });
+    load('img/' + h.id + '.png', (im) => { SPRITES[h.id] = im; }, () => { SPRITES[h.id] = makeSigil(h); });
     load('img/full/' + h.id + '.png', (im) => {
       SPRITES_FULL[h.id] = im;
       SKIN_CACHE[h.id] = SKINS.map(s => makeVariant(im, s.hue));
@@ -209,11 +247,16 @@ class Unit {
     this.vx = 0; this.vy = 0;    // for prediction
   }
   get pos() { return this; }
+  ccMul() {
+    const p = this.def && this.def.passive;
+    return (p && p.kind === 'tenacity') ? 0.7 : 1;
+  }
   applySlow(pct, dur) {
+    dur *= this.ccMul();
     if (pct >= this.slowPct || this.slowT <= 0) { this.slowPct = Math.max(this.slowPct, pct); }
     this.slowT = Math.max(this.slowT, dur);
   }
-  applyStun(dur) { this.stunT = Math.max(this.stunT, dur); this.target = null; }
+  applyStun(dur) { this.stunT = Math.max(this.stunT, dur * this.ccMul()); this.target = null; }
   damageFlash() {}
 }
 
@@ -239,6 +282,10 @@ class Hero extends Unit {
     this.brain = null;
     this.moveDir = null; this.castLock = 0;
   }
+  passiveOf(kind) {
+    const p = this.def.passive;
+    return (p && p.kind === kind) ? p : null;
+  }
   itemStat(key) {
     let v = 0;
     for (const [id, n] of Object.entries(this.items)) {
@@ -256,20 +303,30 @@ class Hero extends Unit {
     const s = this.def.stats;
     let a = s.atk + s.atkL * (this.level - 1) + this.itemStat('atk');
     for (const b of this.buffs) a += (b.atkAdd || 0);
+    const pMd = this.passiveOf('move_dmg');
+    if (pMd) a *= 1 + Math.max(0, this.ms - s.ms) * (pMd.perMs || 0.003);
     return a;
   }
   get aspd() {
     const s = this.def.stats;
     let a = s.aspd + s.aspdL * (this.level - 1) + this.itemStat('aspd');
     for (const b of this.buffs) a += (b.aspdAdd || 0) * s.aspd;
-    if (this.def.id === 'kael' && this.hp < this.maxHp * 0.4) a *= 1.18;      // passive: Berserker's Grit
+    const pRage = this.passiveOf('rage');
+    if (pRage && this.hp < this.maxHp * (pRage.hpPct || 0.4)) a *= (pRage.aspdMul || 1.18);
     return Math.min(2.6, a);
   }
   get defn() {
     const s = this.def.stats;
     let d = s.def + s.defL * (this.level - 1) + this.itemStat('def');
     for (const b of this.buffs) d += (b.defAdd || 0);
-    if (this.def.id === 'bastion' && this.hp < this.maxHp * 0.6) d *= 1.25;   // passive: Iron Skin
+    const pIron = this.passiveOf('ironskin');
+    if (pIron && this.hp < this.maxHp * (pIron.hpPct || 0.6)) d *= (pIron.mul || 1.25);
+    const pBul = this.passiveOf('bulwark2');
+    if (pBul) {
+      let n = 0;
+      for (const e of this.g.units) if (e.kind === 'hero' && e.alive && e.team !== this.team && dist(e.x, e.y, this.x, this.y) < 500) n++;
+      d += Math.min(pBul.cap || 75, (pBul.per || 25) * n);
+    }
     return d;
   }
   get ms() {
@@ -277,19 +334,29 @@ class Hero extends Unit {
     for (const b of this.buffs) m += (b.msAdd || 0) * this.def.stats.ms;
     let amp = 1;
     if (this.buffRedT > 0) amp *= 1.05;
+    const pChase = this.passiveOf('chase');
+    if (pChase) {
+      for (const e of this.g.units) {
+        if (e.kind === 'hero' && e.alive && e.team !== this.team && e.hp / e.maxHp < (pChase.hpPct || 0.45) && dist(e.x, e.y, this.x, this.y) < 700) { m += (pChase.msAdd || 55); break; }
+      }
+    }
+    const pMo = this.passiveOf('momentum');
+    if (pMo) m += (this.momentumStacks || 0) * (pMo.per || 8);
     return m * amp;
   }
   get range() {
     let rg = this.def.stats.range;
     for (const b of this.buffs) rg += (b.rangeAdd || 0);
-    if (this.def.id === 'volt') rg += 14 * (this.level - 1);                  // passive: Long Barrel
+    const pRpl = this.passiveOf('range_per_level');
+    if (pRpl) rg += (pRpl.per || 14) * (this.level - 1);
     return rg;
   }
   get cdr() { return Math.min(0.4, this.itemStat('cdr')); }
   get lifesteal() {
     let ls = this.itemStat('ls');
     for (const b of this.buffs) ls += (b.lsAdd || 0);
-    if (this.def.id === 'rona') ls += 0.15 * (1 - this.hp / this.maxHp);      // passive: Bloodthirst
+    const pTh = this.passiveOf('thirst');
+    if (pTh) ls += (pTh.max || 0.15) * (1 - this.hp / this.maxHp);
     return ls;
   }
   get dmgAmp() {
@@ -298,7 +365,12 @@ class Hero extends Unit {
     if (this.g.teamLord[this.team] > this.g.time) a += 0.15;
     return a;
   }
-  get crit() { const s = this.def.stats; return (s.crit || 0) + (s.critL || 0) * (this.level - 1); }
+  get crit() {
+    const p = this.passiveOf('crit');
+    if (p) return (p.base || 0.1) + (p.per || 0.01) * (this.level - 1);
+    const s = this.def.stats;
+    return (s.crit || 0) + (s.critL || 0) * (this.level - 1);
+  }
   get cleaving() { return this.buffs.some(b => b.cleave); }
 
   /* owned active items */
@@ -313,7 +385,8 @@ class Hero extends Unit {
 
   gainXp(n) {
     if (this.level >= 15) return;
-    this.xp += n;
+    const p = this.passiveOf('xp_hunter');
+    this.xp += n * (p ? (p.mul || 1.15) : 1);
     let leveled = false;
     while (this.level < 15 && this.xp >= CFG.XP_NEED(this.level)) {
       this.xp -= CFG.XP_NEED(this.level);
@@ -344,6 +417,8 @@ class Hero extends Unit {
     }
   }
   gainGold(n) {
+    const p = this.passiveOf('fortune');
+    if (p) n = Math.round(n * (p.mul || 1.15));
     this.gold += n; this.goldEarned += n;
     if (this.isPlayer) this.g.sfx.play('gold');
   }
@@ -471,10 +546,29 @@ class Hero extends Unit {
     let mpReg = 6 + this.maxMana * 0.012;
     const fount = g.atBase(this);
     if (fount) { hpReg += this.maxHp * 0.09; mpReg += this.maxMana * 0.09; }
-    if (this.def.id === 'seraph' && g.time - (this.lastDamagedT || -9) > 5) hpReg += this.maxHp * 0.02;   // passive: Blessing of Dawn
-    for (const a of g.heroes[this.team]) {
-      if (a.def.id === 'tala' && a.alive && a !== this && dist(a.x, a.y, this.x, this.y) < 400) { mpReg *= 1.5; break; }  // passive: Moonlight Aura
+    const pOoc = this.passiveOf('ooc_regen');
+    if (pOoc && g.time - (this.lastDamagedT || -9) > (pOoc.after || 5)) hpReg += this.maxHp * (pOoc.pct || 0.02);
+    const pMA = this.passiveOf('mana_aura');
+    if (pMA) {
+      for (const a of g.heroes[this.team]) {
+        if (a.passiveOf('mana_aura') && a.alive && a !== this && dist(a.x, a.y, this.x, this.y) < (pMA.radius || 400)) { mpReg *= (pMA.mul || 1.5); break; }
+      }
     }
+    const pAF = this.passiveOf('arcane_flood');
+    if (pAF && this.mana < this.maxMana * (pAF.manaPct || 0.4)) mpReg *= (pAF.mul || 2);
+    const pSW = this.passiveOf('second_wind');
+    if (pSW && this.hp < this.maxHp * (pSW.hpPct || 0.25) && g.time - (this.secondWindT || -99) > (pSW.cd || 45)) {
+      this.secondWindT = g.time;
+      this.hp = Math.min(this.maxHp, this.hp + this.maxHp * (pSW.healPct || 0.12));
+      g.fx.heal(this, this.maxHp * (pSW.healPct || 0.12));
+    }
+    const pSB = this.passiveOf('shield_battery');
+    if (pSB && g.time - (this.lastDamagedT || -9) > (pSB.after || 8) && g.time - (this.batteryT || -99) > (pSB.every || 12) && this.shieldVal < (pSB.shield || 80)) {
+      this.batteryT = g.time;
+      this.shieldVal += (pSB.shield || 80); this.shieldT = 6;
+    }
+    const pMo2 = this.passiveOf('momentum');
+    if (pMo2 && g.time - (this.lastDamagedT || -9) > 2.5 && (this.momentumStacks || 0) > 0) this.momentumStacks = Math.max(0, (this.momentumStacks || 0) - dt * 2);
     if (g.teamLord[this.team] > g.time) { hpReg += this.maxHp * 0.01; }
     this.hp = Math.min(this.maxHp, this.hp + hpReg * dt);
     this.mana = Math.min(this.maxMana, this.mana + mpReg * dt);
@@ -1487,8 +1581,19 @@ class Game {
         this.announce('⚠️ YOUR NEXUS IS UNDER ATTACK!', side + ' base is being sieged!', 2.2, t);
       }
     }
-    if (src.kind === 'hero' && src.def.id === 'nyx' && !opts.basic && tgt.kind !== 'tower' && tgt.kind !== 'throne') {
-      tgt.applySlow(0.2, 1);                                                  // passive: Void Echo
+    if (src.kind === 'hero') {
+      const pFS = src.passiveOf('first_strike');
+      if (pFS && tgt.maxHp && tgt.hp + amt >= tgt.maxHp * 0.97) amt *= (pFS.mul || 1.25);
+      const pEx = src.passiveOf('execute');
+      if (pEx && tgt.maxHp && tgt.hp / tgt.maxHp < (pEx.hpPct || 0.22)) amt *= (pEx.mul || 1.25);
+      const pHu = src.passiveOf('hunter');
+      if (pHu && tgt.kind === 'monster') amt *= (pHu.mul || 1.15);
+      const pEcho = src.passiveOf('spell_echo');
+      if (pEcho && !opts.basic && tgt.kind !== 'tower' && tgt.kind !== 'throne') tgt.applySlow(pEcho.slowPct || 0.2, pEcho.dur || 1);
+      const pVS = src.passiveOf('vamp_spell');
+      if (pVS && !opts.basic && src.alive) src.hp = Math.min(src.maxHp, src.hp + amt * (pVS.pct || 0.18));
+      const pMo = src.passiveOf('momentum');
+      if (pMo && opts.basic) src.momentumStacks = Math.min(5, (src.momentumStacks || 0) + 1);
     }
     if (dtype === 'phys') amt *= 100 / (100 + (tgt.defn !== undefined ? tgt.defn : 0));
     else if (dtype === 'magic') amt *= 100 / (100 + (tgt.defn !== undefined ? tgt.defn * 0.6 : 0));
@@ -1517,8 +1622,11 @@ class Game {
   kill(tgt, src) {
     if (!tgt.alive) return;
     const heroSrc = src && src.kind === 'hero' ? src : null;
-    if (heroSrc && heroSrc.def.id === 'morrow' && heroSrc.alive) {           // passive: Soul Harvest
-      heroSrc.hp = Math.min(heroSrc.maxHp, heroSrc.hp + heroSrc.maxHp * 0.06);
+    if (heroSrc && heroSrc.alive) {
+      const pKH = heroSrc.passiveOf('kill_heal');
+      if (pKH) heroSrc.hp = Math.min(heroSrc.maxHp, heroSrc.hp + heroSrc.maxHp * (pKH.pct || 0.06));
+      const pBK = heroSrc.passiveOf('barrier_on_kill');
+      if (pBK && tgt.kind === 'hero') { heroSrc.shieldVal += (pBK.shield || 120); heroSrc.shieldT = (pBK.dur || 3); }
     }
     if (tgt.kind === 'minion') {
       tgt.alive = false;
@@ -1706,7 +1814,8 @@ class Game {
     let crit = false;
     if (h.crit && Math.random() < h.crit) { dmg *= 2; crit = true; }
     h.attackCount = (h.attackCount || 0) + 1;
-    if (h.def.id === 'vex' && h.attackCount % 4 === 0) { dmg *= 1.45; crit = true; }  // passive: Deadeye
+    const pNS = h.passiveOf('nth_shot');
+    if (pNS && h.attackCount % (pNS.n || 4) === 0) { dmg *= (pNS.mul || 1.45); crit = true; }
     const dtype = h.def.stats.dtype;
     if (h.range > 200) {
       this.spawnProj({ src: h, tgt, dmg, speed: 950, dtype, crit, heroShot: true });

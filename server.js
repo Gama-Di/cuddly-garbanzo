@@ -17,7 +17,7 @@ const path = require('path');
 
 /* load the shared game engine (shared context, like the sim harness) */
 const vm = require('vm');
-for (const f of ['util.js', 'heroes.js', 'game.js']) {
+for (const f of ['util.js', 'heroes.js', 'heroes2.js', 'game.js']) {
   vm.runInThisContext(fs.readFileSync(path.join(__dirname, 'js', f), 'utf8'), { filename: f });
 }
 const { Game, HEROES, ITEMS, heroById, SKINS, SKIN_PRICES } = globalThis;
@@ -546,7 +546,8 @@ class Draft {
     // role balance for picks
     if (type === 'pick') {
       const turn = this.currentTurn();
-      const teamHeroes = this.teams[turn.team].filter(s => s.heroId).map(id => heroById(id));
+      const teamIdx = turn ? turn.team : team;
+      const teamHeroes = this.teams[teamIdx].filter(s => s.heroId).map(id => heroById(id));
       const have = new Set(teamHeroes.map(h => h.role));
       const missing = ['Tank', 'Support', 'Marksman', 'Mage', 'Fighter'].filter(r => !have.has(r));
       const pref = pool.map(heroById).filter(h => missing.includes(h.role));

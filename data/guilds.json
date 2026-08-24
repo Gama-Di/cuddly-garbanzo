@@ -70,5 +70,14 @@
    "tester0_40537"
   ],
   "created": 1787539291251
+ },
+ "T061": {
+  "tag": "T061",
+  "name": "Test Guild T061",
+  "owner": "tester0_5947",
+  "members": [
+   "tester0_5947"
+  ],
+  "created": 1787540459066
  }
 }

@@ -59,12 +59,12 @@ const Flow = {
           if (!net.token) Flow.screen('auth');
           else if (net.online) Flow.showMenu();
           else {
-            // wait briefly for hello
+            // wait briefly for hello; fall back to login if the server is unreachable
             const w = setInterval(() => {
               if (net.online) { clearInterval(w); Flow.showMenu(); }
-              else if (net.helloFailed) { clearInterval(w); Flow.screen('auth'); }
+              else if (net.helloFailed) { clearInterval(w); Flow.screen('auth'); net.refreshMenuHint(); }
             }, 250);
-            setTimeout(() => clearInterval(w), 6000);
+            setTimeout(() => { clearInterval(w); if (!net.online && !net.helloFailed) net.reconnect(); }, 6000);
           }
         };
         tap.addEventListener('click', go, { once: true });

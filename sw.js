@@ -2,7 +2,7 @@
  * opens instantly / offline-shells. HTML & JS are network-first so
  * updates arrive immediately; API and WebSocket traffic is never cached. */
 'use strict';
-const CACHE = 'aether-v3';
+const CACHE = 'aether-v4';
 const PRECACHE = [
   '/', '/index.html', '/manifest.webmanifest',
   '/js/util.js', '/js/heroes.js', '/js/game.js', '/js/net.js', '/js/lobby.js',

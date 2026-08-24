@@ -10,7 +10,7 @@
 const HEROES = [
   {
     id: 'kael', name: 'KAEL', title: 'Blade Dancer', role: 'Fighter',
-    passive: { name: "Berserker's Grit", icon: "☆", desc: "Below 40% HP: +18% attack speed, +10% move speed." }, emoji: '⚔️', tint: '#f59e0b',
+    passive: { name: "Berserker's Grit", icon: '☆', desc: 'Below 40% HP: +18% attack speed, +10% move speed.', kind: 'rage', hpPct: 0.4, aspdMul: 1.18, msMul: 1.1 }, emoji: '⚔️', tint: '#f59e0b',
     stats: { hp: 1350, hpL: 152, mana: 420, manaL: 40, atk: 92, atkL: 9, dtype: 'phys',
              aspd: 0.85, aspdL: 0.022, range: 115, ms: 268, def: 42, defL: 6.5, regen: 9 },
     skills: [
@@ -26,7 +26,7 @@ const HEROES = [
   },
   {
     id: 'vex', name: 'VEX', title: 'Deadeye', role: 'Marksman',
-    passive: { name: 'Deadeye', icon: '☆', desc: 'Every 4th basic attack deals +45% damage.' }, emoji: '🏹', tint: '#34d399',
+    passive: { name: 'Deadeye', icon: '☆', desc: 'Every 4th basic attack deals +45% damage.', kind: 'nth_shot', n: 4, mul: 1.45 }, emoji: '🏹', tint: '#34d399',
     stats: { hp: 950, hpL: 105, mana: 380, manaL: 32, atk: 106, atkL: 11, dtype: 'phys',
              aspd: 1.05, aspdL: 0.035, range: 430, ms: 258, def: 24, defL: 3.5, regen: 6 },
     skills: [
@@ -42,7 +42,7 @@ const HEROES = [
   },
   {
     id: 'nyx', name: 'NYX', title: 'Void Witch', role: 'Mage',
-    passive: { name: 'Void Echo', icon: '☆', desc: 'Her skill hits also slow enemies by 20% for 1s.' }, emoji: '🔮', tint: '#a78bfa',
+    passive: { name: 'Void Echo', icon: '☆', desc: 'Her skill hits also slow enemies by 20% for 1s.', kind: 'spell_echo', slowPct: 0.2, dur: 1 }, emoji: '🔮', tint: '#a78bfa',
     stats: { hp: 1000, hpL: 100, mana: 560, manaL: 55, atk: 94, atkL: 9, dtype: 'magic',
              aspd: 0.8, aspdL: 0.02, range: 400, ms: 256, def: 26, defL: 4, regen: 7 },
     skills: [
@@ -58,7 +58,7 @@ const HEROES = [
   },
   {
     id: 'bastion', name: 'BASTION', title: 'Ironwall', role: 'Tank',
-    passive: { name: 'Iron Skin', icon: '☆', desc: 'Below 60% HP: +25% defense.' }, emoji: '🛡️', tint: '#60a5fa',
+    passive: { name: 'Iron Skin', icon: '☆', desc: 'Below 60% HP: +25% defense.', kind: 'ironskin', hpPct: 0.6, mul: 1.25 }, emoji: '🛡️', tint: '#60a5fa',
     stats: { hp: 1780, hpL: 210, mana: 320, manaL: 28, atk: 72, atkL: 6, dtype: 'phys',
              aspd: 0.7, aspdL: 0.015, range: 125, ms: 262, def: 72, defL: 9, regen: 12 },
     skills: [
@@ -74,7 +74,7 @@ const HEROES = [
   },
   {
     id: 'syon', name: 'SYON', title: 'Phantom', role: 'Assassin',
-    passive: { name: 'Phantom Edge', icon: '☆', desc: '15% +1%/level crit chance dealing 2x damage.' }, emoji: '🗡️', tint: '#f472b6',
+    passive: { name: 'Phantom Edge', icon: '☆', desc: '15% +1%/level crit chance dealing 2x damage.', kind: 'crit', base: 0.15, per: 0.01 }, emoji: '🗡️', tint: '#f472b6',
     stats: { hp: 1120, hpL: 115, mana: 360, manaL: 30, atk: 102, atkL: 10, dtype: 'phys',
              aspd: 0.95, aspdL: 0.03, range: 135, ms: 290, def: 30, defL: 4, regen: 7, crit: 0.15, critL: 0.01 },
     skills: [
@@ -90,7 +90,7 @@ const HEROES = [
   },
   {
     id: 'seraph', name: 'SERAPH', title: 'Dawnbringer', role: 'Support',
-    passive: { name: 'Blessing of Dawn', icon: '☆', desc: 'Regenerates 2% max HP/s after avoiding damage for 5s.' }, emoji: '✨', tint: '#fde68a',
+    passive: { name: 'Blessing of Dawn', icon: '☆', desc: 'Regenerates 2% max HP/s after avoiding damage for 5s.', kind: 'ooc_regen', after: 5, pct: 0.02 }, emoji: '✨', tint: '#fde68a',
     stats: { hp: 1160, hpL: 120, mana: 520, manaL: 50, atk: 80, atkL: 7, dtype: 'phys',
              aspd: 0.8, aspdL: 0.02, range: 390, ms: 262, def: 36, defL: 5, regen: 8 },
     skills: [
@@ -106,7 +106,7 @@ const HEROES = [
   },
   {
     id: 'rona', name: 'RONA', title: 'Bloodreaver', role: 'Fighter',
-    passive: { name: 'Bloodthirst', icon: '☆', desc: 'Up to +15% lifesteal based on missing HP.' }, emoji: '🪓', tint: '#ef4444',
+    passive: { name: 'Bloodthirst', icon: '☆', desc: 'Up to +15% lifesteal based on missing HP.', kind: 'thirst', max: 0.15 }, emoji: '🪓', tint: '#ef4444',
     stats: { hp: 1420, hpL: 160, mana: 380, manaL: 34, atk: 96, atkL: 9.5, dtype: 'phys',
              aspd: 0.9, aspdL: 0.025, range: 120, ms: 272, def: 44, defL: 6, regen: 10 },
     skills: [
@@ -122,7 +122,7 @@ const HEROES = [
   },
   {
     id: 'volt', name: 'VOLT', title: 'Longshot', role: 'Marksman',
-    passive: { name: 'Long Barrel', icon: '☆', desc: 'Basic attack range grows +14 per level.' }, emoji: '🎯', tint: '#22d3ee',
+    passive: { name: 'Long Barrel', icon: '☆', desc: 'Basic attack range grows +14 per level.', kind: 'range_per_level', per: 14 }, emoji: '🎯', tint: '#22d3ee',
     stats: { hp: 980, hpL: 108, mana: 400, manaL: 34, atk: 100, atkL: 10.5, dtype: 'phys',
              aspd: 0.9, aspdL: 0.03, range: 470, ms: 254, def: 25, defL: 3.5, regen: 6 },
     skills: [
@@ -138,7 +138,7 @@ const HEROES = [
   },
   {
     id: 'morrow', name: 'MORROW', title: 'Soulbinder', role: 'Mage',
-    passive: { name: 'Soul Harvest', icon: '☆', desc: 'Kills restore 6% of his max HP.' }, emoji: '☠️', tint: '#2dd4bf',
+    passive: { name: 'Soul Harvest', icon: '☆', desc: 'Kills restore 6% of his max HP.', kind: 'kill_heal', pct: 0.06 }, emoji: '☠️', tint: '#2dd4bf',
     stats: { hp: 1020, hpL: 102, mana: 580, manaL: 58, atk: 92, atkL: 9, dtype: 'magic',
              aspd: 0.78, aspdL: 0.02, range: 400, ms: 256, def: 26, defL: 4, regen: 7 },
     skills: [
@@ -154,7 +154,7 @@ const HEROES = [
   },
   {
     id: 'tala', name: 'TALA', title: 'Moonwarden', role: 'Support',
-    passive: { name: 'Moonlight Aura', icon: '☆', desc: 'Nearby allied heroes gain +50% mana regeneration.' }, emoji: '🌙', tint: '#93c5fd',
+    passive: { name: 'Moonlight Aura', icon: '☆', desc: 'Nearby allied heroes gain +50% mana regeneration.', kind: 'mana_aura', radius: 400, mul: 1.5 }, emoji: '🌙', tint: '#93c5fd',
     stats: { hp: 1140, hpL: 118, mana: 540, manaL: 52, atk: 78, atkL: 7, dtype: 'phys',
              aspd: 0.8, aspdL: 0.02, range: 380, ms: 262, def: 34, defL: 4.5, regen: 8 },
     skills: [
