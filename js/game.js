@@ -3218,7 +3218,7 @@ class Game {
 
     // recall channel
     const p = this.player;
-    if (p.alive && p.recallT >= 0) {
+    if (p && p.alive && p.recallT >= 0) {
       const hue = SKINS[equippedSkin(p.def.id)].hue;
       ctx.strokeStyle = hue ? `hsl(${hue}, 85%, 70%)` : '#67e8f9'; ctx.lineWidth = 5;
       ctx.beginPath();
@@ -3234,7 +3234,7 @@ class Game {
     }
 
     // player lock target ring
-    if (p.lockTarget && p.lockTarget.alive) {
+    if (p && p.lockTarget && p.lockTarget.alive) {
       const t = p.lockTarget;
       ctx.strokeStyle = '#fbbf24'; ctx.lineWidth = 3;
       ctx.setLineDash([8, 6]);
